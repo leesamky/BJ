@@ -14,3 +14,4 @@ expect({a:1}).to.not.equal({a:1})
 //own
 //property and include to ignore inherited properties
 
+var arr=[[12,4],[12,5],[12,6]]

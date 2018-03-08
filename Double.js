@@ -1,4 +1,5 @@
 const _=require('lodash')
+// need to modify charlie
 
 module.exports=function (playerCards,dealerCard,handValue,handCount,options){
     // console.log(playerCards)
