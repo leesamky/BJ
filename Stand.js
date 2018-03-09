@@ -1,6 +1,9 @@
 const _=require('lodash')
 
 module.exports=function(playerCards,dealerCard,handValue,handCount,options){
+    // console.log(playerCards)
+    // console.log(dealerCard)
+    // console.log(handValue)
     let shouldStand=false
 
     if(options.charlie){
@@ -11,9 +14,22 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                 if((toCharlie>2)&&(_.includes([1,2,7,8,9,10],dealerCard))){
                     shouldStand=true
                 }
-            }else if((handValue.total===19)&&(dealerCard===10)&&(toCharlie>2)){
-                shouldStand=true
-            }else if(handValue.total>=19){
+            }
+            else if((handValue.total===19)){
+                if(dealerCard===10){
+                    if(toCharlie>2){
+                        shouldStand=true
+                    }
+                }else{
+                    if(toCharlie>1){
+                        shouldStand=true
+                    }
+                }
+            }
+
+
+
+            else if(handValue.total>=20){
                 if(toCharlie>1){
                     shouldStand=true
                 }
@@ -38,7 +54,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                     shouldStand=true
                 }
             }
-            else if(_.includes([14,15],dealerCard)){
+            else if(_.includes([14,15],handValue.total)&&(_.includes([2,3,4,5,6],dealerCard))){
                 if(toCharlie>1){
                     shouldStand=true
                 }
@@ -50,13 +66,14 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                     shouldStand=true
                 }
             }else if(handValue.total===12){
-                if((toCharlie>12)&&(_.includes([4,5,6],dealerCard))){
+                if((toCharlie>2)&&(_.includes([4,5,6],dealerCard))){
                     shouldStand=true
                 }
             }
 
         }
     }else{
+
         if(handValue.soft){
             //always hit if under 18
             if(handValue.total<=17){
@@ -100,6 +117,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
             }
         }
         else {
+
             if((playerCards[0]===playerCards[1])&&(playerCards.length===2)){//split
                 if(options.numberOfDecks===1){
                     if((playerCards[0]===7)&&(dealerCard===10)){
@@ -113,6 +131,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                     }
                 }
             }else{
+                // console.log('in')
                 if((handValue.total===12)&&(_.includes([4,5,6],dealerCard))){
                     shouldStand=true
                 }
