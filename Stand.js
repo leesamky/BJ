@@ -4,6 +4,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
     // console.log(playerCards)
     // console.log(dealerCard)
     // console.log(handValue)
+    // console.log(options)
     let shouldStand=false
 
     if(options.charlie){
@@ -80,8 +81,11 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                 return false
             }
             else if(handValue.total===18){
+
                 if(options.numberOfDecks===1){
+                    // console.log('in')
                     if(options.hitSoft17===false){
+
                         if((dealerCard<=8)&&(dealerCard>=1)){
                             shouldStand=true
                         }

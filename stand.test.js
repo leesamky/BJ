@@ -2,7 +2,6 @@ var expect=require('chai').expect
 const _=require('lodash')
 const Stand=require('./Stand')
 
-console.log(Stand(...OneDeckH17Hard(12,5,false)))
 
 let combineH=[
     [ 5, 1, false ],
@@ -549,9 +548,12 @@ function GameOptions(options){
             playerOptions.fiveDragon = options.fiveDragon;
         }
 
-        return playerOptions
+
     }
+
+    return playerOptions
 }
+
 
 let oneDeckS17HardTrusy=[
 
@@ -617,33 +619,34 @@ let oneDeckS17HardTrusy=[
 let oneDeckS17HardFalsy=_.differenceWith(combineH,oneDeckS17HardTrusy,_.isEqual)
 
 function OneDeckS17Hard(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
+    let options=GameOptions({
         numberOfDecks:1,
         charlie:false,
+        hitSoft17:false,
 
     })
+
     const handValue=playerPoint
     const handCount=1
     return [[1,2],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
-// describe('One Deck S17 Hard hands',function(){
-//     describe('stand',function(){
-//         oneDeckS17HardTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...OneDeckS17Hard(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         oneDeckS17HardFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...OneDeckS17Hard(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('One Deck S17 Hard hands',function(){
+    describe('stand',function(){
+        oneDeckS17HardTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...OneDeckS17Hard(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        oneDeckS17HardFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...OneDeckS17Hard(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let oneDeckS17SoftTrusy=[
 
@@ -692,23 +695,23 @@ function OneDeckS17Soft(playerPoint,dealerCard,soft){
     return [[1,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
 
-// describe('One Deck S17 Soft hands',function(){
-//     describe('double',function(){
-//         oneDeckS17SoftTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...OneDeckS17Soft(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not double',function(){
-//         oneDeckS17SoftFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...OneDeckS17Soft(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('One Deck S17 Soft hands',function(){
+    describe('stand',function(){
+        oneDeckS17SoftTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...OneDeckS17Soft(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        oneDeckS17SoftFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...OneDeckS17Soft(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let oneDeckSplitsTrusy=[
    [[7,7],10],
@@ -732,23 +735,23 @@ function OneDeckSplits(playerCards,dealerCard){
     return [playerCards,dealerCard,handValue,handCount,options]
 }
 
-// describe('One Deck S17 Split hands No DAS',function(){
-//     describe('double',function(){
-//         oneDeckSplitsTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...OneDeckSplits(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not double',function(){
-//         oneDeckSplitsFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...OneDeckSplits(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('One Deck S17 Split hands No DAS',function(){
+    describe('double',function(){
+        oneDeckSplitsTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...OneDeckSplits(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not double',function(){
+        oneDeckSplitsFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...OneDeckSplits(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 let oneDeckH17HardTrusy=[
     [ 12, 4, false ],
     [ 12, 5, false ],
@@ -872,7 +875,7 @@ let oneDeckH17SoftTrusy=[
     [ 20, 10, true ],
 ]
 let oneDeckH17SoftFalsy=_.differenceWith(combineS,oneDeckH17SoftTrusy,_.isEqual)
-function OneDeckS17Soft(playerPoint,dealerCard,soft){
+function OneDeckH17Soft(playerPoint,dealerCard,soft){
     const options=GameOptions({
         hitSoft17:true,
         numberOfDecks:1,
@@ -889,14 +892,14 @@ describe('One Deck H17 Soft hands',function(){
         oneDeckH17SoftTrusy.forEach(function(value){
 
             it(`${value} should return true`,function(){
-                expect(Stand(...OneDeckS17Soft(...value))).to.be.ok
+                expect(Stand(...OneDeckH17Soft(...value))).to.be.ok
             })
         })
     })
     describe('Not Stand',function(){
         oneDeckH17SoftFalsy.forEach(function(value){
             it(`${value} should return false`,function(){
-                expect(Stand(...OneDeckS17Soft(...value))).to.not.be.ok
+                expect(Stand(...OneDeckH17Soft(...value))).to.not.be.ok
             })
         })
     })
@@ -1315,23 +1318,23 @@ function TwoDeckSplitsH17(playerCards,dealerCard){
     return [playerCards,dealerCard,handValue,handCount,options]
 }
 
-// describe('One Deck S17 Split hands ',function(){
-//     describe('stand',function(){
-//         twoDeckSplitsH17Trusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...TwoDeckSplitsH17(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         twoDeckSplitsH17Falsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...TwoDeckSplitsH17(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('One Deck S17 Split hands ',function(){
+    describe('stand',function(){
+        twoDeckSplitsH17Trusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...TwoDeckSplitsH17(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        twoDeckSplitsH17Falsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...TwoDeckSplitsH17(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 //4 decks
 let fourDecksS17HardTrusy=[
@@ -1407,23 +1410,23 @@ function FourDecksS17Hard(playerPoint,dealerCard,soft){
     const handCount=1
     return [[1,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
-// describe('Four Decks S17 Hard hands',function(){
-//     describe('stand',function(){
-//         fourDecksS17HardTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...FourDecksS17Hard(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         fourDecksS17HardFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...FourDecksS17Hard(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Four Decks S17 Hard hands',function(){
+    describe('stand',function(){
+        fourDecksS17HardTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...FourDecksS17Hard(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        fourDecksS17HardFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...FourDecksS17Hard(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let fourDecksS17SoftTrusy=[
 
@@ -1470,23 +1473,23 @@ function FourDecksS17Soft(playerPoint,dealerCard,soft){
     return [[1,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
 
-// describe('Four Decks S17 Soft hands',function(){
-//     describe('stand',function(){
-//         fourDecksS17SoftTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...FourDecksS17Soft(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         fourDecksS17SoftFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...FourDecksS17Soft(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Four Decks S17 Soft hands',function(){
+    describe('stand',function(){
+        fourDecksS17SoftTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...FourDecksS17Soft(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        fourDecksS17SoftFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...FourDecksS17Soft(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let fourDeckSplitsS17Trusy=[
 
@@ -1510,23 +1513,23 @@ function FourDeckSplitsS17(playerCards,dealerCard){
     return [playerCards,dealerCard,handValue,handCount,options]
 }
 
-// describe('Two Deck S17 Split hands',function(){
-//     describe('stand',function(){
-//         twoDeckSplitsS17Trusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...TwoDeckSplitsS17(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not double',function(){
-//         twoDeckSplitsS17Falsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...TwoDeckSplitsS17(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Two Deck S17 Split hands',function(){
+    describe('stand',function(){
+        twoDeckSplitsS17Trusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...TwoDeckSplitsS17(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not double',function(){
+        twoDeckSplitsS17Falsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...TwoDeckSplitsS17(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let fourDecksH17HardTrusy=[
     [ 12, 4, false ],
@@ -1601,23 +1604,23 @@ function FourDecksH17Hard(playerPoint,dealerCard,soft){
     return [[1,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
 
-// describe('Two Decks H17 Hard hands',function(){
-//     describe('stand',function(){
-//         fourDecksH17HardTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...FourDecksH17Hard(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         fourDecksH17HardFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...FourDecksH17Hard(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Two Decks H17 Hard hands',function(){
+    describe('stand',function(){
+        fourDecksH17HardTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...FourDecksH17Hard(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        fourDecksH17HardFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...FourDecksH17Hard(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let fourDecksH17SoftTrusy=[
 
@@ -1663,23 +1666,23 @@ function FourDecksH17Soft(playerPoint,dealerCard,soft){
     const handCount=1
     return [[1,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
-// describe('Four Decks H17 Soft hands',function(){
-//     describe('stand',function(){
-//         fourDecksH17SoftTrusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...FourDecksH17Soft(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         fourDecksH17SoftFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...FourDecksH17Soft(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Four Decks H17 Soft hands',function(){
+    describe('stand',function(){
+        fourDecksH17SoftTrusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...FourDecksH17Soft(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        fourDecksH17SoftFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...FourDecksH17Soft(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let fourDeckSplitsH17Trusy=[
     [[9,9],7],
@@ -1702,23 +1705,23 @@ function FourDeckSplitsH17(playerCards,dealerCard){
     return [playerCards,dealerCard,handValue,handCount,options]
 }
 
-// describe('Four Deck H17 Split hands ',function(){
-//     describe('stand',function(){
-//         twoDeckSplitsH17Trusy.forEach(function(value){
-//
-//             it(`${value} should return true`,function(){
-//                 expect(Stand(...FourDeckSplitsH17(...value))).to.be.ok
-//             })
-//         })
-//     })
-//     describe('Not stand',function(){
-//         twoDeckSplitsH17Falsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...FourDeckSplitsH17(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('Four Deck H17 Split hands ',function(){
+    describe('stand',function(){
+        twoDeckSplitsH17Trusy.forEach(function(value){
+
+            it(`${value} should return true`,function(){
+                expect(Stand(...FourDeckSplitsH17(...value))).to.be.ok
+            })
+        })
+    })
+    describe('Not stand',function(){
+        twoDeckSplitsH17Falsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...FourDeckSplitsH17(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let charlieOneAwaySoftFalsy=combineS
 function CharlieOneAwaySoft(playerPoint,dealerCard,soft){
@@ -1733,16 +1736,16 @@ function CharlieOneAwaySoft(playerPoint,dealerCard,soft){
     const handCount=1
     return [[1,2,3,4],dealerCard,{total:playerPoint,soft:soft},handCount,options]
 }
-// describe('One card away Charlie',function(){
-//
-//     describe('Not double',function(){
-//         charlieOneAwaySoftFalsy.forEach(function(value){
-//             it(`${value} should return false`,function(){
-//                 expect(Stand(...CharlieOneAwaySoft(...value))).to.not.be.ok
-//             })
-//         })
-//     })
-// })
+describe('One card away Charlie',function(){
+
+    describe('Not double',function(){
+        charlieOneAwaySoftFalsy.forEach(function(value){
+            it(`${value} should return false`,function(){
+                expect(Stand(...CharlieOneAwaySoft(...value))).to.not.be.ok
+            })
+        })
+    })
+})
 
 let charlieTwoAwaySoftTrusy=[
 
