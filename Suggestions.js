@@ -143,8 +143,8 @@ const Hit=require('./Hit')
 module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack,dealerHasBlackJack,options){
     const playerOptions=GameOptions(options)
     const handValue=Points(playerCards)
-
-    if((playerOptions.surrender==='early')&&(Surrender(playerCards,dealerCard,handValue,handCount,playerOptions))){
+    //has early10 and earlyA
+    if((_.includes(playerOptions.surrender,'early'))&&(Surrender(playerCards,dealerCard,handValue,handCount,playerOptions))){
         return 'surrender'
     }
 
