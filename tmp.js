@@ -1,46 +1,46 @@
-function Points(cards){
-    const info={total:0,soft:false}
-    let hasAce=false
-
-    for(let i=0;i<cards.length;i++){
-        info.total+=cards[i]
-
-        //If Ace
-        if(cards[i]===1){
-            hasAce=true
-        }
-    }
-
-    if(info.total<=11&&hasAce){
-        info.total+=10;
-        info.soft=true
-    }
-
-
-    return info
-}
-const cards=[1,2,3,4,5,6,7,8,9,10]
-const _=require('lodash')
-let combines={}
-_.forEach(cards,function(card1){
-    _.forEach(cards,function(card2){
-        _.forEach(cards,function(card3){
-            let result=Points([card1,card2,card3])
-            if(result.total<=21){
-
-                if(combines[[result.total,result.soft]]===undefined){
-                    combines[[result.total,result.soft]]=[[card1,card2,card3]]
-                }else{
-                    combines[[result.total,result.soft]]=[...combines[[result.total,result.soft]],[card1,card2,card3]]
-                }
-            }
-        })
-
-
-
-        // combines[[card1,card2]]=Points([card1,card2])
-    })
-})
+// function Points(cards){
+//     const info={total:0,soft:false}
+//     let hasAce=false
+//
+//     for(let i=0;i<cards.length;i++){
+//         info.total+=cards[i]
+//
+//         //If Ace
+//         if(cards[i]===1){
+//             hasAce=true
+//         }
+//     }
+//
+//     if(info.total<=11&&hasAce){
+//         info.total+=10;
+//         info.soft=true
+//     }
+//
+//
+//     return info
+// }
+// const cards=[1,2,3,4,5,6,7,8,9,10]
+// const _=require('lodash')
+// let combines={}
+// _.forEach(cards,function(card1){
+//     _.forEach(cards,function(card2){
+//         _.forEach(cards,function(card3){
+//             let result=Points([card1,card2,card3])
+//             if(result.total<=21){
+//
+//                 if(combines[[result.total,result.soft]]===undefined){
+//                     combines[[result.total,result.soft]]=[[card1,card2,card3]]
+//                 }else{
+//                     combines[[result.total,result.soft]]=[...combines[[result.total,result.soft]],[card1,card2,card3]]
+//                 }
+//             }
+//         })
+//
+//
+//
+//         // combines[[card1,card2]]=Points([card1,card2])
+//     })
+// })
 
 // let splits={}
 //
@@ -62,28 +62,28 @@ _.forEach(cards,function(card1){
 
 // console.log(splits)
 
-console.log((combines))
+// console.log((combines))
 
 
 
 
-function makeCombine(times){
-    const combinesBackup=_.clone(combines)
-    for(let i=0;i<times-2;i++){
-        _.forEach(cards,function(card){
-            _.forEach(combines,function(combine,key){
-                let oldCards=JSON.parse("[" + key + "]")
-                let newCards=[...oldCards,card]
-                let result=Points(newCards)
-                if(result.total<=21){
-                    combinesBackup[newCards]=result
-                }
-            })
-        })
-        combines=_.clone(combinesBackup)
-    }
-    console.log(combinesBackup,_.size(combinesBackup))
-}
+// function makeCombine(times){
+//     const combinesBackup=_.clone(combines)
+//     for(let i=0;i<times-2;i++){
+//         _.forEach(cards,function(card){
+//             _.forEach(combines,function(combine,key){
+//                 let oldCards=JSON.parse("[" + key + "]")
+//                 let newCards=[...oldCards,card]
+//                 let result=Points(newCards)
+//                 if(result.total<=21){
+//                     combinesBackup[newCards]=result
+//                 }
+//             })
+//         })
+//         combines=_.clone(combinesBackup)
+//     }
+//     console.log(combinesBackup,_.size(combinesBackup))
+// }
 // makeCombine(7)
 //
 // let cards={ '13,true': [ [ 1, 2 ], [ 2, 1 ] ],

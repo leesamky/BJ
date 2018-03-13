@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693741dd-49b4-4a2c-a3a4-06e0756a4aed" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Blackjack.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/GameOptions.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Points.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/double.new.test.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test22.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/suggestions.js" afterPath="$PROJECT_DIR$/Suggestions.js" />
-      <change beforePath="$PROJECT_DIR$/suggestions.test.js" afterPath="$PROJECT_DIR$/suggestions.test.js" />
+      <change beforePath="$PROJECT_DIR$/Blackjack.js" afterPath="$PROJECT_DIR$/Blackjack.js" />
+      <change beforePath="$PROJECT_DIR$/GameOptions.js" afterPath="$PROJECT_DIR$/GameOptions.js" />
+      <change beforePath="$PROJECT_DIR$/Stand.js" afterPath="$PROJECT_DIR$/Stand.js" />
+      <change beforePath="$PROJECT_DIR$/Suggestions.js" afterPath="$PROJECT_DIR$/Suggestions.js" />
+      <change beforePath="$PROJECT_DIR$/Surrender.js" afterPath="$PROJECT_DIR$/Surrender.js" />
+      <change beforePath="$PROJECT_DIR$/double.test.js" afterPath="$PROJECT_DIR$/double.test.js" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/stand.test.js" afterPath="$PROJECT_DIR$/stand.test.js" />
+      <change beforePath="$PROJECT_DIR$/surrender.test.js" afterPath="$PROJECT_DIR$/surrender.test.js" />
       <change beforePath="$PROJECT_DIR$/tmp.js" afterPath="$PROJECT_DIR$/tmp.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,92 +28,79 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="suggestions.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/suggestions.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="136" selection-end-column="1" />
-              <folding>
-                <element signature="e#3840#5498#0" expanded="false" />
-                <element signature="e#5510#5806#0" expanded="false" />
-                <element signature="e#5822#30571#0" expanded="false" />
-                <element signature="e#30586#33854#0" expanded="false" />
-                <element signature="e#33868#37197#0" expanded="false" />
-                <element signature="e#37215#39347#0" expanded="false" />
-                <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
-                <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-                <element signature="e#39949#42054#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckS17HardNoSurrenderNoDouble#0" expanded="false" />
-                <element signature="e#43364#43919#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckS17HardNoSurrender#0" expanded="false" />
-                <element signature="e#45791#46969#0" expanded="false" />
-                <element signature="e#48819#50054#0" expanded="false" />
-                <element signature="e#51552#52478#0" expanded="false" />
-                <element signature="e#52513#52806#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckS17HardLateSurrender#0" expanded="false" />
-                <element signature="e#53498#54093#0" expanded="false" />
-                <element signature="e#54135#54428#0" expanded="false" />
-                <element signature="e#54448#54656#0" expanded="false" />
-                <element signature="e#54675#55394#0" expanded="false" />
-                <element signature="e#55422#55583#0" expanded="false" />
-                <element signature="e#55612#56315#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckS17HardEarly10DASSurrender#0" expanded="false" />
-                <element signature="e#57141#57746#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Blackjack.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="surrender.test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/surrender.test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3420">
-              <caret line="856" column="23" lean-forward="true" selection-start-line="856" selection-start-column="23" selection-end-line="856" selection-end-column="23" />
-              <folding>
-                <element signature="n#!!block;n#Points#0" expanded="false" />
-                <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-                <element signature="n#!!block;n#oneDeckLateH17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#oneDeckLateS17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#twoDeckLateH17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#twoDeckLateS17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#fourToSixDecksH17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#fourToSixDecksS17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#eightDecksH17LateSurrender#0" expanded="false" />
-                <element signature="n#!!block;n#eightDecksS17LateSurrender#0" expanded="false" />
-                <element signature="e#6450#7376#0" expanded="false" />
-                <element signature="e#7398#7691#0" expanded="false" />
-                <element signature="e#7786#7963#0" expanded="false" />
-                <element signature="e#8059#8325#0" expanded="false" />
-                <element signature="e#8423#8571#0" expanded="false" />
-                <element signature="e#8670#9001#0" expanded="false" />
-                <element signature="e#9102#9298#0" expanded="false" />
-                <element signature="e#9401#9745#0" expanded="false" />
-                <element signature="e#9849#10061#0" expanded="false" />
-                <element signature="e#10192#10727#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckEarlySurrender10#0" expanded="false" />
-                <element signature="n#!!block;n#OneDeckEarlySurrenderA#0" expanded="false" />
-                <element signature="e#15582#15790#0" expanded="false" />
-                <element signature="e#15809#16528#0" expanded="false" />
-                <element signature="e#16746#17449#0" expanded="false" />
-                <element signature="e#19759#19951#0" expanded="false" />
-                <element signature="e#20185#20919#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Blackjack.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#!!block;n#DealCard#0" expanded="false" />
+                    <element signature="n#!!block;n#PrintHand#0" expanded="false" />
+                    <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
+                    <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
+                    <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
+                    <element signature="n#!!block;n#RunAGame#0" expanded="false" />
+                    <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
+                    <element signature="n#!!block;n#average#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="double.new.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/double.new.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Double.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Double.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-105">
+                  <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="double.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/double.test.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="420">
+                  <caret line="1520" column="23" lean-forward="false" selection-start-line="1520" selection-start-column="4" selection-end-line="1520" selection-end-column="23" />
+                  <folding>
+                    <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+                    <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+                    <element signature="e#726#2384#0" expanded="false" />
+                    <element signature="e#2396#2692#0" expanded="false" />
+                    <element signature="e#2708#24053#0" expanded="false" />
+                    <element signature="e#24067#27335#0" expanded="false" />
+                    <element signature="e#27349#30467#0" expanded="false" />
+                    <element signature="e#30485#32617#0" expanded="false" />
+                    <element signature="n#!!block;n#Points#0" expanded="false" />
+                    <element signature="n#!!block;n#GameOptions#0" expanded="false" />
+                    <element signature="e#36714#37269#0" expanded="false" />
+                    <element signature="e#38368#38846#0" expanded="false" />
+                    <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -116,14 +110,27 @@
       <find>console.log</find>
       <find>ShouldPlayerSurrender</find>
       <find>Surrender</find>
-      <find>19</find>
       <find>One Deck S17 Soft hands</find>
       <find>con</find>
       <find>combines</find>
+      <find>handCount</find>
+      <find>early</find>
+      <find>Dealer hand</find>
+      <find>init</find>
+      <find>19</find>
+      <find>conso</find>
+      <find>Total outcome</find>
+      <find>won by</find>
+      <find>EvaluateHand</find>
+      <find>won b</find>
+      <find>handsPerTrial</find>
+      <find>log</find>
+      <find>One Deck H17 Late Surrender</find>
+      <find>oneDeckSplitsNoDASTrusy</find>
     </findStrings>
     <replaceStrings>
-      <replace>20</replace>
       <replace>splits</replace>
+      <replace>20</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -134,24 +141,26 @@
       <list>
         <option value="$PROJECT_DIR$/temp.js" />
         <option value="$PROJECT_DIR$/ExactComposition.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/new.test.js" />
         <option value="$PROJECT_DIR$/split.test.js" />
-        <option value="$PROJECT_DIR$/surrender.test.js" />
-        <option value="$PROJECT_DIR$/double.test.js" />
         <option value="$PROJECT_DIR$/Split.js" />
-        <option value="$PROJECT_DIR$/Surrender.js" />
         <option value="$PROJECT_DIR$/Double.js" />
-        <option value="$PROJECT_DIR$/Stand.js" />
-        <option value="$PROJECT_DIR$/stand.test.js" />
         <option value="$PROJECT_DIR$/Hit.js" />
         <option value="$PROJECT_DIR$/suggestions.js" />
-        <option value="$PROJECT_DIR$/tmp.js" />
-        <option value="$PROJECT_DIR$/Suggestions.js" />
         <option value="$PROJECT_DIR$/Points.js" />
         <option value="$PROJECT_DIR$/suggestions.test.js" />
+        <option value="$PROJECT_DIR$/tmp.js" />
+        <option value="$PROJECT_DIR$/test.js" />
+        <option value="$PROJECT_DIR$/Stand.js" />
+        <option value="$PROJECT_DIR$/test22.js" />
+        <option value="$PROJECT_DIR$/Suggestions.js" />
         <option value="$PROJECT_DIR$/GameOptions.js" />
+        <option value="$PROJECT_DIR$/surrender.test.js" />
+        <option value="$PROJECT_DIR$/Surrender.js" />
+        <option value="$PROJECT_DIR$/Blackjack.js" />
+        <option value="$PROJECT_DIR$/stand.test.js" />
+        <option value="$PROJECT_DIR$/double.test.js" />
       </list>
     </option>
   </component>
@@ -193,8 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -243,29 +252,29 @@
       <updated>1519531406593</updated>
       <workItem from="1519531407845" duration="31105000" />
       <workItem from="1519737354857" duration="49195000" />
-      <workItem from="1520348372586" duration="50632000" />
+      <workItem from="1520348372586" duration="57758000" />
+      <workItem from="1520775358328" duration="19781000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130932000" />
+    <option name="totallyTimeSpent" value="157839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="677" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -283,18 +292,65 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/suggestions.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3840#5498#0" expanded="false" />
+            <element signature="e#5510#5806#0" expanded="false" />
+            <element signature="e#5822#30571#0" expanded="false" />
+            <element signature="e#30586#33854#0" expanded="false" />
+            <element signature="e#33868#37197#0" expanded="false" />
+            <element signature="e#37215#39347#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+            <element signature="e#39949#42054#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardNoSurrenderNoDouble#0" expanded="false" />
+            <element signature="e#43364#43919#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardNoSurrender#0" expanded="false" />
+            <element signature="e#45791#46969#0" expanded="false" />
+            <element signature="e#48819#50054#0" expanded="false" />
+            <element signature="e#51552#52478#0" expanded="false" />
+            <element signature="e#52513#52806#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardLateSurrender#0" expanded="false" />
+            <element signature="e#53498#54093#0" expanded="false" />
+            <element signature="e#54135#54428#0" expanded="false" />
+            <element signature="e#54448#54656#0" expanded="false" />
+            <element signature="e#54675#55394#0" expanded="false" />
+            <element signature="e#55422#55583#0" expanded="false" />
+            <element signature="e#55612#56315#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardEarly10DASSurrender#0" expanded="false" />
+            <element signature="e#57141#57746#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blackjack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="121" column="16" lean-forward="false" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!block;n#DealCard#0" expanded="false" />
+            <element signature="n#!!block;n#PrintHand#0" expanded="false" />
+            <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
+            <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
+            <element signature="n#!!block;n#average#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Suggestions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="386" column="0" lean-forward="false" selection-start-line="386" selection-start-column="0" selection-end-line="636" selection-end-column="1" />
           <folding>
             <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -356,58 +412,19 @@
         <state relative-caret-position="420">
           <caret line="559" column="9" lean-forward="false" selection-start-line="559" selection-start-column="9" selection-end-line="559" selection-end-column="9" />
           <folding>
-            <element signature="e#158#3426#0" expanded="false" />
-            <element signature="e#3440#6558#0" expanded="false" />
-            <element signature="e#6576#8708#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+            <element signature="e#726#2384#0" expanded="false" />
+            <element signature="e#2396#2692#0" expanded="false" />
+            <element signature="e#2708#24053#0" expanded="false" />
+            <element signature="e#24067#27335#0" expanded="false" />
+            <element signature="e#27349#30467#0" expanded="false" />
+            <element signature="e#30485#32617#0" expanded="false" />
             <element signature="n#!!block;n#Points#0" expanded="false" />
             <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-            <element signature="e#12458#13013#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17Hard#0" expanded="false" />
-            <element signature="e#13449#13954#0" expanded="false" />
-            <element signature="e#13981#14459#0" expanded="false" />
+            <element signature="e#36714#37269#0" expanded="false" />
+            <element signature="e#38368#38846#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
-            <element signature="e#14895#15400#0" expanded="false" />
-            <element signature="e#15431#15632#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckSplitsNoDAS#0" expanded="false" />
-            <element signature="e#16107#16628#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckH17Hard#0" expanded="false" />
-            <element signature="e#17073#17578#0" expanded="false" />
-            <element signature="e#17605#18081#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17Soft#1" expanded="false" />
-            <element signature="e#18247#18327#0" expanded="false" />
-            <element signature="e#18515#19020#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckH17SplitsNoDAS#0" expanded="false" />
-            <element signature="e#19514#20047#0" expanded="false" />
-            <element signature="e#20091#20601#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksS17Hard#0" expanded="false" />
-            <element signature="e#21040#21549#0" expanded="false" />
-            <element signature="e#21577#21971#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksS17Soft#0" expanded="false" />
-            <element signature="e#22410#22919#0" expanded="false" />
-            <element signature="e#22947#23455#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksH17Hard#0" expanded="false" />
-            <element signature="e#23893#24402#0" expanded="false" />
-            <element signature="e#24430#24888#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksH17Soft#0" expanded="false" />
-            <element signature="e#25325#25834#0" expanded="false" />
-            <element signature="e#25873#26340#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17Hard#0" expanded="false" />
-            <element signature="e#26782#27295#0" expanded="false" />
-            <element signature="e#27324#27718#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17Soft#0" expanded="false" />
-            <element signature="e#28161#28674#0" expanded="false" />
-            <element signature="e#28703#29191#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksH17Hard#0" expanded="false" />
-            <element signature="e#29633#30146#0" expanded="false" />
-            <element signature="e#30175#30611#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksH17Soft#0" expanded="false" />
-            <element signature="e#31052#31565#0" expanded="false" />
-            <element signature="e#31611#32078#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17HardCharlie#0" expanded="false" />
-            <element signature="e#32545#33086#0" expanded="false" />
-            <element signature="e#33122#33363#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17SoftCharlie#0" expanded="false" />
-            <element signature="e#33828#34369#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -418,7 +435,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -437,7 +453,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -450,202 +468,200 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Hit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Points.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Split.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="67" lean-forward="false" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Stand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="6" selection-end-column="27" />
+        <state relative-caret-position="175">
+          <caret line="137" column="18" lean-forward="false" selection-start-line="137" selection-start-column="18" selection-end-line="137" selection-end-column="18" />
           <folding>
             <element signature="e#275#2378#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Hit.js">
+    <entry file="file://$PROJECT_DIR$/Suggestions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/double.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="412" column="0" lean-forward="false" selection-start-line="412" selection-start-column="0" selection-end-line="435" selection-end-column="1" />
+        <state relative-caret-position="195">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <element signature="e#158#3426#0" expanded="false" />
-            <element signature="e#3440#6558#0" expanded="false" />
-            <element signature="e#6576#8708#0" expanded="false" />
             <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-            <element signature="e#12458#13013#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17Hard#0" expanded="false" />
-            <element signature="e#13449#13954#0" expanded="false" />
-            <element signature="e#13981#14459#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
-            <element signature="e#14895#15400#0" expanded="false" />
-            <element signature="e#15431#15632#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckSplitsNoDAS#0" expanded="false" />
-            <element signature="e#16107#16628#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckH17Hard#0" expanded="false" />
-            <element signature="e#17073#17578#0" expanded="false" />
-            <element signature="e#17605#18081#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17Soft#1" expanded="false" />
-            <element signature="e#18247#18327#0" expanded="false" />
-            <element signature="e#18515#19020#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckH17SplitsNoDAS#0" expanded="false" />
-            <element signature="e#19514#20047#0" expanded="false" />
-            <element signature="e#20091#20601#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksS17Hard#0" expanded="false" />
-            <element signature="e#21040#21549#0" expanded="false" />
-            <element signature="e#21577#21971#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksS17Soft#0" expanded="false" />
-            <element signature="e#22410#22919#0" expanded="false" />
-            <element signature="e#22947#23455#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksH17Hard#0" expanded="false" />
-            <element signature="e#23893#24402#0" expanded="false" />
-            <element signature="e#24430#24888#0" expanded="false" />
-            <element signature="n#!!block;n#TwoDecksH17Soft#0" expanded="false" />
-            <element signature="e#25325#25834#0" expanded="false" />
-            <element signature="e#25873#26340#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17Hard#0" expanded="false" />
-            <element signature="e#26782#27295#0" expanded="false" />
-            <element signature="e#27324#27718#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17Soft#0" expanded="false" />
-            <element signature="e#28161#28674#0" expanded="false" />
-            <element signature="e#28703#29191#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksH17Hard#0" expanded="false" />
-            <element signature="e#29633#30146#0" expanded="false" />
-            <element signature="e#30175#30611#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksH17Soft#0" expanded="false" />
-            <element signature="e#31052#31565#0" expanded="false" />
-            <element signature="e#31611#32078#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17HardCharlie#0" expanded="false" />
-            <element signature="e#32545#33086#0" expanded="false" />
-            <element signature="e#33122#33363#0" expanded="false" />
-            <element signature="n#!!block;n#FourDecksS17SoftCharlie#0" expanded="false" />
-            <element signature="e#33828#34369#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Split.js">
+    <entry file="file://$PROJECT_DIR$/test22.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="2" column="75" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Double.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="434">
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#makeCombine#0" expanded="false" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameOptions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stand.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="557" column="0" lean-forward="false" selection-start-line="557" selection-start-column="0" selection-end-line="618" selection-end-column="80" />
+        <state relative-caret-position="165">
+          <caret line="565" column="49" lean-forward="false" selection-start-line="565" selection-start-column="49" selection-end-line="565" selection-end-column="49" />
           <folding>
             <element signature="e#106#3374#0" expanded="false" />
             <element signature="e#3388#6717#0" expanded="false" />
             <element signature="e#6735#8867#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
             <element signature="n#!!block;n#Points#0" expanded="false" />
             <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-            <element signature="e#12616#13794#0" expanded="false" />
+            <element signature="e#12947#14125#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckS17Hard#0" expanded="false" />
-            <element signature="e#14222#14723#0" expanded="false" />
-            <element signature="e#14750#15346#0" expanded="false" />
+            <element signature="e#14553#15054#0" expanded="false" />
+            <element signature="e#15081#15677#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
-            <element signature="e#15779#16280#0" expanded="false" />
-            <element signature="e#16306#16369#0" expanded="false" />
+            <element signature="e#16110#16611#0" expanded="false" />
+            <element signature="e#16637#16700#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckSplits#0" expanded="false" />
-            <element signature="e#16829#17328#0" expanded="false" />
-            <element signature="e#17354#18531#0" expanded="false" />
+            <element signature="e#17160#17659#0" expanded="false" />
+            <element signature="e#17685#18862#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckH17Hard#0" expanded="false" />
-            <element signature="e#18963#19464#0" expanded="false" />
-            <element signature="e#19491#20065#0" expanded="false" />
+            <element signature="e#19294#19795#0" expanded="false" />
+            <element signature="e#19822#20396#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckH17Soft#0" expanded="false" />
-            <element signature="e#20231#20311#0" expanded="false" />
-            <element signature="e#20496#20997#0" expanded="false" />
-            <element signature="e#21026#21090#0" expanded="false" />
+            <element signature="e#20562#20642#0" expanded="false" />
+            <element signature="e#20827#21328#0" expanded="false" />
+            <element signature="e#21357#21421#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckSplitsH17#0" expanded="false" />
-            <element signature="e#21558#22061#0" expanded="false" />
-            <element signature="e#22104#23283#0" expanded="false" />
+            <element signature="e#21889#22392#0" expanded="false" />
             <element signature="n#!!block;n#TwoDecksS17Hard#0" expanded="false" />
-            <element signature="e#23719#24224#0" expanded="false" />
-            <element signature="e#24252#24828#0" expanded="false" />
+            <element signature="e#24271#24776#0" expanded="false" />
+            <element signature="e#24804#25380#0" expanded="false" />
             <element signature="n#!!block;n#TwoDecksS17Soft#0" expanded="false" />
-            <element signature="e#25264#25769#0" expanded="false" />
-            <element signature="e#25799#25848#0" expanded="false" />
+            <element signature="e#25816#26321#0" expanded="false" />
+            <element signature="e#26351#26400#0" expanded="false" />
             <element signature="n#!!block;n#TwoDeckSplitsS17#0" expanded="false" />
-            <element signature="e#26310#26820#0" expanded="false" />
-            <element signature="e#26848#28025#0" expanded="false" />
+            <element signature="e#26862#27372#0" expanded="false" />
+            <element signature="e#27400#28577#0" expanded="false" />
             <element signature="n#!!block;n#TwoDecksH17Hard#0" expanded="false" />
-            <element signature="e#28460#28965#0" expanded="false" />
-            <element signature="e#28993#29568#0" expanded="false" />
+            <element signature="e#29012#29517#0" expanded="false" />
+            <element signature="e#29545#30120#0" expanded="false" />
             <element signature="n#!!block;n#TwoDecksH17Soft#0" expanded="false" />
-            <element signature="e#30002#30507#0" expanded="false" />
-            <element signature="e#30536#30584#0" expanded="false" />
+            <element signature="e#30554#31059#0" expanded="false" />
+            <element signature="e#31088#31136#0" expanded="false" />
             <element signature="n#!!block;n#TwoDeckSplitsH17#0" expanded="false" />
-            <element signature="e#31046#31555#0" expanded="false" />
-            <element signature="e#31594#32772#0" expanded="false" />
+            <element signature="e#31598#32107#0" expanded="false" />
+            <element signature="e#32146#33324#0" expanded="false" />
             <element signature="n#!!block;n#FourDecksS17Hard#0" expanded="false" />
-            <element signature="e#33211#33720#0" expanded="false" />
-            <element signature="e#33749#34324#0" expanded="false" />
+            <element signature="e#33763#34272#0" expanded="false" />
+            <element signature="e#34301#34876#0" expanded="false" />
             <element signature="n#!!block;n#FourDecksS17Soft#0" expanded="false" />
-            <element signature="e#34764#35273#0" expanded="false" />
-            <element signature="e#35303#35352#0" expanded="false" />
+            <element signature="e#35316#35825#0" expanded="false" />
+            <element signature="e#35855#35904#0" expanded="false" />
             <element signature="n#!!block;n#FourDeckSplitsS17#0" expanded="false" />
-            <element signature="e#35817#36327#0" expanded="false" />
-            <element signature="e#36356#37533#0" expanded="false" />
+            <element signature="e#36369#36879#0" expanded="false" />
+            <element signature="e#36908#38085#0" expanded="false" />
             <element signature="n#!!block;n#FourDecksH17Hard#0" expanded="false" />
-            <element signature="e#37971#38480#0" expanded="false" />
-            <element signature="e#38509#39084#0" expanded="false" />
+            <element signature="e#38523#39032#0" expanded="false" />
+            <element signature="e#39061#39636#0" expanded="false" />
             <element signature="n#!!block;n#FourDecksH17Soft#0" expanded="false" />
-            <element signature="e#39522#40031#0" expanded="false" />
-            <element signature="e#40061#40109#0" expanded="false" />
+            <element signature="e#40074#40583#0" expanded="false" />
+            <element signature="e#40613#40661#0" expanded="false" />
             <element signature="n#!!block;n#FourDeckSplitsH17#0" expanded="false" />
-            <element signature="e#40575#41086#0" expanded="false" />
+            <element signature="e#41127#41638#0" expanded="false" />
             <element signature="n#!!block;n#CharlieOneAwaySoft#0" expanded="false" />
-            <element signature="e#41495#41761#0" expanded="false" />
-            <element signature="e#41792#42197#0" expanded="false" />
+            <element signature="e#42047#42313#0" expanded="false" />
+            <element signature="e#42344#42749#0" expanded="false" />
             <element signature="n#!!block;n#CharlieTwoAwaySoft#0" expanded="false" />
-            <element signature="e#42635#43152#0" expanded="false" />
-            <element signature="e#43185#43738#0" expanded="false" />
+            <element signature="e#43187#43704#0" expanded="false" />
+            <element signature="e#43737#44290#0" expanded="false" />
             <element signature="n#!!block;n#CharlieThreeAwaySoft#0" expanded="false" />
-            <element signature="e#44181#44706#0" expanded="false" />
-            <element signature="e#44737#45406#0" expanded="false" />
+            <element signature="e#44733#45258#0" expanded="false" />
+            <element signature="e#45289#45958#0" expanded="false" />
             <element signature="n#!!block;n#CharlieOneAwayHard#0" expanded="false" />
-            <element signature="e#45845#46362#0" expanded="false" />
-            <element signature="e#46393#47461#0" expanded="false" />
+            <element signature="e#46397#46914#0" expanded="false" />
+            <element signature="e#46945#48013#0" expanded="false" />
             <element signature="n#!!block;n#CharlieTwoAwayHard#0" expanded="false" />
-            <element signature="e#47898#48415#0" expanded="false" />
-            <element signature="e#48448#49626#0" expanded="false" />
+            <element signature="e#48450#48967#0" expanded="false" />
+            <element signature="e#49000#50178#0" expanded="false" />
             <element signature="n#!!block;n#CharlieThreeAwayHard#0" expanded="false" />
-            <element signature="e#50069#50594#0" expanded="false" />
+            <element signature="e#50621#51146#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/suggestions.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="1465" column="0" lean-forward="false" selection-start-line="1465" selection-start-column="0" selection-end-line="1485" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#Points#0" expanded="false" />
+            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
+            <element signature="e#3840#5498#0" expanded="false" />
+            <element signature="e#5510#5806#0" expanded="false" />
+            <element signature="e#5822#30571#0" expanded="false" />
+            <element signature="e#30586#33854#0" expanded="false" />
+            <element signature="e#33868#37197#0" expanded="false" />
+            <element signature="e#37215#39347#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+            <element signature="e#39949#42054#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardNoSurrenderNoDouble#0" expanded="false" />
+            <element signature="e#43364#43919#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardNoSurrender#0" expanded="false" />
+            <element signature="e#45791#46969#0" expanded="false" />
+            <element signature="e#48819#50054#0" expanded="false" />
+            <element signature="e#51552#52478#0" expanded="false" />
+            <element signature="e#52513#52806#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardLateSurrender#0" expanded="false" />
+            <element signature="e#53498#54093#0" expanded="false" />
+            <element signature="e#54135#54428#0" expanded="false" />
+            <element signature="e#54448#54656#0" expanded="false" />
+            <element signature="e#54675#55394#0" expanded="false" />
+            <element signature="e#55422#55583#0" expanded="false" />
+            <element signature="e#55612#56315#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17HardEarly10DASSurrender#0" expanded="false" />
+            <element signature="e#57141#57746#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/split.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="334" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="332" column="0" lean-forward="true" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#Points#0" expanded="false" />
             <element signature="n#!!block;n#GameOptions#0" expanded="false" />
@@ -680,9 +696,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/surrender.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="856" column="23" lean-forward="true" selection-start-line="856" selection-start-column="23" selection-end-line="856" selection-end-column="23" />
+        <state relative-caret-position="267">
+          <caret line="1598" column="2" lean-forward="true" selection-start-line="1596" selection-start-column="0" selection-end-line="1598" selection-end-column="2" />
           <folding>
+            <element signature="e#170#1828#0" expanded="false" />
+            <element signature="e#1840#2136#0" expanded="false" />
+            <element signature="e#2152#23497#0" expanded="false" />
+            <element signature="e#23512#26780#0" expanded="false" />
+            <element signature="e#26794#30123#0" expanded="false" />
+            <element signature="e#30141#32273#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
             <element signature="n#!!block;n#Points#0" expanded="false" />
             <element signature="n#!!block;n#GameOptions#0" expanded="false" />
             <element signature="n#!!block;n#oneDeckLateH17LateSurrender#0" expanded="false" />
@@ -693,99 +717,84 @@
             <element signature="n#!!block;n#fourToSixDecksS17LateSurrender#0" expanded="false" />
             <element signature="n#!!block;n#eightDecksH17LateSurrender#0" expanded="false" />
             <element signature="n#!!block;n#eightDecksS17LateSurrender#0" expanded="false" />
-            <element signature="e#6450#7376#0" expanded="false" />
-            <element signature="e#7398#7691#0" expanded="false" />
-            <element signature="e#7786#7963#0" expanded="false" />
-            <element signature="e#8059#8325#0" expanded="false" />
-            <element signature="e#8423#8571#0" expanded="false" />
-            <element signature="e#8670#9001#0" expanded="false" />
-            <element signature="e#9102#9298#0" expanded="false" />
-            <element signature="e#9401#9745#0" expanded="false" />
-            <element signature="e#9849#10061#0" expanded="false" />
-            <element signature="e#10192#10727#0" expanded="false" />
+            <element signature="e#40853#41030#0" expanded="false" />
+            <element signature="e#41126#41392#0" expanded="false" />
+            <element signature="e#41490#41638#0" expanded="false" />
+            <element signature="e#41737#42068#0" expanded="false" />
+            <element signature="e#42169#42365#0" expanded="false" />
+            <element signature="e#42468#42812#0" expanded="false" />
+            <element signature="e#42916#43128#0" expanded="false" />
+            <element signature="e#43259#43794#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckEarlySurrender10#0" expanded="false" />
             <element signature="n#!!block;n#OneDeckEarlySurrenderA#0" expanded="false" />
-            <element signature="e#15582#15790#0" expanded="false" />
-            <element signature="e#15809#16528#0" expanded="false" />
-            <element signature="e#16746#17449#0" expanded="false" />
-            <element signature="e#19759#19951#0" expanded="false" />
-            <element signature="e#20185#20919#0" expanded="false" />
+            <element signature="e#48649#48857#0" expanded="false" />
+            <element signature="e#48876#49595#0" expanded="false" />
+            <element signature="e#49813#50516#0" expanded="false" />
+            <element signature="e#52826#53018#0" expanded="false" />
+            <element signature="e#53252#53986#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Double.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Surrender.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        <state relative-caret-position="185">
+          <caret line="135" column="40" lean-forward="true" selection-start-line="135" selection-start-column="40" selection-end-line="135" selection-end-column="40" />
           <folding>
-            <element signature="e#546#2431#0" expanded="false" />
+            <element signature="e#2478#4119#0" expanded="false" />
+            <element signature="e#6195#7575#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Suggestions.js">
+    <entry file="file://$PROJECT_DIR$/double.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="145" column="28" lean-forward="false" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+        <state relative-caret-position="420">
+          <caret line="1520" column="23" lean-forward="false" selection-start-line="1520" selection-start-column="4" selection-end-line="1520" selection-end-column="23" />
           <folding>
-            <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Points.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameOptions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1205">
-          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/suggestions.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="136" selection-end-column="1" />
-          <folding>
-            <element signature="e#3840#5498#0" expanded="false" />
-            <element signature="e#5510#5806#0" expanded="false" />
-            <element signature="e#5822#30571#0" expanded="false" />
-            <element signature="e#30586#33854#0" expanded="false" />
-            <element signature="e#33868#37197#0" expanded="false" />
-            <element signature="e#37215#39347#0" expanded="false" />
             <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
             <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-            <element signature="e#39949#42054#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17HardNoSurrenderNoDouble#0" expanded="false" />
-            <element signature="e#43364#43919#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17HardNoSurrender#0" expanded="false" />
-            <element signature="e#45791#46969#0" expanded="false" />
-            <element signature="e#48819#50054#0" expanded="false" />
-            <element signature="e#51552#52478#0" expanded="false" />
-            <element signature="e#52513#52806#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17HardLateSurrender#0" expanded="false" />
-            <element signature="e#53498#54093#0" expanded="false" />
-            <element signature="e#54135#54428#0" expanded="false" />
-            <element signature="e#54448#54656#0" expanded="false" />
-            <element signature="e#54675#55394#0" expanded="false" />
-            <element signature="e#55422#55583#0" expanded="false" />
-            <element signature="e#55612#56315#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckS17HardEarly10DASSurrender#0" expanded="false" />
-            <element signature="e#57141#57746#0" expanded="false" />
+            <element signature="e#726#2384#0" expanded="false" />
+            <element signature="e#2396#2692#0" expanded="false" />
+            <element signature="e#2708#24053#0" expanded="false" />
+            <element signature="e#24067#27335#0" expanded="false" />
+            <element signature="e#27349#30467#0" expanded="false" />
+            <element signature="e#30485#32617#0" expanded="false" />
+            <element signature="n#!!block;n#Points#0" expanded="false" />
+            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
+            <element signature="e#36714#37269#0" expanded="false" />
+            <element signature="e#38368#38846#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Blackjack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#DealCard#0" expanded="false" />
+            <element signature="n#!!block;n#PrintHand#0" expanded="false" />
+            <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
+            <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
+            <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
+            <element signature="n#!!block;n#RunAGame#0" expanded="false" />
+            <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
+            <element signature="n#!!block;n#average#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/double.new.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />

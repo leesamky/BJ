@@ -14,7 +14,8 @@ module.exports=function (options){
         EuropeanNoHoldCard:false,
         CSM:false,
         fiveDragon:false,//no yet
-        charlie:false
+        charlie:false,
+        blackjackPayout:1.5
 
     }
 

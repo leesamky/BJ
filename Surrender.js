@@ -120,7 +120,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                         if(dealerCard===1&&options.hitSoft17){
                             shouldSurrender=true
                         }
-                    }else{
+                    }else if(_.includes([1,9,10],dealerCard)){
                         shouldSurrender=true
                     }
 
@@ -141,11 +141,11 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                     }
                 }
                 else if(handValue.total===16){
-                    if(playerCards[0]===playerCards[1]){
+                    if(playerCards[0]===playerCards[1]){//p[8,8] dA H17 surrender
                         if(dealerCard===1&&options.hitSoft17){
                             shouldSurrender=true
                         }
-                    }else{
+                    }else if(_.includes([1,9,10],dealerCard)){
                         shouldSurrender=true
                     }
 

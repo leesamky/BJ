@@ -122,7 +122,8 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
         }
         else {
 
-            if((playerCards[0]===playerCards[1])&&(playerCards.length===2)){//split
+
+            if((playerCards[0]===playerCards[1])&&(playerCards.length===2)&&(playerCards[0]!==10)){//split
                 if(options.numberOfDecks===1){
                     if((playerCards[0]===7)&&(dealerCard===10)){
                         shouldStand=true
@@ -135,7 +136,6 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                     }
                 }
             }else{
-                // console.log('in')
                 if((handValue.total===12)&&(_.includes([4,5,6],dealerCard))){
                     shouldStand=true
                 }

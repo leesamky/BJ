@@ -1,9 +1,938 @@
 const Double=require('./Double')
 const _=require('lodash')
 var expect=require('chai').expect
+function makeTwoCardsCombine(arr){
+    let cardsCombine=[]
+    _.forEach(arr,function(elem){
+        let combines=twoCards[[elem[0],elem[2]]]
+        _.forEach(combines,function(combine){
+            cardsCombine.push([combine,elem[1]])
+        })
+    })
+    return cardsCombine
+}
 
-console.log(Double(...OneDeckS17Hard(8,5,false)))
-
+function makeThreeCardsCombine(arr){
+    let cardsCombine=[]
+    _.forEach(arr,function(elem){
+        let combines=threeCards[[elem[0],elem[2]]]
+        _.forEach(combines,function(combine){
+            cardsCombine.push([combine,elem[1]])
+        })
+    })
+    return cardsCombine
+}
+// console.log(Double(...OneDeckS17Hard(8,5,false)))
+let twoCards={ '13,true': [ [ 1, 2 ], [ 2, 1 ] ],
+    '14,true': [ [ 1, 3 ], [ 3, 1 ] ],
+    '15,true': [ [ 1, 4 ], [ 4, 1 ] ],
+    '16,true': [ [ 1, 5 ], [ 5, 1 ] ],
+    '17,true': [ [ 1, 6 ], [ 6, 1 ] ],
+    '18,true': [ [ 1, 7 ], [ 7, 1 ] ],
+    '19,true': [ [ 1, 8 ], [ 8, 1 ] ],
+    '20,true': [ [ 1, 9 ], [ 9, 1 ] ],
+    '21,true': [ [ 1, 10 ], [ 10, 1 ] ],
+    '5,false': [ [ 2, 3 ], [ 3, 2 ] ],
+    '6,false': [ [ 2, 4 ], [ 4, 2 ] ],
+    '7,false': [ [ 2, 5 ], [ 3, 4 ], [ 4, 3 ], [ 5, 2 ] ],
+    '8,false': [ [ 2, 6 ], [ 3, 5 ], [ 5, 3 ], [ 6, 2 ] ],
+    '9,false': [ [ 2, 7 ], [ 3, 6 ], [ 4, 5 ], [ 5, 4 ], [ 6, 3 ], [ 7, 2 ] ],
+    '10,false': [ [ 2, 8 ], [ 3, 7 ], [ 4, 6 ], [ 6, 4 ], [ 7, 3 ], [ 8, 2 ] ],
+    '11,false':
+        [ [ 2, 9 ],
+            [ 3, 8 ],
+            [ 4, 7 ],
+            [ 5, 6 ],
+            [ 6, 5 ],
+            [ 7, 4 ],
+            [ 8, 3 ],
+            [ 9, 2 ] ],
+    '12,false':
+        [ [ 2, 10 ],
+            [ 3, 9 ],
+            [ 4, 8 ],
+            [ 5, 7 ],
+            [ 7, 5 ],
+            [ 8, 4 ],
+            [ 9, 3 ],
+            [ 10, 2 ] ],
+    '13,false':
+        [ [ 3, 10 ],
+            [ 4, 9 ],
+            [ 5, 8 ],
+            [ 6, 7 ],
+            [ 7, 6 ],
+            [ 8, 5 ],
+            [ 9, 4 ],
+            [ 10, 3 ] ],
+    '14,false': [ [ 4, 10 ], [ 5, 9 ], [ 6, 8 ], [ 8, 6 ], [ 9, 5 ], [ 10, 4 ] ],
+    '15,false': [ [ 5, 10 ], [ 6, 9 ], [ 7, 8 ], [ 8, 7 ], [ 9, 6 ], [ 10, 5 ] ],
+    '16,false': [ [ 6, 10 ], [ 7, 9 ], [ 9, 7 ], [ 10, 6 ] ],
+    '17,false': [ [ 7, 10 ], [ 8, 9 ], [ 9, 8 ], [ 10, 7 ] ],
+    '18,false': [ [ 8, 10 ], [ 10, 8 ] ],
+    '19,false': [ [ 9, 10 ], [ 10, 9 ] ] }
+let splits={ '12,true': [ [ 1, 1 ] ],
+    '4,false': [ [ 2, 2 ] ],
+    '6,false': [ [ 3, 3 ] ],
+    '8,false': [ [ 4, 4 ] ],
+    '10,false': [ [ 5, 5 ] ],
+    '12,false': [ [ 6, 6 ] ],
+    '14,false': [ [ 7, 7 ] ],
+    '16,false': [ [ 8, 8 ] ],
+    '18,false': [ [ 9, 9 ] ],
+    '20,false': [ [ 10, 10 ] ] }
+let threeCards={ '13,true': [ [ 1, 1, 1 ] ],
+    '14,true': [ [ 1, 1, 2 ], [ 1, 2, 1 ], [ 2, 1, 1 ] ],
+    '15,true':
+        [ [ 1, 1, 3 ],
+            [ 1, 2, 2 ],
+            [ 1, 3, 1 ],
+            [ 2, 1, 2 ],
+            [ 2, 2, 1 ],
+            [ 3, 1, 1 ] ],
+    '16,true':
+        [ [ 1, 1, 4 ],
+            [ 1, 2, 3 ],
+            [ 1, 3, 2 ],
+            [ 1, 4, 1 ],
+            [ 2, 1, 3 ],
+            [ 2, 3, 1 ],
+            [ 3, 1, 2 ],
+            [ 3, 2, 1 ],
+            [ 4, 1, 1 ] ],
+    '17,true':
+        [ [ 1, 1, 5 ],
+            [ 1, 2, 4 ],
+            [ 1, 3, 3 ],
+            [ 1, 4, 2 ],
+            [ 1, 5, 1 ],
+            [ 2, 1, 4 ],
+            [ 2, 4, 1 ],
+            [ 3, 1, 3 ],
+            [ 3, 3, 1 ],
+            [ 4, 1, 2 ],
+            [ 4, 2, 1 ],
+            [ 5, 1, 1 ] ],
+    '18,true':
+        [ [ 1, 1, 6 ],
+            [ 1, 2, 5 ],
+            [ 1, 3, 4 ],
+            [ 1, 4, 3 ],
+            [ 1, 5, 2 ],
+            [ 1, 6, 1 ],
+            [ 2, 1, 5 ],
+            [ 2, 5, 1 ],
+            [ 3, 1, 4 ],
+            [ 3, 4, 1 ],
+            [ 4, 1, 3 ],
+            [ 4, 3, 1 ],
+            [ 5, 1, 2 ],
+            [ 5, 2, 1 ],
+            [ 6, 1, 1 ] ],
+    '19,true':
+        [ [ 1, 1, 7 ],
+            [ 1, 2, 6 ],
+            [ 1, 3, 5 ],
+            [ 1, 4, 4 ],
+            [ 1, 5, 3 ],
+            [ 1, 6, 2 ],
+            [ 1, 7, 1 ],
+            [ 2, 1, 6 ],
+            [ 2, 6, 1 ],
+            [ 3, 1, 5 ],
+            [ 3, 5, 1 ],
+            [ 4, 1, 4 ],
+            [ 4, 4, 1 ],
+            [ 5, 1, 3 ],
+            [ 5, 3, 1 ],
+            [ 6, 1, 2 ],
+            [ 6, 2, 1 ],
+            [ 7, 1, 1 ] ],
+    '20,true':
+        [ [ 1, 1, 8 ],
+            [ 1, 2, 7 ],
+            [ 1, 3, 6 ],
+            [ 1, 4, 5 ],
+            [ 1, 5, 4 ],
+            [ 1, 6, 3 ],
+            [ 1, 7, 2 ],
+            [ 1, 8, 1 ],
+            [ 2, 1, 7 ],
+            [ 2, 7, 1 ],
+            [ 3, 1, 6 ],
+            [ 3, 6, 1 ],
+            [ 4, 1, 5 ],
+            [ 4, 5, 1 ],
+            [ 5, 1, 4 ],
+            [ 5, 4, 1 ],
+            [ 6, 1, 3 ],
+            [ 6, 3, 1 ],
+            [ 7, 1, 2 ],
+            [ 7, 2, 1 ],
+            [ 8, 1, 1 ] ],
+    '21,true':
+        [ [ 1, 1, 9 ],
+            [ 1, 2, 8 ],
+            [ 1, 3, 7 ],
+            [ 1, 4, 6 ],
+            [ 1, 5, 5 ],
+            [ 1, 6, 4 ],
+            [ 1, 7, 3 ],
+            [ 1, 8, 2 ],
+            [ 1, 9, 1 ],
+            [ 2, 1, 8 ],
+            [ 2, 8, 1 ],
+            [ 3, 1, 7 ],
+            [ 3, 7, 1 ],
+            [ 4, 1, 6 ],
+            [ 4, 6, 1 ],
+            [ 5, 1, 5 ],
+            [ 5, 5, 1 ],
+            [ 6, 1, 4 ],
+            [ 6, 4, 1 ],
+            [ 7, 1, 3 ],
+            [ 7, 3, 1 ],
+            [ 8, 1, 2 ],
+            [ 8, 2, 1 ],
+            [ 9, 1, 1 ] ],
+    '12,false':
+        [ [ 1, 1, 10 ],
+            [ 1, 2, 9 ],
+            [ 1, 3, 8 ],
+            [ 1, 4, 7 ],
+            [ 1, 5, 6 ],
+            [ 1, 6, 5 ],
+            [ 1, 7, 4 ],
+            [ 1, 8, 3 ],
+            [ 1, 9, 2 ],
+            [ 1, 10, 1 ],
+            [ 2, 1, 9 ],
+            [ 2, 2, 8 ],
+            [ 2, 3, 7 ],
+            [ 2, 4, 6 ],
+            [ 2, 5, 5 ],
+            [ 2, 6, 4 ],
+            [ 2, 7, 3 ],
+            [ 2, 8, 2 ],
+            [ 2, 9, 1 ],
+            [ 3, 1, 8 ],
+            [ 3, 2, 7 ],
+            [ 3, 3, 6 ],
+            [ 3, 4, 5 ],
+            [ 3, 5, 4 ],
+            [ 3, 6, 3 ],
+            [ 3, 7, 2 ],
+            [ 3, 8, 1 ],
+            [ 4, 1, 7 ],
+            [ 4, 2, 6 ],
+            [ 4, 3, 5 ],
+            [ 4, 4, 4 ],
+            [ 4, 5, 3 ],
+            [ 4, 6, 2 ],
+            [ 4, 7, 1 ],
+            [ 5, 1, 6 ],
+            [ 5, 2, 5 ],
+            [ 5, 3, 4 ],
+            [ 5, 4, 3 ],
+            [ 5, 5, 2 ],
+            [ 5, 6, 1 ],
+            [ 6, 1, 5 ],
+            [ 6, 2, 4 ],
+            [ 6, 3, 3 ],
+            [ 6, 4, 2 ],
+            [ 6, 5, 1 ],
+            [ 7, 1, 4 ],
+            [ 7, 2, 3 ],
+            [ 7, 3, 2 ],
+            [ 7, 4, 1 ],
+            [ 8, 1, 3 ],
+            [ 8, 2, 2 ],
+            [ 8, 3, 1 ],
+            [ 9, 1, 2 ],
+            [ 9, 2, 1 ],
+            [ 10, 1, 1 ] ],
+    '13,false':
+        [ [ 1, 2, 10 ],
+            [ 1, 3, 9 ],
+            [ 1, 4, 8 ],
+            [ 1, 5, 7 ],
+            [ 1, 6, 6 ],
+            [ 1, 7, 5 ],
+            [ 1, 8, 4 ],
+            [ 1, 9, 3 ],
+            [ 1, 10, 2 ],
+            [ 2, 1, 10 ],
+            [ 2, 2, 9 ],
+            [ 2, 3, 8 ],
+            [ 2, 4, 7 ],
+            [ 2, 5, 6 ],
+            [ 2, 6, 5 ],
+            [ 2, 7, 4 ],
+            [ 2, 8, 3 ],
+            [ 2, 9, 2 ],
+            [ 2, 10, 1 ],
+            [ 3, 1, 9 ],
+            [ 3, 2, 8 ],
+            [ 3, 3, 7 ],
+            [ 3, 4, 6 ],
+            [ 3, 5, 5 ],
+            [ 3, 6, 4 ],
+            [ 3, 7, 3 ],
+            [ 3, 8, 2 ],
+            [ 3, 9, 1 ],
+            [ 4, 1, 8 ],
+            [ 4, 2, 7 ],
+            [ 4, 3, 6 ],
+            [ 4, 4, 5 ],
+            [ 4, 5, 4 ],
+            [ 4, 6, 3 ],
+            [ 4, 7, 2 ],
+            [ 4, 8, 1 ],
+            [ 5, 1, 7 ],
+            [ 5, 2, 6 ],
+            [ 5, 3, 5 ],
+            [ 5, 4, 4 ],
+            [ 5, 5, 3 ],
+            [ 5, 6, 2 ],
+            [ 5, 7, 1 ],
+            [ 6, 1, 6 ],
+            [ 6, 2, 5 ],
+            [ 6, 3, 4 ],
+            [ 6, 4, 3 ],
+            [ 6, 5, 2 ],
+            [ 6, 6, 1 ],
+            [ 7, 1, 5 ],
+            [ 7, 2, 4 ],
+            [ 7, 3, 3 ],
+            [ 7, 4, 2 ],
+            [ 7, 5, 1 ],
+            [ 8, 1, 4 ],
+            [ 8, 2, 3 ],
+            [ 8, 3, 2 ],
+            [ 8, 4, 1 ],
+            [ 9, 1, 3 ],
+            [ 9, 2, 2 ],
+            [ 9, 3, 1 ],
+            [ 10, 1, 2 ],
+            [ 10, 2, 1 ] ],
+    '14,false':
+        [ [ 1, 3, 10 ],
+            [ 1, 4, 9 ],
+            [ 1, 5, 8 ],
+            [ 1, 6, 7 ],
+            [ 1, 7, 6 ],
+            [ 1, 8, 5 ],
+            [ 1, 9, 4 ],
+            [ 1, 10, 3 ],
+            [ 2, 2, 10 ],
+            [ 2, 3, 9 ],
+            [ 2, 4, 8 ],
+            [ 2, 5, 7 ],
+            [ 2, 6, 6 ],
+            [ 2, 7, 5 ],
+            [ 2, 8, 4 ],
+            [ 2, 9, 3 ],
+            [ 2, 10, 2 ],
+            [ 3, 1, 10 ],
+            [ 3, 2, 9 ],
+            [ 3, 3, 8 ],
+            [ 3, 4, 7 ],
+            [ 3, 5, 6 ],
+            [ 3, 6, 5 ],
+            [ 3, 7, 4 ],
+            [ 3, 8, 3 ],
+            [ 3, 9, 2 ],
+            [ 3, 10, 1 ],
+            [ 4, 1, 9 ],
+            [ 4, 2, 8 ],
+            [ 4, 3, 7 ],
+            [ 4, 4, 6 ],
+            [ 4, 5, 5 ],
+            [ 4, 6, 4 ],
+            [ 4, 7, 3 ],
+            [ 4, 8, 2 ],
+            [ 4, 9, 1 ],
+            [ 5, 1, 8 ],
+            [ 5, 2, 7 ],
+            [ 5, 3, 6 ],
+            [ 5, 4, 5 ],
+            [ 5, 5, 4 ],
+            [ 5, 6, 3 ],
+            [ 5, 7, 2 ],
+            [ 5, 8, 1 ],
+            [ 6, 1, 7 ],
+            [ 6, 2, 6 ],
+            [ 6, 3, 5 ],
+            [ 6, 4, 4 ],
+            [ 6, 5, 3 ],
+            [ 6, 6, 2 ],
+            [ 6, 7, 1 ],
+            [ 7, 1, 6 ],
+            [ 7, 2, 5 ],
+            [ 7, 3, 4 ],
+            [ 7, 4, 3 ],
+            [ 7, 5, 2 ],
+            [ 7, 6, 1 ],
+            [ 8, 1, 5 ],
+            [ 8, 2, 4 ],
+            [ 8, 3, 3 ],
+            [ 8, 4, 2 ],
+            [ 8, 5, 1 ],
+            [ 9, 1, 4 ],
+            [ 9, 2, 3 ],
+            [ 9, 3, 2 ],
+            [ 9, 4, 1 ],
+            [ 10, 1, 3 ],
+            [ 10, 2, 2 ],
+            [ 10, 3, 1 ] ],
+    '15,false':
+        [ [ 1, 4, 10 ],
+            [ 1, 5, 9 ],
+            [ 1, 6, 8 ],
+            [ 1, 7, 7 ],
+            [ 1, 8, 6 ],
+            [ 1, 9, 5 ],
+            [ 1, 10, 4 ],
+            [ 2, 3, 10 ],
+            [ 2, 4, 9 ],
+            [ 2, 5, 8 ],
+            [ 2, 6, 7 ],
+            [ 2, 7, 6 ],
+            [ 2, 8, 5 ],
+            [ 2, 9, 4 ],
+            [ 2, 10, 3 ],
+            [ 3, 2, 10 ],
+            [ 3, 3, 9 ],
+            [ 3, 4, 8 ],
+            [ 3, 5, 7 ],
+            [ 3, 6, 6 ],
+            [ 3, 7, 5 ],
+            [ 3, 8, 4 ],
+            [ 3, 9, 3 ],
+            [ 3, 10, 2 ],
+            [ 4, 1, 10 ],
+            [ 4, 2, 9 ],
+            [ 4, 3, 8 ],
+            [ 4, 4, 7 ],
+            [ 4, 5, 6 ],
+            [ 4, 6, 5 ],
+            [ 4, 7, 4 ],
+            [ 4, 8, 3 ],
+            [ 4, 9, 2 ],
+            [ 4, 10, 1 ],
+            [ 5, 1, 9 ],
+            [ 5, 2, 8 ],
+            [ 5, 3, 7 ],
+            [ 5, 4, 6 ],
+            [ 5, 5, 5 ],
+            [ 5, 6, 4 ],
+            [ 5, 7, 3 ],
+            [ 5, 8, 2 ],
+            [ 5, 9, 1 ],
+            [ 6, 1, 8 ],
+            [ 6, 2, 7 ],
+            [ 6, 3, 6 ],
+            [ 6, 4, 5 ],
+            [ 6, 5, 4 ],
+            [ 6, 6, 3 ],
+            [ 6, 7, 2 ],
+            [ 6, 8, 1 ],
+            [ 7, 1, 7 ],
+            [ 7, 2, 6 ],
+            [ 7, 3, 5 ],
+            [ 7, 4, 4 ],
+            [ 7, 5, 3 ],
+            [ 7, 6, 2 ],
+            [ 7, 7, 1 ],
+            [ 8, 1, 6 ],
+            [ 8, 2, 5 ],
+            [ 8, 3, 4 ],
+            [ 8, 4, 3 ],
+            [ 8, 5, 2 ],
+            [ 8, 6, 1 ],
+            [ 9, 1, 5 ],
+            [ 9, 2, 4 ],
+            [ 9, 3, 3 ],
+            [ 9, 4, 2 ],
+            [ 9, 5, 1 ],
+            [ 10, 1, 4 ],
+            [ 10, 2, 3 ],
+            [ 10, 3, 2 ],
+            [ 10, 4, 1 ] ],
+    '16,false':
+        [ [ 1, 5, 10 ],
+            [ 1, 6, 9 ],
+            [ 1, 7, 8 ],
+            [ 1, 8, 7 ],
+            [ 1, 9, 6 ],
+            [ 1, 10, 5 ],
+            [ 2, 4, 10 ],
+            [ 2, 5, 9 ],
+            [ 2, 6, 8 ],
+            [ 2, 7, 7 ],
+            [ 2, 8, 6 ],
+            [ 2, 9, 5 ],
+            [ 2, 10, 4 ],
+            [ 3, 3, 10 ],
+            [ 3, 4, 9 ],
+            [ 3, 5, 8 ],
+            [ 3, 6, 7 ],
+            [ 3, 7, 6 ],
+            [ 3, 8, 5 ],
+            [ 3, 9, 4 ],
+            [ 3, 10, 3 ],
+            [ 4, 2, 10 ],
+            [ 4, 3, 9 ],
+            [ 4, 4, 8 ],
+            [ 4, 5, 7 ],
+            [ 4, 6, 6 ],
+            [ 4, 7, 5 ],
+            [ 4, 8, 4 ],
+            [ 4, 9, 3 ],
+            [ 4, 10, 2 ],
+            [ 5, 1, 10 ],
+            [ 5, 2, 9 ],
+            [ 5, 3, 8 ],
+            [ 5, 4, 7 ],
+            [ 5, 5, 6 ],
+            [ 5, 6, 5 ],
+            [ 5, 7, 4 ],
+            [ 5, 8, 3 ],
+            [ 5, 9, 2 ],
+            [ 5, 10, 1 ],
+            [ 6, 1, 9 ],
+            [ 6, 2, 8 ],
+            [ 6, 3, 7 ],
+            [ 6, 4, 6 ],
+            [ 6, 5, 5 ],
+            [ 6, 6, 4 ],
+            [ 6, 7, 3 ],
+            [ 6, 8, 2 ],
+            [ 6, 9, 1 ],
+            [ 7, 1, 8 ],
+            [ 7, 2, 7 ],
+            [ 7, 3, 6 ],
+            [ 7, 4, 5 ],
+            [ 7, 5, 4 ],
+            [ 7, 6, 3 ],
+            [ 7, 7, 2 ],
+            [ 7, 8, 1 ],
+            [ 8, 1, 7 ],
+            [ 8, 2, 6 ],
+            [ 8, 3, 5 ],
+            [ 8, 4, 4 ],
+            [ 8, 5, 3 ],
+            [ 8, 6, 2 ],
+            [ 8, 7, 1 ],
+            [ 9, 1, 6 ],
+            [ 9, 2, 5 ],
+            [ 9, 3, 4 ],
+            [ 9, 4, 3 ],
+            [ 9, 5, 2 ],
+            [ 9, 6, 1 ],
+            [ 10, 1, 5 ],
+            [ 10, 2, 4 ],
+            [ 10, 3, 3 ],
+            [ 10, 4, 2 ],
+            [ 10, 5, 1 ] ],
+    '17,false':
+        [ [ 1, 6, 10 ],
+            [ 1, 7, 9 ],
+            [ 1, 8, 8 ],
+            [ 1, 9, 7 ],
+            [ 1, 10, 6 ],
+            [ 2, 5, 10 ],
+            [ 2, 6, 9 ],
+            [ 2, 7, 8 ],
+            [ 2, 8, 7 ],
+            [ 2, 9, 6 ],
+            [ 2, 10, 5 ],
+            [ 3, 4, 10 ],
+            [ 3, 5, 9 ],
+            [ 3, 6, 8 ],
+            [ 3, 7, 7 ],
+            [ 3, 8, 6 ],
+            [ 3, 9, 5 ],
+            [ 3, 10, 4 ],
+            [ 4, 3, 10 ],
+            [ 4, 4, 9 ],
+            [ 4, 5, 8 ],
+            [ 4, 6, 7 ],
+            [ 4, 7, 6 ],
+            [ 4, 8, 5 ],
+            [ 4, 9, 4 ],
+            [ 4, 10, 3 ],
+            [ 5, 2, 10 ],
+            [ 5, 3, 9 ],
+            [ 5, 4, 8 ],
+            [ 5, 5, 7 ],
+            [ 5, 6, 6 ],
+            [ 5, 7, 5 ],
+            [ 5, 8, 4 ],
+            [ 5, 9, 3 ],
+            [ 5, 10, 2 ],
+            [ 6, 1, 10 ],
+            [ 6, 2, 9 ],
+            [ 6, 3, 8 ],
+            [ 6, 4, 7 ],
+            [ 6, 5, 6 ],
+            [ 6, 6, 5 ],
+            [ 6, 7, 4 ],
+            [ 6, 8, 3 ],
+            [ 6, 9, 2 ],
+            [ 6, 10, 1 ],
+            [ 7, 1, 9 ],
+            [ 7, 2, 8 ],
+            [ 7, 3, 7 ],
+            [ 7, 4, 6 ],
+            [ 7, 5, 5 ],
+            [ 7, 6, 4 ],
+            [ 7, 7, 3 ],
+            [ 7, 8, 2 ],
+            [ 7, 9, 1 ],
+            [ 8, 1, 8 ],
+            [ 8, 2, 7 ],
+            [ 8, 3, 6 ],
+            [ 8, 4, 5 ],
+            [ 8, 5, 4 ],
+            [ 8, 6, 3 ],
+            [ 8, 7, 2 ],
+            [ 8, 8, 1 ],
+            [ 9, 1, 7 ],
+            [ 9, 2, 6 ],
+            [ 9, 3, 5 ],
+            [ 9, 4, 4 ],
+            [ 9, 5, 3 ],
+            [ 9, 6, 2 ],
+            [ 9, 7, 1 ],
+            [ 10, 1, 6 ],
+            [ 10, 2, 5 ],
+            [ 10, 3, 4 ],
+            [ 10, 4, 3 ],
+            [ 10, 5, 2 ],
+            [ 10, 6, 1 ] ],
+    '18,false':
+        [ [ 1, 7, 10 ],
+            [ 1, 8, 9 ],
+            [ 1, 9, 8 ],
+            [ 1, 10, 7 ],
+            [ 2, 6, 10 ],
+            [ 2, 7, 9 ],
+            [ 2, 8, 8 ],
+            [ 2, 9, 7 ],
+            [ 2, 10, 6 ],
+            [ 3, 5, 10 ],
+            [ 3, 6, 9 ],
+            [ 3, 7, 8 ],
+            [ 3, 8, 7 ],
+            [ 3, 9, 6 ],
+            [ 3, 10, 5 ],
+            [ 4, 4, 10 ],
+            [ 4, 5, 9 ],
+            [ 4, 6, 8 ],
+            [ 4, 7, 7 ],
+            [ 4, 8, 6 ],
+            [ 4, 9, 5 ],
+            [ 4, 10, 4 ],
+            [ 5, 3, 10 ],
+            [ 5, 4, 9 ],
+            [ 5, 5, 8 ],
+            [ 5, 6, 7 ],
+            [ 5, 7, 6 ],
+            [ 5, 8, 5 ],
+            [ 5, 9, 4 ],
+            [ 5, 10, 3 ],
+            [ 6, 2, 10 ],
+            [ 6, 3, 9 ],
+            [ 6, 4, 8 ],
+            [ 6, 5, 7 ],
+            [ 6, 6, 6 ],
+            [ 6, 7, 5 ],
+            [ 6, 8, 4 ],
+            [ 6, 9, 3 ],
+            [ 6, 10, 2 ],
+            [ 7, 1, 10 ],
+            [ 7, 2, 9 ],
+            [ 7, 3, 8 ],
+            [ 7, 4, 7 ],
+            [ 7, 5, 6 ],
+            [ 7, 6, 5 ],
+            [ 7, 7, 4 ],
+            [ 7, 8, 3 ],
+            [ 7, 9, 2 ],
+            [ 7, 10, 1 ],
+            [ 8, 1, 9 ],
+            [ 8, 2, 8 ],
+            [ 8, 3, 7 ],
+            [ 8, 4, 6 ],
+            [ 8, 5, 5 ],
+            [ 8, 6, 4 ],
+            [ 8, 7, 3 ],
+            [ 8, 8, 2 ],
+            [ 8, 9, 1 ],
+            [ 9, 1, 8 ],
+            [ 9, 2, 7 ],
+            [ 9, 3, 6 ],
+            [ 9, 4, 5 ],
+            [ 9, 5, 4 ],
+            [ 9, 6, 3 ],
+            [ 9, 7, 2 ],
+            [ 9, 8, 1 ],
+            [ 10, 1, 7 ],
+            [ 10, 2, 6 ],
+            [ 10, 3, 5 ],
+            [ 10, 4, 4 ],
+            [ 10, 5, 3 ],
+            [ 10, 6, 2 ],
+            [ 10, 7, 1 ] ],
+    '19,false':
+        [ [ 1, 8, 10 ],
+            [ 1, 9, 9 ],
+            [ 1, 10, 8 ],
+            [ 2, 7, 10 ],
+            [ 2, 8, 9 ],
+            [ 2, 9, 8 ],
+            [ 2, 10, 7 ],
+            [ 3, 6, 10 ],
+            [ 3, 7, 9 ],
+            [ 3, 8, 8 ],
+            [ 3, 9, 7 ],
+            [ 3, 10, 6 ],
+            [ 4, 5, 10 ],
+            [ 4, 6, 9 ],
+            [ 4, 7, 8 ],
+            [ 4, 8, 7 ],
+            [ 4, 9, 6 ],
+            [ 4, 10, 5 ],
+            [ 5, 4, 10 ],
+            [ 5, 5, 9 ],
+            [ 5, 6, 8 ],
+            [ 5, 7, 7 ],
+            [ 5, 8, 6 ],
+            [ 5, 9, 5 ],
+            [ 5, 10, 4 ],
+            [ 6, 3, 10 ],
+            [ 6, 4, 9 ],
+            [ 6, 5, 8 ],
+            [ 6, 6, 7 ],
+            [ 6, 7, 6 ],
+            [ 6, 8, 5 ],
+            [ 6, 9, 4 ],
+            [ 6, 10, 3 ],
+            [ 7, 2, 10 ],
+            [ 7, 3, 9 ],
+            [ 7, 4, 8 ],
+            [ 7, 5, 7 ],
+            [ 7, 6, 6 ],
+            [ 7, 7, 5 ],
+            [ 7, 8, 4 ],
+            [ 7, 9, 3 ],
+            [ 7, 10, 2 ],
+            [ 8, 1, 10 ],
+            [ 8, 2, 9 ],
+            [ 8, 3, 8 ],
+            [ 8, 4, 7 ],
+            [ 8, 5, 6 ],
+            [ 8, 6, 5 ],
+            [ 8, 7, 4 ],
+            [ 8, 8, 3 ],
+            [ 8, 9, 2 ],
+            [ 8, 10, 1 ],
+            [ 9, 1, 9 ],
+            [ 9, 2, 8 ],
+            [ 9, 3, 7 ],
+            [ 9, 4, 6 ],
+            [ 9, 5, 5 ],
+            [ 9, 6, 4 ],
+            [ 9, 7, 3 ],
+            [ 9, 8, 2 ],
+            [ 9, 9, 1 ],
+            [ 10, 1, 8 ],
+            [ 10, 2, 7 ],
+            [ 10, 3, 6 ],
+            [ 10, 4, 5 ],
+            [ 10, 5, 4 ],
+            [ 10, 6, 3 ],
+            [ 10, 7, 2 ],
+            [ 10, 8, 1 ] ],
+    '20,false':
+        [ [ 1, 9, 10 ],
+            [ 1, 10, 9 ],
+            [ 2, 8, 10 ],
+            [ 2, 9, 9 ],
+            [ 2, 10, 8 ],
+            [ 3, 7, 10 ],
+            [ 3, 8, 9 ],
+            [ 3, 9, 8 ],
+            [ 3, 10, 7 ],
+            [ 4, 6, 10 ],
+            [ 4, 7, 9 ],
+            [ 4, 8, 8 ],
+            [ 4, 9, 7 ],
+            [ 4, 10, 6 ],
+            [ 5, 5, 10 ],
+            [ 5, 6, 9 ],
+            [ 5, 7, 8 ],
+            [ 5, 8, 7 ],
+            [ 5, 9, 6 ],
+            [ 5, 10, 5 ],
+            [ 6, 4, 10 ],
+            [ 6, 5, 9 ],
+            [ 6, 6, 8 ],
+            [ 6, 7, 7 ],
+            [ 6, 8, 6 ],
+            [ 6, 9, 5 ],
+            [ 6, 10, 4 ],
+            [ 7, 3, 10 ],
+            [ 7, 4, 9 ],
+            [ 7, 5, 8 ],
+            [ 7, 6, 7 ],
+            [ 7, 7, 6 ],
+            [ 7, 8, 5 ],
+            [ 7, 9, 4 ],
+            [ 7, 10, 3 ],
+            [ 8, 2, 10 ],
+            [ 8, 3, 9 ],
+            [ 8, 4, 8 ],
+            [ 8, 5, 7 ],
+            [ 8, 6, 6 ],
+            [ 8, 7, 5 ],
+            [ 8, 8, 4 ],
+            [ 8, 9, 3 ],
+            [ 8, 10, 2 ],
+            [ 9, 1, 10 ],
+            [ 9, 2, 9 ],
+            [ 9, 3, 8 ],
+            [ 9, 4, 7 ],
+            [ 9, 5, 6 ],
+            [ 9, 6, 5 ],
+            [ 9, 7, 4 ],
+            [ 9, 8, 3 ],
+            [ 9, 9, 2 ],
+            [ 9, 10, 1 ],
+            [ 10, 1, 9 ],
+            [ 10, 2, 8 ],
+            [ 10, 3, 7 ],
+            [ 10, 4, 6 ],
+            [ 10, 5, 5 ],
+            [ 10, 6, 4 ],
+            [ 10, 7, 3 ],
+            [ 10, 8, 2 ],
+            [ 10, 9, 1 ] ],
+    '21,false':
+        [ [ 1, 10, 10 ],
+            [ 2, 9, 10 ],
+            [ 2, 10, 9 ],
+            [ 3, 8, 10 ],
+            [ 3, 9, 9 ],
+            [ 3, 10, 8 ],
+            [ 4, 7, 10 ],
+            [ 4, 8, 9 ],
+            [ 4, 9, 8 ],
+            [ 4, 10, 7 ],
+            [ 5, 6, 10 ],
+            [ 5, 7, 9 ],
+            [ 5, 8, 8 ],
+            [ 5, 9, 7 ],
+            [ 5, 10, 6 ],
+            [ 6, 5, 10 ],
+            [ 6, 6, 9 ],
+            [ 6, 7, 8 ],
+            [ 6, 8, 7 ],
+            [ 6, 9, 6 ],
+            [ 6, 10, 5 ],
+            [ 7, 4, 10 ],
+            [ 7, 5, 9 ],
+            [ 7, 6, 8 ],
+            [ 7, 7, 7 ],
+            [ 7, 8, 6 ],
+            [ 7, 9, 5 ],
+            [ 7, 10, 4 ],
+            [ 8, 3, 10 ],
+            [ 8, 4, 9 ],
+            [ 8, 5, 8 ],
+            [ 8, 6, 7 ],
+            [ 8, 7, 6 ],
+            [ 8, 8, 5 ],
+            [ 8, 9, 4 ],
+            [ 8, 10, 3 ],
+            [ 9, 2, 10 ],
+            [ 9, 3, 9 ],
+            [ 9, 4, 8 ],
+            [ 9, 5, 7 ],
+            [ 9, 6, 6 ],
+            [ 9, 7, 5 ],
+            [ 9, 8, 4 ],
+            [ 9, 9, 3 ],
+            [ 9, 10, 2 ],
+            [ 10, 1, 10 ],
+            [ 10, 2, 9 ],
+            [ 10, 3, 8 ],
+            [ 10, 4, 7 ],
+            [ 10, 5, 6 ],
+            [ 10, 6, 5 ],
+            [ 10, 7, 4 ],
+            [ 10, 8, 3 ],
+            [ 10, 9, 2 ],
+            [ 10, 10, 1 ] ],
+    '6,false': [ [ 2, 2, 2 ] ],
+    '7,false': [ [ 2, 2, 3 ], [ 2, 3, 2 ], [ 3, 2, 2 ] ],
+    '8,false':
+        [ [ 2, 2, 4 ],
+            [ 2, 3, 3 ],
+            [ 2, 4, 2 ],
+            [ 3, 2, 3 ],
+            [ 3, 3, 2 ],
+            [ 4, 2, 2 ] ],
+    '9,false':
+        [ [ 2, 2, 5 ],
+            [ 2, 3, 4 ],
+            [ 2, 4, 3 ],
+            [ 2, 5, 2 ],
+            [ 3, 2, 4 ],
+            [ 3, 3, 3 ],
+            [ 3, 4, 2 ],
+            [ 4, 2, 3 ],
+            [ 4, 3, 2 ],
+            [ 5, 2, 2 ] ],
+    '10,false':
+        [ [ 2, 2, 6 ],
+            [ 2, 3, 5 ],
+            [ 2, 4, 4 ],
+            [ 2, 5, 3 ],
+            [ 2, 6, 2 ],
+            [ 3, 2, 5 ],
+            [ 3, 3, 4 ],
+            [ 3, 4, 3 ],
+            [ 3, 5, 2 ],
+            [ 4, 2, 4 ],
+            [ 4, 3, 3 ],
+            [ 4, 4, 2 ],
+            [ 5, 2, 3 ],
+            [ 5, 3, 2 ],
+            [ 6, 2, 2 ] ],
+    '11,false':
+        [ [ 2, 2, 7 ],
+            [ 2, 3, 6 ],
+            [ 2, 4, 5 ],
+            [ 2, 5, 4 ],
+            [ 2, 6, 3 ],
+            [ 2, 7, 2 ],
+            [ 3, 2, 6 ],
+            [ 3, 3, 5 ],
+            [ 3, 4, 4 ],
+            [ 3, 5, 3 ],
+            [ 3, 6, 2 ],
+            [ 4, 2, 5 ],
+            [ 4, 3, 4 ],
+            [ 4, 4, 3 ],
+            [ 4, 5, 2 ],
+            [ 5, 2, 4 ],
+            [ 5, 3, 3 ],
+            [ 5, 4, 2 ],
+            [ 6, 2, 3 ],
+            [ 6, 3, 2 ],
+            [ 7, 2, 2 ] ] }
 let combineH=[
     [ 5, 1, false ],
     [ 5, 2, false ],
@@ -410,6 +1339,15 @@ let combineSplit=[
     [ [ 10, 10 ], 9 ],
     [ [ 10, 10 ], 10 ]
 ]
+let twoCardsCombineH1=makeTwoCardsCombine(combineH)
+let twoCardsCombineH=_.filter(twoCardsCombineH1,function(o){
+    return o[0][0]<=o[0][1]
+})
+let twoCardsCombineSplit=makeTwoCardsCombine(combineSplit)
+let twoCardsCombineS1=makeTwoCardsCombine(combineS)
+let twoCardsCombineS=_.filter(twoCardsCombineS1,function(o){
+    return o[0][0]<=o[0][1]
+})
 function Points(cards){
     const info={total:0,soft:false,blackjack:false}
     let hasAce=false
@@ -578,37 +1516,39 @@ let oneDeckS17HardTrusy=[
     [ 11, 10, false ],
 
 ]
-let oneDeckS17HardFalsy=_.differenceWith(combineH,oneDeckS17HardTrusy,_.isEqual)
+let oneDeckS17HardTwoCardsTrusy=makeTwoCardsCombine(oneDeckS17HardTrusy)
 
-function OneDeckS17Hard(playerPoint,dealerCard,soft){
+let oneDeckS17HardFalsy=_.differenceWith(twoCardsCombineH,oneDeckS17HardTwoCardsTrusy,_.isEqual)
+
+function OneDeckS17Hard(playerPoint,dealerCard){
     const options=GameOptions({
         hitSoft17:false,
         numberOfDecks:1,
         charlie:false,
 
     })
-    const handValue=playerPoint
+    const handValue=Points(playerPoint)
     const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+    return [playerPoint,dealerCard,handValue,handCount,options]
 }
 
-describe('One Deck S17 Hard hands',function(){
-    describe('double',function(){
-        oneDeckS17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...OneDeckS17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        oneDeckS17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...OneDeckS17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
+// describe('One Deck S17 Hard hands',function(){
+//     describe('double',function(){
+//         oneDeckS17HardTwoCardsTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...OneDeckS17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         oneDeckS17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...OneDeckS17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
 
 let oneDeckS17SoftTrusy=[
 
@@ -647,37 +1587,40 @@ let oneDeckS17SoftTrusy=[
     [ 19, 6, true ],
 
 ]
-let oneDeckS17SoftFalsy=_.differenceWith(combineS,oneDeckS17SoftTrusy,_.isEqual)
+let oneDeckS17SoftTwoCardsTrusy=makeTwoCardsCombine(oneDeckS17SoftTrusy)
+let oneDeckS17SoftFalsy=_.differenceWith(twoCardsCombineS,oneDeckS17SoftTwoCardsTrusy,_.isEqual)
 
-function OneDeckS17Soft(playerPoint,dealerCard,soft){
+function OneDeckS17Soft(playerPoint,dealerCard){
     const options=GameOptions({
         hitSoft17:false,
         numberOfDecks:1,
         charlie:false,
 
     })
-    const handValue=playerPoint
+    const handValue=Points(playerPoint)
     const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+    return [playerPoint,dealerCard,handValue,handCount,options]
 }
 
-describe('One Deck S17 Soft hands',function(){
-    describe('double',function(){
-        oneDeckS17SoftTrusy.forEach(function(value){
+console.log(Double(...OneDeckS17Soft([1,2],4)))
 
-            it(`${value} should return true`,function(){
-                expect(Double(...OneDeckS17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        oneDeckS17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...OneDeckS17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
+// describe('One Deck S17 Soft hands',function(){
+//     describe('double',function(){
+//         oneDeckS17SoftTwoCardsTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...OneDeckS17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         oneDeckS17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...OneDeckS17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
 
 let oneDeckSplitsNoDASTrusy=[
     [[4,4],5],
@@ -707,56 +1650,56 @@ function OneDeckSplitsNoDAS(playerCards,dealerCard){
     return [playerCards,dealerCard,handValue,handCount,options]
 }
 
-describe('One Deck S17 Split hands No DAS',function(){
-    describe('double',function(){
-        oneDeckSplitsNoDASTrusy.forEach(function(value){
+// describe('One Deck S17 Split hands No DAS',function(){
+//     describe('double',function(){
+//         oneDeckSplitsNoDASTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...OneDeckSplitsNoDAS(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         oneDeckSplitsNoDASFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...OneDeckSplitsNoDAS(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
 
-            it(`${value} should return true`,function(){
-                expect(Double(...OneDeckSplitsNoDAS(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        oneDeckSplitsNoDASFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...OneDeckSplitsNoDAS(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-
-let oneDeckH17HardTrusy=oneDeckS17HardTrusy
+//
+let oneDeckH17HardTrusy=oneDeckS17HardTwoCardsTrusy
 let oneDeckH17HardFalsy=oneDeckS17HardFalsy
-function OneDeckH17Hard(playerPoint,dealerCard,soft){
+function OneDeckH17Hard(playerPoint,dealerCard){
     const options=GameOptions({
         hitSoft17:true,
         numberOfDecks:1,
         charlie:false,
 
     })
-    const handValue=playerPoint
+    const handValue=Points(playerPoint)
     const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:false},handCount,options]
+    return [playerPoint,dealerCard,handValue,handCount,options]
 }
 
-describe('One Deck H17 Hard hands',function(){
-    describe('double',function(){
-        oneDeckH17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...OneDeckH17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        oneDeckH17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...OneDeckH17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
+// describe('One Deck H17 Hard hands',function(){
+//     describe('double',function(){
+//         oneDeckH17HardTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...OneDeckH17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         oneDeckH17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...OneDeckH17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
 
 let oneDeckH17SoftTrusy=[
     [ 13, 4, true ],
@@ -793,37 +1736,38 @@ let oneDeckH17SoftTrusy=[
 
     [ 19, 6, true ],
 ]
-let oneDeckH17SoftFalsy=_.differenceWith(combineS,oneDeckH17SoftTrusy,_.isEqual)
-function OneDeckS17Soft(playerPoint,dealerCard,soft){
+let oneDeckH17SoftTwoCardsTrusy=makeTwoCardsCombine(oneDeckH17SoftTrusy)
+let oneDeckH17SoftFalsy=_.differenceWith(twoCardsCombineS,oneDeckH17SoftTwoCardsTrusy,_.isEqual)
+function OneDeckS17Soft(playerPoint,dealerCard){
     const options=GameOptions({
         hitSoft17:true,
         numberOfDecks:1,
         charlie:false,
 
     })
-    const handValue=playerPoint
+    const handValue=Points(playerPoint)
     const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+    return [playerPoint,dealerCard,handValue,handCount,options]
 }
 
-describe('One Deck H17 Soft hands',function(){
-    describe('double',function(){
-        oneDeckH17SoftTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...OneDeckS17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        oneDeckH17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...OneDeckS17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
+// describe('One Deck H17 Soft hands',function(){
+//     describe('double',function(){
+//         oneDeckH17SoftTwoCardsTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...OneDeckS17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         oneDeckH17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...OneDeckS17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
 let oneDeckH17SplitsNoDASTrusy=oneDeckSplitsNoDASTrusy
 let oneDeckH17SplitsNoDASFalsy=oneDeckSplitsNoDASFalsy
 function OneDeckH17SplitsNoDAS(playerCards,dealerCard){
@@ -856,613 +1800,613 @@ describe('One Deck H17 Split hands No DAS',function(){
         })
     })
 })
-
-
-//DOUBLE DECKS
-let twoDecksS17HardTrusy=[
-
-
-    [ 9, 2, false ],
-    [ 9, 3, false ],
-    [ 9, 4, false ],
-    [ 9, 5, false ],
-    [ 9, 6, false ],
-
-
-    [ 10, 2, false ],
-    [ 10, 3, false ],
-    [ 10, 4, false ],
-    [ 10, 5, false ],
-    [ 10, 6, false ],
-    [ 10, 7, false ],
-    [ 10, 8, false ],
-    [ 10, 9, false ],
-
-    [ 11, 1, false ],
-    [ 11, 2, false ],
-    [ 11, 3, false ],
-    [ 11, 4, false ],
-    [ 11, 5, false ],
-    [ 11, 6, false ],
-    [ 11, 7, false ],
-    [ 11, 8, false ],
-    [ 11, 9, false ],
-    [ 11, 10, false ],
-]
-let twoDecksS17HardFalsy=_.differenceWith(combineH,twoDecksS17HardTrusy,_.isEqual)
-function TwoDecksS17Hard(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:2,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Two Decks S17 Hard hands',function(){
-    describe('double',function(){
-        twoDecksS17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...TwoDecksS17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        twoDecksS17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...TwoDecksS17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let twoDecksS17SoftTrusy=[
-
-    [ 13, 5, true ],
-    [ 13, 6, true ],
-
-
-
-    [ 14, 5, true ],
-    [ 14, 6, true ],
-
-
-    [ 15, 4, true ],
-    [ 15, 5, true ],
-    [ 15, 6, true ],
-
-    [ 16, 4, true ],
-    [ 16, 5, true ],
-    [ 16, 6, true ],
-
-
-
-    [ 17, 3, true ],
-    [ 17, 4, true ],
-    [ 17, 5, true ],
-    [ 17, 6, true ],
-
-
-    [ 18, 3, true ],
-    [ 18, 4, true ],
-    [ 18, 5, true ],
-    [ 18, 6, true ],
-
-]
-let twoDecksS17SoftFalsy=_.differenceWith(combineS,twoDecksS17SoftTrusy,_.isEqual)
-function TwoDecksS17Soft(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:2,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Two Decks S17 Soft hands',function(){
-    describe('double',function(){
-        twoDecksS17SoftTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...TwoDecksS17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        twoDecksS17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...TwoDecksS17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let twoDecksH17HardTrusy=[
-    [ 9, 2, false ],
-    [ 9, 3, false ],
-    [ 9, 4, false ],
-    [ 9, 5, false ],
-    [ 9, 6, false ],
-
-
-    [ 10, 2, false ],
-    [ 10, 3, false ],
-    [ 10, 4, false ],
-    [ 10, 5, false ],
-    [ 10, 6, false ],
-    [ 10, 7, false ],
-    [ 10, 8, false ],
-    [ 10, 9, false ],
-
-    [ 11, 1, false ],
-    [ 11, 2, false ],
-    [ 11, 3, false ],
-    [ 11, 4, false ],
-    [ 11, 5, false ],
-    [ 11, 6, false ],
-    [ 11, 7, false ],
-    [ 11, 8, false ],
-    [ 11, 9, false ],
-    [ 11, 10, false ],
-]
-let twoDecksH17HardFalsy=_.differenceWith(combineH,twoDecksH17HardTrusy,_.isEqual)
-function TwoDecksH17Hard(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:true,
-        numberOfDecks:2,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Two Decks H17 Hard hands',function(){
-    describe('double',function(){
-        twoDecksH17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...TwoDecksH17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        twoDecksH17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...TwoDecksH17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let twoDecksH17SoftTrusy=[
-
-    [ 13, 5, true ],
-    [ 13, 6, true ],
-
-
-    [ 14, 4, true ],
-    [ 14, 5, true ],
-    [ 14, 6, true ],
-
-
-    [ 15, 4, true ],
-    [ 15, 5, true ],
-    [ 15, 6, true ],
-
-    [ 16, 4, true ],
-    [ 16, 5, true ],
-    [ 16, 6, true ],
-
-
-
-    [ 17, 3, true ],
-    [ 17, 4, true ],
-    [ 17, 5, true ],
-    [ 17, 6, true ],
-
-
-    [ 18, 2, true ],
-    [ 18, 3, true ],
-    [ 18, 4, true ],
-    [ 18, 5, true ],
-    [ 18, 6, true ],
-
-
-    [ 19, 6, true ],
-
-]
-let twoDecksH17SoftFalsy=_.differenceWith(combineS,twoDecksH17SoftTrusy,_.isEqual)
-function TwoDecksH17Soft(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:true,
-        numberOfDecks:2,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-describe('Two Decks H17 Soft hands',function(){
-    describe('double',function(){
-        twoDecksH17SoftTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...TwoDecksH17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        twoDecksH17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...TwoDecksH17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-//4 decks
-let fourDecksS17HardTrusy=[
-
-    [ 9, 3, false ],
-    [ 9, 4, false ],
-    [ 9, 5, false ],
-    [ 9, 6, false ],
-
-
-    [ 10, 2, false ],
-    [ 10, 3, false ],
-    [ 10, 4, false ],
-    [ 10, 5, false ],
-    [ 10, 6, false ],
-    [ 10, 7, false ],
-    [ 10, 8, false ],
-    [ 10, 9, false ],
-
-
-    [ 11, 2, false ],
-    [ 11, 3, false ],
-    [ 11, 4, false ],
-    [ 11, 5, false ],
-    [ 11, 6, false ],
-    [ 11, 7, false ],
-    [ 11, 8, false ],
-    [ 11, 9, false ],
-    [ 11, 10, false ],
-]
-let fourDecksS17HardFalsy=_.differenceWith(combineH,fourDecksS17HardTrusy,_.isEqual)
-function FourDecksS17Hard(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:4,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-describe('Four Decks S17 Hard hands',function(){
-    describe('double',function(){
-        fourDecksS17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksS17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksS17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksS17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let fourDecksS17SoftTrusy=[
-
-    [ 13, 5, true ],
-    [ 13, 6, true ],
-
-
-
-    [ 14, 5, true ],
-    [ 14, 6, true ],
-
-
-    [ 15, 4, true ],
-    [ 15, 5, true ],
-    [ 15, 6, true ],
-
-    [ 16, 4, true ],
-    [ 16, 5, true ],
-    [ 16, 6, true ],
-
-
-
-    [ 17, 3, true ],
-    [ 17, 4, true ],
-    [ 17, 5, true ],
-    [ 17, 6, true ],
-
-
-    [ 18, 3, true ],
-    [ 18, 4, true ],
-    [ 18, 5, true ],
-    [ 18, 6, true ],
-
-]
-let fourDecksS17SoftFalsy=_.differenceWith(combineS,fourDecksS17SoftTrusy,_.isEqual)
-function FourDecksS17Soft(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:4,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Four Decks S17 Soft hands',function(){
-    describe('double',function(){
-        fourDecksS17SoftTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksS17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksS17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksS17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let fourDecksH17HardTrusy=[
-
-    [ 9, 3, false ],
-    [ 9, 4, false ],
-    [ 9, 5, false ],
-    [ 9, 6, false ],
-
-
-    [ 10, 2, false ],
-    [ 10, 3, false ],
-    [ 10, 4, false ],
-    [ 10, 5, false ],
-    [ 10, 6, false ],
-    [ 10, 7, false ],
-    [ 10, 8, false ],
-    [ 10, 9, false ],
-
-    [ 11, 1, false ],
-    [ 11, 2, false ],
-    [ 11, 3, false ],
-    [ 11, 4, false ],
-    [ 11, 5, false ],
-    [ 11, 6, false ],
-    [ 11, 7, false ],
-    [ 11, 8, false ],
-    [ 11, 9, false ],
-    [ 11, 10, false ],
-]
-let fourDecksH17HardFalsy=_.differenceWith(combineH,fourDecksH17HardTrusy,_.isEqual)
-function FourDecksH17Hard(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:true,
-        numberOfDecks:4,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Four Decks H17 Hard hands',function(){
-    describe('double',function(){
-        fourDecksH17HardTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksH17Hard(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksH17HardFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksH17Hard(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let fourDecksH17SoftTrusy=[
-
-    [ 13, 5, true ],
-    [ 13, 6, true ],
-
-    [ 14, 5, true ],
-    [ 14, 6, true ],
-
-
-    [ 15, 4, true ],
-    [ 15, 5, true ],
-    [ 15, 6, true ],
-
-    [ 16, 4, true ],
-    [ 16, 5, true ],
-    [ 16, 6, true ],
-
-
-
-    [ 17, 3, true ],
-    [ 17, 4, true ],
-    [ 17, 5, true ],
-    [ 17, 6, true ],
-
-
-    [ 18, 2, true ],
-    [ 18, 3, true ],
-    [ 18, 4, true ],
-    [ 18, 5, true ],
-    [ 18, 6, true ],
-
-
-    [ 19, 6, true ],
-
-]
-let fourDecksH17SoftFalsy=_.differenceWith(combineS,fourDecksH17SoftTrusy,_.isEqual)
-function FourDecksH17Soft(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:true,
-        numberOfDecks:4,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-describe('Four Decks H17 Soft hands',function(){
-    describe('double',function(){
-        fourDecksH17SoftTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksH17Soft(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksH17SoftFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksH17Soft(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-//charlie
-let fourDecksS17HardCharlieTrusy=[
-
-    [ 9, 3, false ],
-    [ 9, 4, false ],
-    [ 9, 5, false ],
-    [ 9, 6, false ],
-
-
-    [ 10, 2, false ],
-    [ 10, 3, false ],
-    [ 10, 4, false ],
-    [ 10, 5, false ],
-    [ 10, 6, false ],
-    [ 10, 7, false ],
-    [ 10, 8, false ],
-    [ 10, 9, false ],
-
-
-    [ 11, 2, false ],
-    [ 11, 3, false ],
-    [ 11, 4, false ],
-    [ 11, 5, false ],
-    [ 11, 6, false ],
-    [ 11, 7, false ],
-    [ 11, 8, false ],
-    [ 11, 9, false ],
-    [ 11, 10, false ],
-]
-let fourDecksS17HardCharlieFalsy=_.differenceWith(combineH,fourDecksS17HardCharlieTrusy,_.isEqual)
-function FourDecksS17HardCharlie(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:4,
-        charlie:5,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-describe('Four Decks S17 Hard hands Charlie',function(){
-    describe('double',function(){
-        fourDecksS17HardCharlieTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksS17HardCharlie(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksS17HardCharlieFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksS17HardCharlie(...value))).to.not.be.ok
-            })
-        })
-    })
-})
-
-let fourDecksS17SoftCharlieTrusy=[
-
-    [ 15, 6, true ],
-
-
-    [ 16, 5, true ],
-    [ 16, 6, true ],
-
-    [ 17, 3, true ],
-    [ 17, 4, true ],
-    [ 17, 5, true ],
-    [ 17, 6, true ],
-
-
-    [ 18, 3, true ],
-    [ 18, 4, true ],
-    [ 18, 5, true ],
-    [ 18, 6, true ],
-
-]
-let fourDecksS17SoftCharlieFalsy=_.differenceWith(combineS,fourDecksS17SoftTrusy,_.isEqual)
-function FourDecksS17SoftCharlie(playerPoint,dealerCard,soft){
-    const options=GameOptions({
-        hitSoft17:false,
-        numberOfDecks:4,
-        charlie:false,
-
-    })
-    const handValue=playerPoint
-    const handCount=1
-    return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
-}
-
-describe('Four Decks S17 Soft hands Charlie',function(){
-    describe('double',function(){
-        fourDecksS17SoftCharlieTrusy.forEach(function(value){
-
-            it(`${value} should return true`,function(){
-                expect(Double(...FourDecksS17SoftCharlie(...value))).to.be.ok
-            })
-        })
-    })
-    describe('Not double',function(){
-        fourDecksS17SoftCharlieFalsy.forEach(function(value){
-            it(`${value} should return false`,function(){
-                expect(Double(...FourDecksS17SoftCharlie(...value))).to.not.be.ok
-            })
-        })
-    })
-})
+//
+//
+// //DOUBLE DECKS
+// let twoDecksS17HardTrusy=[
+//
+//
+//     [ 9, 2, false ],
+//     [ 9, 3, false ],
+//     [ 9, 4, false ],
+//     [ 9, 5, false ],
+//     [ 9, 6, false ],
+//
+//
+//     [ 10, 2, false ],
+//     [ 10, 3, false ],
+//     [ 10, 4, false ],
+//     [ 10, 5, false ],
+//     [ 10, 6, false ],
+//     [ 10, 7, false ],
+//     [ 10, 8, false ],
+//     [ 10, 9, false ],
+//
+//     [ 11, 1, false ],
+//     [ 11, 2, false ],
+//     [ 11, 3, false ],
+//     [ 11, 4, false ],
+//     [ 11, 5, false ],
+//     [ 11, 6, false ],
+//     [ 11, 7, false ],
+//     [ 11, 8, false ],
+//     [ 11, 9, false ],
+//     [ 11, 10, false ],
+// ]
+// let twoDecksS17HardFalsy=_.differenceWith(combineH,twoDecksS17HardTrusy,_.isEqual)
+// function TwoDecksS17Hard(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:2,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Two Decks S17 Hard hands',function(){
+//     describe('double',function(){
+//         twoDecksS17HardTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...TwoDecksS17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         twoDecksS17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...TwoDecksS17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let twoDecksS17SoftTrusy=[
+//
+//     [ 13, 5, true ],
+//     [ 13, 6, true ],
+//
+//
+//
+//     [ 14, 5, true ],
+//     [ 14, 6, true ],
+//
+//
+//     [ 15, 4, true ],
+//     [ 15, 5, true ],
+//     [ 15, 6, true ],
+//
+//     [ 16, 4, true ],
+//     [ 16, 5, true ],
+//     [ 16, 6, true ],
+//
+//
+//
+//     [ 17, 3, true ],
+//     [ 17, 4, true ],
+//     [ 17, 5, true ],
+//     [ 17, 6, true ],
+//
+//
+//     [ 18, 3, true ],
+//     [ 18, 4, true ],
+//     [ 18, 5, true ],
+//     [ 18, 6, true ],
+//
+// ]
+// let twoDecksS17SoftFalsy=_.differenceWith(combineS,twoDecksS17SoftTrusy,_.isEqual)
+// function TwoDecksS17Soft(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:2,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Two Decks S17 Soft hands',function(){
+//     describe('double',function(){
+//         twoDecksS17SoftTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...TwoDecksS17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         twoDecksS17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...TwoDecksS17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let twoDecksH17HardTrusy=[
+//     [ 9, 2, false ],
+//     [ 9, 3, false ],
+//     [ 9, 4, false ],
+//     [ 9, 5, false ],
+//     [ 9, 6, false ],
+//
+//
+//     [ 10, 2, false ],
+//     [ 10, 3, false ],
+//     [ 10, 4, false ],
+//     [ 10, 5, false ],
+//     [ 10, 6, false ],
+//     [ 10, 7, false ],
+//     [ 10, 8, false ],
+//     [ 10, 9, false ],
+//
+//     [ 11, 1, false ],
+//     [ 11, 2, false ],
+//     [ 11, 3, false ],
+//     [ 11, 4, false ],
+//     [ 11, 5, false ],
+//     [ 11, 6, false ],
+//     [ 11, 7, false ],
+//     [ 11, 8, false ],
+//     [ 11, 9, false ],
+//     [ 11, 10, false ],
+// ]
+// let twoDecksH17HardFalsy=_.differenceWith(combineH,twoDecksH17HardTrusy,_.isEqual)
+// function TwoDecksH17Hard(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:true,
+//         numberOfDecks:2,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Two Decks H17 Hard hands',function(){
+//     describe('double',function(){
+//         twoDecksH17HardTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...TwoDecksH17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         twoDecksH17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...TwoDecksH17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let twoDecksH17SoftTrusy=[
+//
+//     [ 13, 5, true ],
+//     [ 13, 6, true ],
+//
+//
+//     [ 14, 4, true ],
+//     [ 14, 5, true ],
+//     [ 14, 6, true ],
+//
+//
+//     [ 15, 4, true ],
+//     [ 15, 5, true ],
+//     [ 15, 6, true ],
+//
+//     [ 16, 4, true ],
+//     [ 16, 5, true ],
+//     [ 16, 6, true ],
+//
+//
+//
+//     [ 17, 3, true ],
+//     [ 17, 4, true ],
+//     [ 17, 5, true ],
+//     [ 17, 6, true ],
+//
+//
+//     [ 18, 2, true ],
+//     [ 18, 3, true ],
+//     [ 18, 4, true ],
+//     [ 18, 5, true ],
+//     [ 18, 6, true ],
+//
+//
+//     [ 19, 6, true ],
+//
+// ]
+// let twoDecksH17SoftFalsy=_.differenceWith(combineS,twoDecksH17SoftTrusy,_.isEqual)
+// function TwoDecksH17Soft(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:true,
+//         numberOfDecks:2,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+// describe('Two Decks H17 Soft hands',function(){
+//     describe('double',function(){
+//         twoDecksH17SoftTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...TwoDecksH17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         twoDecksH17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...TwoDecksH17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// //4 decks
+// let fourDecksS17HardTrusy=[
+//
+//     [ 9, 3, false ],
+//     [ 9, 4, false ],
+//     [ 9, 5, false ],
+//     [ 9, 6, false ],
+//
+//
+//     [ 10, 2, false ],
+//     [ 10, 3, false ],
+//     [ 10, 4, false ],
+//     [ 10, 5, false ],
+//     [ 10, 6, false ],
+//     [ 10, 7, false ],
+//     [ 10, 8, false ],
+//     [ 10, 9, false ],
+//
+//
+//     [ 11, 2, false ],
+//     [ 11, 3, false ],
+//     [ 11, 4, false ],
+//     [ 11, 5, false ],
+//     [ 11, 6, false ],
+//     [ 11, 7, false ],
+//     [ 11, 8, false ],
+//     [ 11, 9, false ],
+//     [ 11, 10, false ],
+// ]
+// let fourDecksS17HardFalsy=_.differenceWith(combineH,fourDecksS17HardTrusy,_.isEqual)
+// function FourDecksS17Hard(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:4,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+// describe('Four Decks S17 Hard hands',function(){
+//     describe('double',function(){
+//         fourDecksS17HardTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksS17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksS17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksS17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let fourDecksS17SoftTrusy=[
+//
+//     [ 13, 5, true ],
+//     [ 13, 6, true ],
+//
+//
+//
+//     [ 14, 5, true ],
+//     [ 14, 6, true ],
+//
+//
+//     [ 15, 4, true ],
+//     [ 15, 5, true ],
+//     [ 15, 6, true ],
+//
+//     [ 16, 4, true ],
+//     [ 16, 5, true ],
+//     [ 16, 6, true ],
+//
+//
+//
+//     [ 17, 3, true ],
+//     [ 17, 4, true ],
+//     [ 17, 5, true ],
+//     [ 17, 6, true ],
+//
+//
+//     [ 18, 3, true ],
+//     [ 18, 4, true ],
+//     [ 18, 5, true ],
+//     [ 18, 6, true ],
+//
+// ]
+// let fourDecksS17SoftFalsy=_.differenceWith(combineS,fourDecksS17SoftTrusy,_.isEqual)
+// function FourDecksS17Soft(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:4,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Four Decks S17 Soft hands',function(){
+//     describe('double',function(){
+//         fourDecksS17SoftTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksS17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksS17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksS17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let fourDecksH17HardTrusy=[
+//
+//     [ 9, 3, false ],
+//     [ 9, 4, false ],
+//     [ 9, 5, false ],
+//     [ 9, 6, false ],
+//
+//
+//     [ 10, 2, false ],
+//     [ 10, 3, false ],
+//     [ 10, 4, false ],
+//     [ 10, 5, false ],
+//     [ 10, 6, false ],
+//     [ 10, 7, false ],
+//     [ 10, 8, false ],
+//     [ 10, 9, false ],
+//
+//     [ 11, 1, false ],
+//     [ 11, 2, false ],
+//     [ 11, 3, false ],
+//     [ 11, 4, false ],
+//     [ 11, 5, false ],
+//     [ 11, 6, false ],
+//     [ 11, 7, false ],
+//     [ 11, 8, false ],
+//     [ 11, 9, false ],
+//     [ 11, 10, false ],
+// ]
+// let fourDecksH17HardFalsy=_.differenceWith(combineH,fourDecksH17HardTrusy,_.isEqual)
+// function FourDecksH17Hard(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:true,
+//         numberOfDecks:4,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Four Decks H17 Hard hands',function(){
+//     describe('double',function(){
+//         fourDecksH17HardTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksH17Hard(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksH17HardFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksH17Hard(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let fourDecksH17SoftTrusy=[
+//
+//     [ 13, 5, true ],
+//     [ 13, 6, true ],
+//
+//     [ 14, 5, true ],
+//     [ 14, 6, true ],
+//
+//
+//     [ 15, 4, true ],
+//     [ 15, 5, true ],
+//     [ 15, 6, true ],
+//
+//     [ 16, 4, true ],
+//     [ 16, 5, true ],
+//     [ 16, 6, true ],
+//
+//
+//
+//     [ 17, 3, true ],
+//     [ 17, 4, true ],
+//     [ 17, 5, true ],
+//     [ 17, 6, true ],
+//
+//
+//     [ 18, 2, true ],
+//     [ 18, 3, true ],
+//     [ 18, 4, true ],
+//     [ 18, 5, true ],
+//     [ 18, 6, true ],
+//
+//
+//     [ 19, 6, true ],
+//
+// ]
+// let fourDecksH17SoftFalsy=_.differenceWith(combineS,fourDecksH17SoftTrusy,_.isEqual)
+// function FourDecksH17Soft(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:true,
+//         numberOfDecks:4,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+// describe('Four Decks H17 Soft hands',function(){
+//     describe('double',function(){
+//         fourDecksH17SoftTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksH17Soft(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksH17SoftFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksH17Soft(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// //charlie
+// let fourDecksS17HardCharlieTrusy=[
+//
+//     [ 9, 3, false ],
+//     [ 9, 4, false ],
+//     [ 9, 5, false ],
+//     [ 9, 6, false ],
+//
+//
+//     [ 10, 2, false ],
+//     [ 10, 3, false ],
+//     [ 10, 4, false ],
+//     [ 10, 5, false ],
+//     [ 10, 6, false ],
+//     [ 10, 7, false ],
+//     [ 10, 8, false ],
+//     [ 10, 9, false ],
+//
+//
+//     [ 11, 2, false ],
+//     [ 11, 3, false ],
+//     [ 11, 4, false ],
+//     [ 11, 5, false ],
+//     [ 11, 6, false ],
+//     [ 11, 7, false ],
+//     [ 11, 8, false ],
+//     [ 11, 9, false ],
+//     [ 11, 10, false ],
+// ]
+// let fourDecksS17HardCharlieFalsy=_.differenceWith(combineH,fourDecksS17HardCharlieTrusy,_.isEqual)
+// function FourDecksS17HardCharlie(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:4,
+//         charlie:5,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+// describe('Four Decks S17 Hard hands Charlie',function(){
+//     describe('double',function(){
+//         fourDecksS17HardCharlieTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksS17HardCharlie(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksS17HardCharlieFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksS17HardCharlie(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })
+//
+// let fourDecksS17SoftCharlieTrusy=[
+//
+//     [ 15, 6, true ],
+//
+//
+//     [ 16, 5, true ],
+//     [ 16, 6, true ],
+//
+//     [ 17, 3, true ],
+//     [ 17, 4, true ],
+//     [ 17, 5, true ],
+//     [ 17, 6, true ],
+//
+//
+//     [ 18, 3, true ],
+//     [ 18, 4, true ],
+//     [ 18, 5, true ],
+//     [ 18, 6, true ],
+//
+// ]
+// let fourDecksS17SoftCharlieFalsy=_.differenceWith(combineS,fourDecksS17SoftTrusy,_.isEqual)
+// function FourDecksS17SoftCharlie(playerPoint,dealerCard,soft){
+//     const options=GameOptions({
+//         hitSoft17:false,
+//         numberOfDecks:4,
+//         charlie:false,
+//
+//     })
+//     const handValue=playerPoint
+//     const handCount=1
+//     return [[null,null],dealerCard,{total:playerPoint,soft:soft},handCount,options]
+// }
+//
+// describe('Four Decks S17 Soft hands Charlie',function(){
+//     describe('double',function(){
+//         fourDecksS17SoftCharlieTrusy.forEach(function(value){
+//
+//             it(`${value} should return true`,function(){
+//                 expect(Double(...FourDecksS17SoftCharlie(...value))).to.be.ok
+//             })
+//         })
+//     })
+//     describe('Not double',function(){
+//         fourDecksS17SoftCharlieFalsy.forEach(function(value){
+//             it(`${value} should return false`,function(){
+//                 expect(Double(...FourDecksS17SoftCharlie(...value))).to.not.be.ok
+//             })
+//         })
+//     })
+// })

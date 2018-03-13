@@ -419,6 +419,16 @@ let combineSplit=[
     [ [ 10, 10 ], 9 ],
     [ [ 10, 10 ], 10 ]
 ]
+function makeTwoCardsCombine(arr){
+    let cardsCombine=[]
+    _.forEach(arr,function(elem){
+        let combines=twoCards[[elem[0],elem[2]]]
+        _.forEach(combines,function(combine){
+            cardsCombine.push([combine,elem[1]])
+        })
+    })
+    return cardsCombine
+}
 function Points(cards){
     const info={total:0,soft:false,blackjack:false}
     let hasAce=false
@@ -553,7 +563,7 @@ function GameOptions(options){
 
     return playerOptions
 }
-
+let twoCardsCombineH=makeTwoCardsCombine(combineH)
 
 let oneDeckS17HardTrusy=[
 
@@ -1007,6 +1017,16 @@ let twoDecksS17HardTrusy=[
     [ 19, 8, false ],
     [ 19, 9, false ],
     [ 19, 10, false ],
+    [ 20, 1, false ],
+    [ 20, 2, false ],
+    [ 20, 3, false ],
+    [ 20, 4, false ],
+    [ 20, 5, false ],
+    [ 20, 6, false ],
+    [ 20, 7, false ],
+    [ 20, 8, false ],
+    [ 20, 9, false ],
+    [ 20, 10, false ],
 ]
 let twoDecksS17HardFalsy=_.differenceWith(combineH,twoDecksS17HardTrusy,_.isEqual)
 function TwoDecksS17Hard(playerPoint,dealerCard,soft){
