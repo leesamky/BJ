@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693741dd-49b4-4a2c-a3a4-06e0756a4aed" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/double.new.test.js" afterPath="$PROJECT_DIR$/double.new.test.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/surrender.new.test.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,68 +19,36 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Blackjack.js">
+          <file leaf-file-name="surrender.new.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/surrender.new.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-                  <folding>
-                    <element signature="n#!!block;n#DealCard#0" expanded="false" />
-                    <element signature="n#!!block;n#PrintHand#0" expanded="false" />
-                    <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
-                    <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
-                    <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
-                    <element signature="n#!!block;n#RunAGame#0" expanded="false" />
-                    <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
-                    <element signature="n#!!block;n#average#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="double.new.test.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/double.new.test.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="1092" column="1" lean-forward="true" selection-start-line="1092" selection-start-column="1" selection-end-line="1092" selection-end-column="1" />
+                <state relative-caret-position="317">
+                  <caret line="1794" column="3" lean-forward="false" selection-start-line="1794" selection-start-column="3" selection-end-line="1794" selection-end-column="3" />
                   <folding>
                     <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
                     <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-                    <element signature="e#808#2466#0" expanded="false" />
-                    <element signature="e#2478#2774#0" expanded="false" />
-                    <element signature="e#2790#24135#0" expanded="false" />
-                    <element signature="e#24149#27417#0" expanded="false" />
-                    <element signature="e#27431#30549#0" expanded="false" />
-                    <element signature="e#30567#32699#0" expanded="false" />
-                    <element signature="e#32972#32976#0" expanded="false" />
-                    <element signature="e#35964#35968#0" expanded="false" />
-                    <element signature="e#38812#38816#0" expanded="false" />
-                    <element signature="e#40406#40410#0" expanded="false" />
-                    <element signature="e#43398#43402#0" expanded="false" />
-                    <element signature="e#46244#46248#0" expanded="false" />
-                    <element signature="e#47837#47841#0" expanded="false" />
-                    <element signature="e#50653#50657#0" expanded="false" />
-                    <element signature="e#53351#53355#0" expanded="false" />
-                    <element signature="e#54786#54790#0" expanded="false" />
-                    <element signature="e#57602#57606#0" expanded="false" />
-                    <element signature="e#60365#60369#0" expanded="false" />
-                    <element signature="e#61799#61803#0" expanded="false" />
-                    <element signature="e#64584#64588#0" expanded="false" />
-                    <element signature="e#67375#67379#0" expanded="false" />
-                    <element signature="e#68818#68822#0" expanded="false" />
-                    <element signature="e#71631#71635#0" expanded="false" />
-                    <element signature="e#74478#74482#0" expanded="false" />
+                    <element signature="e#759#2417#0" expanded="false" />
+                    <element signature="e#2429#2725#0" expanded="false" />
+                    <element signature="e#2741#24086#0" expanded="false" />
+                    <element signature="e#24100#27368#0" expanded="false" />
+                    <element signature="e#27382#30500#0" expanded="false" />
+                    <element signature="e#30518#32650#0" expanded="false" />
+                    <element signature="e#34905#36554#0" expanded="false" />
+                    <element signature="e#34935#35160#0" expanded="false" />
+                    <element signature="e#35314#35595#0" expanded="false" />
+                    <element signature="e#36556#40207#0" expanded="false" />
+                    <element signature="e#36588#36926#0" expanded="false" />
+                    <element signature="e#37052#37390#0" expanded="false" />
+                    <element signature="e#37550#37865#0" expanded="false" />
+                    <element signature="e#37929#38243#0" expanded="false" />
+                    <element signature="e#38305#39226#0" expanded="false" />
+                    <element signature="e#39287#40204#0" expanded="false" />
+                    <element signature="e#40209#41844#0" expanded="false" />
+                    <element signature="e#40240#40428#0" expanded="false" />
+                    <element signature="e#40588#40869#0" expanded="false" />
+                    <element signature="e#41878#42279#0" expanded="false" />
+                    <element signature="e#43748#43996#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Double.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Double.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-105">
-                  <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -88,25 +57,46 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="double.test.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/double.test.js">
+          <file leaf-file-name="surrender.test.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/surrender.test.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
-                  <caret line="2177" column="5" lean-forward="true" selection-start-line="2115" selection-start-column="0" selection-end-line="2177" selection-end-column="5" />
+                <state relative-caret-position="229">
+                  <caret line="1566" column="1" lean-forward="true" selection-start-line="1556" selection-start-column="0" selection-end-line="1566" selection-end-column="1" />
                   <folding>
+                    <element signature="e#170#1828#0" expanded="false" />
+                    <element signature="e#1840#2136#0" expanded="false" />
+                    <element signature="e#2152#23497#0" expanded="false" />
+                    <element signature="e#23512#26780#0" expanded="false" />
+                    <element signature="e#26794#30123#0" expanded="false" />
+                    <element signature="e#30141#32273#0" expanded="false" />
                     <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
                     <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-                    <element signature="e#726#2384#0" expanded="false" />
-                    <element signature="e#2396#2692#0" expanded="false" />
-                    <element signature="e#2708#24053#0" expanded="false" />
-                    <element signature="e#24067#27335#0" expanded="false" />
-                    <element signature="e#27349#30467#0" expanded="false" />
-                    <element signature="e#30485#32617#0" expanded="false" />
                     <element signature="n#!!block;n#Points#0" expanded="false" />
                     <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-                    <element signature="e#36714#37269#0" expanded="false" />
-                    <element signature="e#38368#38846#0" expanded="false" />
-                    <element signature="n#!!block;n#OneDeckS17Soft#0" expanded="false" />
+                    <element signature="n#!!block;n#oneDeckLateH17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#oneDeckLateS17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#twoDeckLateH17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#twoDeckLateS17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#fourToSixDecksH17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#fourToSixDecksS17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#eightDecksH17LateSurrender#0" expanded="false" />
+                    <element signature="n#!!block;n#eightDecksS17LateSurrender#0" expanded="false" />
+                    <element signature="e#40465#40758#0" expanded="false" />
+                    <element signature="e#40853#41030#0" expanded="false" />
+                    <element signature="e#41126#41392#0" expanded="false" />
+                    <element signature="e#41490#41638#0" expanded="false" />
+                    <element signature="e#41737#42068#0" expanded="false" />
+                    <element signature="e#42169#42365#0" expanded="false" />
+                    <element signature="e#42468#42812#0" expanded="false" />
+                    <element signature="e#42916#43128#0" expanded="false" />
+                    <element signature="e#43259#43794#0" expanded="false" />
+                    <element signature="n#!!block;n#OneDeckEarlySurrender10#0" expanded="false" />
+                    <element signature="n#!!block;n#OneDeckEarlySurrenderA#0" expanded="false" />
+                    <element signature="e#48649#48857#0" expanded="false" />
+                    <element signature="e#48876#49595#0" expanded="false" />
+                    <element signature="e#49813#50516#0" expanded="false" />
+                    <element signature="e#52826#53018#0" expanded="false" />
+                    <element signature="e#53252#53986#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -180,6 +170,7 @@
         <option value="$PROJECT_DIR$/stand.test.js" />
         <option value="$PROJECT_DIR$/double.test.js" />
         <option value="$PROJECT_DIR$/double.new.test.js" />
+        <option value="$PROJECT_DIR$/surrender.new.test.js" />
       </list>
     </option>
   </component>
@@ -272,18 +263,19 @@
       <workItem from="1519531407845" duration="31105000" />
       <workItem from="1519737354857" duration="49195000" />
       <workItem from="1520348372586" duration="57758000" />
-      <workItem from="1520775358328" duration="29521000" />
+      <workItem from="1520775358328" duration="33183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167579000" />
+    <option name="totallyTimeSpent" value="171241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="677" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12737921" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -713,48 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/surrender.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="1598" column="2" lean-forward="true" selection-start-line="1596" selection-start-column="0" selection-end-line="1598" selection-end-column="2" />
-          <folding>
-            <element signature="e#170#1828#0" expanded="false" />
-            <element signature="e#1840#2136#0" expanded="false" />
-            <element signature="e#2152#23497#0" expanded="false" />
-            <element signature="e#23512#26780#0" expanded="false" />
-            <element signature="e#26794#30123#0" expanded="false" />
-            <element signature="e#30141#32273#0" expanded="false" />
-            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
-            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-            <element signature="n#!!block;n#Points#0" expanded="false" />
-            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
-            <element signature="n#!!block;n#oneDeckLateH17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#oneDeckLateS17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#twoDeckLateH17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#twoDeckLateS17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#fourToSixDecksH17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#fourToSixDecksS17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#eightDecksH17LateSurrender#0" expanded="false" />
-            <element signature="n#!!block;n#eightDecksS17LateSurrender#0" expanded="false" />
-            <element signature="e#40853#41030#0" expanded="false" />
-            <element signature="e#41126#41392#0" expanded="false" />
-            <element signature="e#41490#41638#0" expanded="false" />
-            <element signature="e#41737#42068#0" expanded="false" />
-            <element signature="e#42169#42365#0" expanded="false" />
-            <element signature="e#42468#42812#0" expanded="false" />
-            <element signature="e#42916#43128#0" expanded="false" />
-            <element signature="e#43259#43794#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckEarlySurrender10#0" expanded="false" />
-            <element signature="n#!!block;n#OneDeckEarlySurrenderA#0" expanded="false" />
-            <element signature="e#48649#48857#0" expanded="false" />
-            <element signature="e#48876#49595#0" expanded="false" />
-            <element signature="e#49813#50516#0" expanded="false" />
-            <element signature="e#52826#53018#0" expanded="false" />
-            <element signature="e#53252#53986#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Double.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-105">
@@ -815,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/double.new.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="1092" column="1" lean-forward="true" selection-start-line="1092" selection-start-column="1" selection-end-line="1092" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1350" selection-end-column="50" />
           <folding>
             <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
             <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
@@ -844,6 +794,81 @@
             <element signature="e#68818#68822#0" expanded="false" />
             <element signature="e#71631#71635#0" expanded="false" />
             <element signature="e#74478#74482#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/surrender.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="1566" column="1" lean-forward="true" selection-start-line="1556" selection-start-column="0" selection-end-line="1566" selection-end-column="1" />
+          <folding>
+            <element signature="e#170#1828#0" expanded="false" />
+            <element signature="e#1840#2136#0" expanded="false" />
+            <element signature="e#2152#23497#0" expanded="false" />
+            <element signature="e#23512#26780#0" expanded="false" />
+            <element signature="e#26794#30123#0" expanded="false" />
+            <element signature="e#30141#32273#0" expanded="false" />
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#Points#0" expanded="false" />
+            <element signature="n#!!block;n#GameOptions#0" expanded="false" />
+            <element signature="n#!!block;n#oneDeckLateH17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#oneDeckLateS17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#twoDeckLateH17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#twoDeckLateS17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#fourToSixDecksH17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#fourToSixDecksS17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#eightDecksH17LateSurrender#0" expanded="false" />
+            <element signature="n#!!block;n#eightDecksS17LateSurrender#0" expanded="false" />
+            <element signature="e#40465#40758#0" expanded="false" />
+            <element signature="e#40853#41030#0" expanded="false" />
+            <element signature="e#41126#41392#0" expanded="false" />
+            <element signature="e#41490#41638#0" expanded="false" />
+            <element signature="e#41737#42068#0" expanded="false" />
+            <element signature="e#42169#42365#0" expanded="false" />
+            <element signature="e#42468#42812#0" expanded="false" />
+            <element signature="e#42916#43128#0" expanded="false" />
+            <element signature="e#43259#43794#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckEarlySurrender10#0" expanded="false" />
+            <element signature="n#!!block;n#OneDeckEarlySurrenderA#0" expanded="false" />
+            <element signature="e#48649#48857#0" expanded="false" />
+            <element signature="e#48876#49595#0" expanded="false" />
+            <element signature="e#49813#50516#0" expanded="false" />
+            <element signature="e#52826#53018#0" expanded="false" />
+            <element signature="e#53252#53986#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/surrender.new.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="1794" column="3" lean-forward="false" selection-start-line="1794" selection-start-column="3" selection-end-line="1794" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
+            <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
+            <element signature="e#759#2417#0" expanded="false" />
+            <element signature="e#2429#2725#0" expanded="false" />
+            <element signature="e#2741#24086#0" expanded="false" />
+            <element signature="e#24100#27368#0" expanded="false" />
+            <element signature="e#27382#30500#0" expanded="false" />
+            <element signature="e#30518#32650#0" expanded="false" />
+            <element signature="e#34905#36554#0" expanded="false" />
+            <element signature="e#34935#35160#0" expanded="false" />
+            <element signature="e#35314#35595#0" expanded="false" />
+            <element signature="e#36556#40207#0" expanded="false" />
+            <element signature="e#36588#36926#0" expanded="false" />
+            <element signature="e#37052#37390#0" expanded="false" />
+            <element signature="e#37550#37865#0" expanded="false" />
+            <element signature="e#37929#38243#0" expanded="false" />
+            <element signature="e#38305#39226#0" expanded="false" />
+            <element signature="e#39287#40204#0" expanded="false" />
+            <element signature="e#40209#41844#0" expanded="false" />
+            <element signature="e#40240#40428#0" expanded="false" />
+            <element signature="e#40588#40869#0" expanded="false" />
+            <element signature="e#41878#42279#0" expanded="false" />
+            <element signature="e#43748#43996#0" expanded="false" />
           </folding>
         </state>
       </provider>
