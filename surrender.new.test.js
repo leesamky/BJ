@@ -1351,7 +1351,9 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
     return o[0][0]<=o[0][1]
 })
 
-//oneDeckH17
+const twoCardsCombineAll=[...twoCardsCombineH,...twoCardsCombineS,...twoCardsCombineSplit]
+
+
 // {
 //     let oneDeckH17LateTruty=[
 //         //p14 d10
@@ -1381,7 +1383,7 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
 //         [[7,10],1]
 //     ]
 //
-//     let oneDeckH17LateFalsy=_.differenceWith(twoCardsCombineH,oneDeckH17LateTruty,_.isEqual)
+//     let oneDeckH17LateFalsy=_.differenceWith(twoCardsCombineAll,oneDeckH17LateTruty,_.isEqual)
 //     function oneDeckH17LateSurrender(playerCards,dealerCard){
 //         const options=GameOptions({
 //             hitSoft17:true,
@@ -1421,68 +1423,1497 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
 //     })
 // }
 
+// {
+//     let oneDeckS17LateTruty=[
+//
+//         //p14 d10
+//         [[7,7],10],
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//
+//         //p16 dA
+//         [[6,10],1],
+//
+//     ]
+//     let oneDeckS17LateFalsy=_.differenceWith(twoCardsCombineAll,oneDeckS17LateTruty,_.isEqual)
+//     function oneDeckS17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'late',
+//             numberOfDecks:1,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('One Deck S17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             oneDeckS17LateTruty.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckS17LateFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     let twoDecksH17NoDASTrusy=[
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//         //p15 dA
+//         [[5,10],1],
+//         [[6,9],1],
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//         [[8,8],1],
+//
+//         //p17 dA
+//         [[7,10],1],
+//         [[8,9],1],
+//         [[9,8],1],
+//     ]
+//     let twoDecksH17NoDASFalsy=_.differenceWith(twoCardsCombineAll,twoDecksH17NoDASTrusy,_.isEqual)
+//     let twoDecksH17DASTrusy=[
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//         //p15 dA
+//         [[5,10],1],
+//         [[6,9],1],
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//         [[8,8],1],
+//
+//         //p17 dA
+//         [[7,10],1],
+//         [[8,9],1],
+//         [[9,8],1],
+//     ]
+//     let twoDecksH17DASFalsy=_.differenceWith(twoCardsCombineAll,twoDecksH17DASTrusy,_.isEqual)
+//
+//     function twoDeckH17LateSurrenderNoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'late',
+//             numberOfDecks:2,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     function twoDeckH17LateSurrenderDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'late',
+//             numberOfDecks:2,
+//             doubleAfterSplit:true
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Two Decks H17 No DAS Late Surrender',function(){
+//         describe('surrender',function(){
+//             twoDecksH17NoDASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             twoDecksH17NoDASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//     describe('Two Decks H17 DAS Late Surrender',function(){
+//         describe('surrender',function(){
+//             twoDecksH17DASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             twoDecksH17DASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+//
+// {
+//     let twoDecksS17LateTrusy=[
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//
+//
+//
+//     ]
+//     let twoDecksS17LateFalsy=_.differenceWith(twoCardsCombineAll,twoDecksS17LateTrusy,_.isEqual)
+//     function twoDeckLateS17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'late',
+//             numberOfDecks:2,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Two Decks S17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             twoDecksS17LateTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             twoDecksS17LateFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+// }
+//
+// {
+//     let fourDecksH17LateTrusy=[
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//
+//         //p15 dA
+//         [[5,10],1],
+//         [[6,9],1],
+//         [[7,8],1],
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//         [[8,8],1],
+//
+//         //p17 dA
+//         [[7,10],1],
+//         [[8,9],1],
+//
+//
+//     ]
+//     let fourDecksH17LateFalsy=_.differenceWith(twoCardsCombineAll,fourDecksH17LateTrusy,_.isEqual)
+//     function fourToSixDecksH17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'late',
+//             numberOfDecks:4,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('Four to Six Decks H17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             fourDecksH17LateTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             fourDecksH17LateFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     let fourDecksS17Trusy=[
+//
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//
+//
+//     ]
+//     let fourDecksS17Falsy=_.differenceWith(twoCardsCombineAll,fourDecksS17Trusy,_.isEqual)
+//     function fourToSixDecksS17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'late',
+//             numberOfDecks:4,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('Four to Six Decks H17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             fourDecksS17Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             fourDecksS17Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//
+// }
+
+// {
+//     let eightDecksH17LateTrusy=[
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//         //p15 dA
+//         [[5,10],1],
+//         [[6,9],1],
+//         [[7,8],1],
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//         [[8,8],1],
+//
+//         //p17 dA
+//         [[7,10],1],
+//         [[8,9],1],
+//         [[9,8],1],
+//
+//     ]
+//     let eightDecksH17LateFalsy=_.differenceWith(twoCardsCombineAll,eightDecksH17LateTrusy,_.isEqual)
+//     function eightDecksH17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'late',
+//             numberOfDecks:8,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Eight Decks H17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             eightDecksH17LateTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...eightDecksH17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             eightDecksH17LateFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksH17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksH17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     let eightDecksS17LateTrusy=[
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//
+//
+//     ]
+//     let eightDecksS17LateFalsy=_.differenceWith(twoCardsCombineAll,eightDecksS17LateTrusy,_.isEqual)
+//     function eightDecksS17LateSurrender(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'late',
+//             numberOfDecks:8,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('Eight Decks S17 Late Surrender',function(){
+//         describe('surrender',function(){
+//             eightDecksS17LateTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...eightDecksS17LateSurrender(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             eightDecksS17LateFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksS17LateSurrender(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//
+// }
+
+const earlyCombine10=[
+    //p14,d10
+    [[4,10],10],
+    [[5,9],10],
+    [[6,8],10],
+    [[7,7],10],
+    //p15,d10
+    [[5,10],10],
+    [[6,9],10],
+    [[7,8],10],
+    //p16,d10
+    [[6,10],10],
+    [[7,9],10],
+    [[8,8],10],
+]
+
+
+// {
+//     let oneDeckS17LateTruty=[
+//
+//         //p14 d10
+//         [[7,7],10],
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         // [[8,8],10],
+//
+//         //p16 dA
+//
+//
+//     ]
+//     const oneDeckS17Early10DASTrusy=[
+//         //p14,d10
+//
+//         [[6,8],10],
+//         [[7,7],10],
+//         //p15,d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         ...oneDeckS17LateTruty
+//
+//     ]
+//     const oneDeckS17Early10NoDASTrusy=[
+//         //p14,d10
+//
+//         [[6,8],10],
+//         [[7,7],10],
+//         //p15,d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//         ...oneDeckS17LateTruty
+//
+//     ]
+//     const oneDeckS17Early10NoDASFalsy=_.differenceWith(twoCardsCombineH,oneDeckS17Early10NoDASTrusy,_.isEqual)
+//     const oneDeckS17Early10DASFalsy=_.differenceWith(twoCardsCombineH,oneDeckS17Early10DASTrusy,_.isEqual)
+//     function oneDeckS17Early10DAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:1,
+//             doubleAfterSplit:true
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     function oneDeckS17Early10NoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:1,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('One Deck S17 Early 10 DAS',function(){
+//         describe('surrender',function(){
+//             oneDeckS17Early10DASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckS17Early10DASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//     describe('One Deck S17 Early 10 No DAS',function(){
+//         describe('surrender',function(){
+//             oneDeckS17Early10NoDASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckS17Early10NoDASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     let oneDeckH17LateTruty=[
+//         //p14 d10
+//         [[7,7],10],
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//         //p14 dA
+//
+//
+//         //p15 dA
+//
+//
+//         //p16 dA
+//
+//
+//         //p17,dA
+//
+//     ]
+//     const oneDeckH17Early10DASTrusy=[
+//         //p14,d10
+//
+//         [[6,8],10],
+//         [[7,7],10],
+//         //p15,d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         ...oneDeckH17LateTruty
+//
+//     ]
+//     const oneDeckH17Early10NoDASTrusy=[
+//         //p14,d10
+//
+//         [[6,8],10],
+//         [[7,7],10],
+//         //p15,d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//         ...oneDeckH17LateTruty
+//
+//     ]
+//     const oneDeckH17Early10NoDASFalsy=_.differenceWith(twoCardsCombineH,oneDeckH17Early10NoDASTrusy,_.isEqual)
+//     const oneDeckH17Early10DASFalsy=_.differenceWith(twoCardsCombineH,oneDeckH17Early10DASTrusy,_.isEqual)
+//     function oneDeckS17Early10DAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:1,
+//             doubleAfterSplit:true
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     function oneDeckS17Early10NoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:1,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('One Deck H17 Early 10 DAS',function(){
+//         describe('surrender',function(){
+//             oneDeckH17Early10DASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckH17Early10DASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10DAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//     describe('One Deck H17 Early 10 No DAS',function(){
+//         describe('surrender',function(){
+//             oneDeckH17Early10NoDASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckH17Early10NoDASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     let twoDecksS17LateTrusy=[
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//     ]
+//     let twoDecksEarly10Trusy=[
+//         //p14,d10
+//         [[5,9],10],
+//         [[6,8],10],
+//         [[7,7],10],
+//         //p15,d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//     ]
+//     const twoDecksS17Early10Trusy=[...twoDecksS17LateTrusy,...twoDecksEarly10Trusy]
+//     const twoDecksS17Early10Falsy=_.differenceWith(twoCardsCombineAll,twoDecksS17Early10Trusy,_.isEqual)
+//     function twoDecksS17Early10(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:2,
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Two Decks S17 Early 10 DAS',function(){
+//         describe('surrender',function(){
+//             twoDecksS17Early10Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...twoDecksS17Early10(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             twoDecksS17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDecksS17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDecksS17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//
+//     const twoDecksH17Early10Trusy=[...twoDecksS17LateTrusy,...twoDecksEarly10Trusy]
+//     const twoDecksH17Early10Falsy=_.differenceWith(twoCardsCombineAll,twoDecksH17Early10Trusy,_.isEqual)
+//     function twoDecksH17Early10NoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:2,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Two Decks H17 Early 10 No DAS',function(){
+//         describe('surrender',function(){
+//             twoDecksH17Early10Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...twoDecksH17Early10NoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             twoDecksH17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDecksH17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...twoDecksH17Early10NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+// }
+
+// {
+//     const fourDecksH17LateTrusy=[
+//
+//     //p16 d9
+//     [[6,10],9],
+//     [[7,9],9],
+//
+//
+//
+//
+//     //p15 d10
+//     [[5,10],10],
+//     [[6,9],10],
+//
+//     //p16,d10
+//     [[6,10],10],
+//     [[7,9],10],
+//
+//
+//
+//
+//     // //p15 dA
+//     // [[5,10],1],
+//     // [[6,9],1],
+//     // [[7,8],1],
+//     //
+//     // //p16 dA
+//     // [[6,10],1],
+//     // [[7,9],1],
+//     // [[8,8],1],
+//     //
+//     // //p17 dA
+//     // [[7,10],1],
+//     // [[8,9],1],
+//
+//
+// ]
+//     const fourDecksS17LateTrusy=[
+//
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//         // //p16 dA
+//         // [[6,10],1],
+//         // [[7,9],1],
+//
+//
+//     ]
+//     const fourDecksH17Early10Trusy=[...earlyCombine10,...fourDecksH17LateTrusy]
+//     const fourDecksH17Early10Falsy=_.differenceWith(twoCardsCombineAll,fourDecksH17Early10Trusy,_.isEqual)
+//     const fourDecksS17Early10Trusy=[...earlyCombine10,...fourDecksS17LateTrusy]
+//     const fourDecksS17Early10Falsy=_.differenceWith(twoCardsCombineAll,fourDecksS17Early10Trusy,_.isEqual)
+//     function fourDecksH17Early10(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'early10',
+//             numberOfDecks:4,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Four Decks H17 Early 10 ',function(){
+//         describe('surrender',function(){
+//             fourDecksH17Early10Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...fourDecksH17Early10(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             fourDecksH17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourDecksH17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourDecksH17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//     function fourDecksS17Early10(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:4,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Four Decks S17 Early 10 ',function(){
+//         describe('surrender',function(){
+//             fourDecksS17Early10Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...fourDecksS17Early10(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             fourDecksS17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourDecksS17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...fourDecksH17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+// }
+
+// {
+//     let eightDecksS17LateTrusy=[
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//
+//         // //p16 dA
+//         // [[6,10],1],
+//         // [[7,9],1],
+//
+//
+//     ]
+//     let eightDecksS17Early10Trusy=[...earlyCombine10,...eightDecksS17LateTrusy]
+//     let eightDecksS17Early10Falsy=_.differenceWith(twoCardsCombineAll,eightDecksS17Early10Trusy,_.isEqual)
+//
+//     let eightDecksH17LateTrusy=[
+//
+//         //p16 d9
+//         [[6,10],9],
+//         [[7,9],9],
+//
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//         [[7,8],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//
+//
+//
+//         // //p15 dA
+//         // [[5,10],1],
+//         // [[6,9],1],
+//         // [[7,8],1],
+//         //
+//         // //p16 dA
+//         // [[6,10],1],
+//         // [[7,9],1],
+//         // [[8,8],1],
+//         //
+//         // //p17 dA
+//         // [[7,10],1],
+//         // [[8,9],1],
+//         // [[9,8],1],
+//
+//     ]
+//     let eightDecksH17Early10Trusy=[...earlyCombine10,...eightDecksH17LateTrusy]
+//     let eightDecksH17Early10Falsy=_.differenceWith(twoCardsCombineAll,eightDecksH17Early10Trusy,_.isEqual)
+//
+//     function eightDecksS17Early10(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'early10',
+//             numberOfDecks:8,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Eight Decks S17 Early 10 ',function(){
+//         describe('surrender',function(){
+//             eightDecksS17Early10Trusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...eightDecksS17Early10(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             eightDecksS17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksS17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksS17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//     function eightDecksH17Early10(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'early10',
+//             numberOfDecks:8,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//     describe('Four Decks H17 Early 10 ',function(){
+//         describe('surrender',function(){
+//             eightDecksH17LateTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...eightDecksH17Early10(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             eightDecksH17Early10Falsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksH17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...eightDecksH17Early10(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//
+//
+//
+// }
+
+
+//earlyA
+
+const pairTwoDealerA=[[2,2],1]
+const earlyCombineA=[
+    //p14,d10
+    [[4,10],10],
+    [[5,9],10],
+    [[6,8],10],
+    [[7,7],10],
+    //p15,d10
+    [[5,10],10],
+    [[6,9],10],
+    [[7,8],10],
+    //p16,d10
+    [[6,10],10],
+    [[7,9],10],
+    [[8,8],10],
+    //p5,dA
+    [[2,3],1],
+    //p6,dA
+    [[2,4],1],
+    [[3,3],1],
+    //p7,dA
+    [[2,5],1],
+    [[3,4],1],
+    //p12,dA
+    [[2,10],1],
+    [[3,9],1],
+    [[4,8],1],
+    [[5,7],1],
+    [[6,6],1],
+    //p13 dA
+    [[3,10],1],
+    [[4,9],1],
+    [[5,8],1],
+    [[6,7],1],
+    //p14,dA
+    [[4,10],1],
+    [[5,9],1],
+    [[6,8],1],
+    [[7,7],1],
+    //p15,d1A
+    [[5,10],1],
+    [[6,9],1],
+    [[7,8],1],
+    //p16,dA
+    [[6,10],1],
+    [[7,9],1],
+    [[8,8],1],
+    //p17,dA
+    [[7,10],1],
+    [[8,9],1]
+
+]
+//one deck
+
+
+// {
+//     const oneDeckH17LateTruty=[
+//         //p14 d10
+//         [[7,7],10],
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//
+//         //p14 dA
+//         [[7,7],1],
+//
+//         //p15 dA
+//         [[6,9],1],
+//         [[5,10],1],
+//
+//         //p16 dA
+//         [[6,10],1],
+//         [[7,9],1],
+//
+//         //p17,dA
+//         [[7,10],1]
+//     ]
+//     const oneDeckH17EarlyA_NoDASTrusy=_.differenceWith([...earlyCombineA,...oneDeckH17LateTruty,pairTwoDealerA],[[[4,10],10],[[5,9],10]],_.isEqual)
+//     const oneDeckH17EarlyA_NoDASFalsy=_.differenceWith(twoCardsCombineAll,oneDeckH17EarlyA_NoDASTrusy,_.isEqual)
+//     function oneDeckH17EarlyA_NoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'earlyA',
+//             numberOfDecks:1,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('One Deck H17 No DAS Early A',function(){
+//         describe('surrender',function(){
+//             oneDeckH17EarlyA_NoDASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyA_NoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckH17EarlyA_NoDASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyA_NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyA_NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//     const oneDeckH17EarlyADASTrusy=_.differenceWith([...earlyCombineA,...oneDeckH17LateTruty,pairTwoDealerA],[[[4,10],10],[[5,9],10],[[8,8],10]],_.isEqual)
+//     const oneDeckH17EarlyADASFalsy=_.differenceWith(twoCardsCombineAll,oneDeckH17EarlyADASTrusy,_.isEqual)
+//
+//     function oneDeckH17EarlyADAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:true,
+//             surrender:'earlyA',
+//             numberOfDecks:1,
+//             doubleAfterSplit:true
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('One Deck H17 DAS Early A',function(){
+//         describe('surrender',function(){
+//             oneDeckH17EarlyADASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyADAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckH17EarlyADASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyADAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckH17EarlyADAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//     const oneDeckS17LateTruty=[
+//
+//         //p14 d10
+//         [[7,7],10],
+//
+//         //p15 d10
+//         [[5,10],10],
+//         [[6,9],10],
+//
+//         //p16,d10
+//         [[6,10],10],
+//         [[7,9],10],
+//         [[8,8],10],
+//
+//         //p16 dA
+//         [[6,10],1],
+//
+//     ]
+//     const oneDeckS17EarlyA_NoDASTrusy=_.differenceWith([...earlyCombineA,...oneDeckH17LateTruty],[[[4,10],10],[[5,9],10]],_.isEqual)
+//     const oneDeckS17EarlyA_NoDASFalsy=_.differenceWith(twoCardsCombineAll,oneDeckS17EarlyA_NoDASTrusy,_.isEqual)
+//     function oneDeckS17EarlyA_NoDAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'earlyA',
+//             numberOfDecks:1,
+//             doubleAfterSplit:false
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('One Deck H17 No DAS Early A',function(){
+//         describe('surrender',function(){
+//             oneDeckS17EarlyA_NoDASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyA_NoDAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckS17EarlyA_NoDASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyA_NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyA_NoDAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+//
+//     const oneDeckS17EarlyADASTrusy=_.differenceWith([...earlyCombineA,...oneDeckH17LateTruty],[[[4,10],10],[[5,9],10],[[8,8],10]],_.isEqual)
+//     const oneDeckS17EarlyADASFalsy=_.differenceWith(twoCardsCombineAll,oneDeckS17EarlyADASTrusy,_.isEqual)
+//     function oneDeckS17EarlyADAS(playerCards,dealerCard){
+//         const options=GameOptions({
+//             hitSoft17:false,
+//             surrender:'earlyA',
+//             numberOfDecks:1,
+//             doubleAfterSplit:true
+//
+//         })
+//         const handValue=Points(playerCards)
+//         const handCount=1
+//         return [playerCards,dealerCard,handValue,handCount,options]
+//     }
+//
+//     describe('One Deck H17 DAS Early A',function(){
+//         describe('surrender',function(){
+//             oneDeckS17EarlyADASTrusy.forEach(function(value){
+//
+//                 it(`${value} should return true`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyADAS(...value))).to.be.ok
+//                 })
+//             })
+//         })
+//         describe('Not Surrender',function(){
+//             oneDeckS17EarlyADASFalsy.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyADAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//         describe('Soft hands Not Surrender',function(){
+//             twoCardsCombineS.forEach(function(value){
+//                 it(`${value} should return false`,function(){
+//                     expect(Surrender(...oneDeckS17EarlyADAS(...value))).to.not.be.ok
+//                 })
+//             })
+//         })
+//
+//     })
+//
+// }
+
+
+
+//two decks
+
 {
-    let oneDeckS17LateTruty=[
-
-        //p14 d10
-        [[7,7],10],
-
-        //p15 d10
-        [[5,10],10],
-        [[6,9],10],
-
-        //p16,d10
-        [[6,10],10],
-        [[7,9],10],
-        [[8,8],10],
-
-        //p16 dA
-        [[6,10],1],
-
-    ]
-    let oneDeckS17LateFalsy=_.differenceWith(twoCardsCombineH,oneDeckS17LateTruty,_.isEqual)
-    function oneDeckS17LateSurrender(playerCards,dealerCard){
-        const options=GameOptions({
-            hitSoft17:false,
-            surrender:'late',
-            numberOfDecks:1,
-
-        })
-        const handValue=Points(playerCards)
-        const handCount=1
-        return [playerCards,dealerCard,handValue,handCount,options]
-    }
-    describe('One Deck H17 Late Surrender',function(){
-        describe('surrender',function(){
-            oneDeckS17LateTruty.forEach(function(value){
-
-                it(`${value} should return true`,function(){
-                    expect(Surrender(...oneDeckS17LateSurrender(...value))).to.be.ok
-                })
-            })
-        })
-        describe('Not Surrender',function(){
-            oneDeckS17LateFalsy.forEach(function(value){
-                it(`${value} should return false`,function(){
-                    expect(Surrender(...oneDeckS17LateSurrender(...value))).to.not.be.ok
-                })
-            })
-        })
-        describe('Soft hands Not Surrender',function(){
-            twoCardsCombineS.forEach(function(value){
-                it(`${value} should return false`,function(){
-                    expect(Surrender(...oneDeckS17LateSurrender(...value))).to.not.be.ok
-                })
-            })
-        })
-
-    })
-}
-
-{
-    let twoDecksH17NoDASTrusy=[
-
-
+    let twoDecksH17NoDASLateTrusy=[
         //p15 d10
         [[5,10],10],
         [[6,9],10],
@@ -1506,39 +2937,13 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         [[8,9],1],
         [[9,8],1],
     ]
-    let twoDecksH17NoDASFalsy=_.differenceWith(twoCardsCombineH,twoDecksH17NoDASTrusy,_.isEqual)
-    let twoDecksH17DASTrusy=[
 
-
-        //p15 d10
-        [[5,10],10],
-        [[6,9],10],
-
-        //p16,d10
-        [[6,10],10],
-        [[7,9],10],
-
-
-        //p15 dA
-        [[5,10],1],
-        [[6,9],1],
-
-        //p16 dA
-        [[6,10],1],
-        [[7,9],1],
-        [[8,8],1],
-
-        //p17 dA
-        [[7,10],1],
-        [[8,9],1],
-        [[9,8],1],
-    ]
-    let twoDecksH17DASFalsy=_.differenceWith(twoCardsCombineH,twoDecksH17DASTrusy,_.isEqual)
-
-    function twoDeckH17LateSurrenderNoDAS(playerCards,dealerCard){
+    let twoDecksH17EarlyANoDASTrusy=_.differenceWith([...earlyCombineA,...twoDecksH17NoDASLateTrusy,pairTwoDealerA],[[[4,10],10]],_.isEqual)
+    let twoDecksH17EarlyANoDASFalsy=_.differenceWith(twoCardsCombineAll,twoDecksH17EarlyANoDASTrusy,_.isEqual)
+    function twoDeckH17EarlyA_NoDAS(playerCards,dealerCard){
         const options=GameOptions({
             hitSoft17:true,
-            surrender:'late',
+            surrender:'earlyA',
             numberOfDecks:2,
             doubleAfterSplit:false
 
@@ -1547,10 +2952,66 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         const handCount=1
         return [playerCards,dealerCard,handValue,handCount,options]
     }
-    function twoDeckH17LateSurrenderDAS(playerCards,dealerCard){
+
+    describe('Two Deck H17 No DAS Early A',function(){
+        describe('surrender',function(){
+            twoDecksH17EarlyANoDASTrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Surrender(...twoDeckH17EarlyA_NoDAS(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not Surrender',function(){
+            twoDecksH17EarlyANoDASFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...twoDeckH17EarlyA_NoDAS(...value))).to.not.be.ok
+                })
+            })
+        })
+        describe('Soft hands Not Surrender',function(){
+            twoCardsCombineS.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...twoDeckH17EarlyA_NoDAS(...value))).to.not.be.ok
+                })
+            })
+        })
+
+    })
+
+
+    let twoDecksH17DASLateTrusy=[
+
+
+        //p15 d10
+        [[5,10],10],
+        [[6,9],10],
+
+        //p16,d10
+        [[6,10],10],
+        [[7,9],10],
+
+
+        //p15 dA
+        [[5,10],1],
+        [[6,9],1],
+
+        //p16 dA
+        [[6,10],1],
+        [[7,9],1],
+        // [[8,8],1],
+
+        //p17 dA
+        [[7,10],1],
+        [[8,9],1],
+        [[9,8],1],
+    ]
+    let twoDecksH17EarlyADASTrusy=_.differenceWith([...earlyCombineA,...twoDecksH17DASLateTrusy,pairTwoDealerA],[[[4,10],10]],_.isEqual)
+    let twoDecksH17EarlyADASFalsy=_.differenceWith(twoCardsCombineAll,twoDecksH17EarlyADASTrusy,_.isEqual)
+    function twoDeckH17EarlyADAS(playerCards,dealerCard){
         const options=GameOptions({
             hitSoft17:true,
-            surrender:'late',
+            surrender:'earlyA',
             numberOfDecks:2,
             doubleAfterSplit:true
 
@@ -1559,62 +3020,37 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         const handCount=1
         return [playerCards,dealerCard,handValue,handCount,options]
     }
-    describe('Two Decks H17 No DAS Late Surrender',function(){
+
+    describe('Two Deck H17 DAS Early A',function(){
         describe('surrender',function(){
-            twoDecksH17NoDASTrusy.forEach(function(value){
+            twoDecksH17EarlyADASTrusy.forEach(function(value){
 
                 it(`${value} should return true`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.be.ok
+                    expect(Surrender(...twoDeckH17EarlyADAS(...value))).to.be.ok
                 })
             })
         })
         describe('Not Surrender',function(){
-            twoDecksH17NoDASFalsy.forEach(function(value){
+            twoDecksH17EarlyADASFalsy.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+                    expect(Surrender(...twoDeckH17EarlyADAS(...value))).to.not.be.ok
                 })
             })
         })
         describe('Soft hands Not Surrender',function(){
             twoCardsCombineS.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
+                    expect(Surrender(...twoDeckH17EarlyADAS(...value))).to.not.be.ok
                 })
             })
         })
 
     })
 
-    describe('Two Decks H17 DAS Late Surrender',function(){
-        describe('surrender',function(){
-            twoDecksH17DASTrusy.forEach(function(value){
 
-                it(`${value} should return true`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.be.ok
-                })
-            })
-        })
-        describe('Not Surrender',function(){
-            twoDecksH17DASFalsy.forEach(function(value){
-                it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
-                })
-            })
-        })
-        describe('Soft hands Not Surrender',function(){
-            twoCardsCombineS.forEach(function(value){
-                it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckH17LateSurrenderNoDAS(...value))).to.not.be.ok
-                })
-            })
-        })
 
-    })
-}
 
-{
     let twoDecksS17LateTrusy=[
-
         //p15 d10
         [[5,10],10],
         [[6,9],10],
@@ -1622,20 +3058,14 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         //p16,d10
         [[6,10],10],
         [[7,9],10],
-
-
-        //p16 dA
-        [[6,10],1],
-        [[7,9],1],
-
-
-
     ]
-    let twoDecksS17LateFalsy=_.differenceWith(twoCardsCombineH,twoDecksS17LateTrusy,_.isEqual)
-    function twoDeckLateS17LateSurrender(playerCards,dealerCard){
+
+    const twoDecksS17EarlyATrusy=_.differenceWith([...twoDecksS17LateTrusy,...earlyCombineA],[[[4,10],10],[[2,2],1]],_.isEqual)
+    const twoDecksS17EarlyAFalsy=_.differenceWith(twoCardsCombineAll,twoDecksS17EarlyATrusy,_.isEqual)
+    function twoDeckS17EarlyA(playerCards,dealerCard){
         const options=GameOptions({
             hitSoft17:false,
-            surrender:'late',
+            surrender:'earlyA',
             numberOfDecks:2,
 
         })
@@ -1643,36 +3073,38 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         const handCount=1
         return [playerCards,dealerCard,handValue,handCount,options]
     }
-    describe('Two Decks S17 Late Surrender',function(){
+
+    describe('Two Deck S17 Early A',function(){
         describe('surrender',function(){
-            twoDecksS17LateTrusy.forEach(function(value){
+            twoDecksS17EarlyATrusy.forEach(function(value){
 
                 it(`${value} should return true`,function(){
-                    expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.be.ok
+                    expect(Surrender(...twoDeckS17EarlyA(...value))).to.be.ok
                 })
             })
         })
         describe('Not Surrender',function(){
-            twoDecksS17LateFalsy.forEach(function(value){
+            twoDecksS17EarlyAFalsy.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...twoDeckS17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
         describe('Soft hands Not Surrender',function(){
             twoCardsCombineS.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...twoDeckLateS17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...twoDeckS17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
 
     })
-
 }
 
+//four decks
+
 {
-    let fourDecksH17LateTrusy=[
+    const fourDecksH17LateTrusy=[
 
         //p16 d9
         [[6,10],9],
@@ -1692,27 +3124,28 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
 
 
 
-        //p15 dA
-        [[5,10],1],
-        [[6,9],1],
-        [[7,8],1],
-
-        //p16 dA
-        [[6,10],1],
-        [[7,9],1],
-        [[8,8],1],
-
-        //p17 dA
-        [[7,10],1],
-        [[8,9],1],
+        // //p15 dA
+        // [[5,10],1],
+        // [[6,9],1],
+        // [[7,8],1],
+        //
+        // //p16 dA
+        // [[6,10],1],
+        // [[7,9],1],
+        // [[8,8],1],
+        //
+        // //p17 dA
+        // [[7,10],1],
+        // [[8,9],1],
 
 
     ]
-    let fourDecksH17LateFalsy=_.differenceWith(twoCardsCombineH,fourDecksH17LateTrusy,_.isEqual)
-    function fourToSixDecksH17LateSurrender(playerCards,dealerCard){
+    const fourDecksH17EarlyATrusy=[...fourDecksH17LateTrusy,...earlyCombineA,pairTwoDealerA]
+    const fourDecksH17EarlyAFalsy=_.differenceWith(twoCardsCombineAll,fourDecksH17EarlyATrusy,_.isEqual)
+    function FourDeckH17EarlyA(playerCards,dealerCard){
         const options=GameOptions({
             hitSoft17:true,
-            surrender:'late',
+            surrender:'earlyA',
             numberOfDecks:4,
 
         })
@@ -1721,35 +3154,33 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         return [playerCards,dealerCard,handValue,handCount,options]
     }
 
-    describe('Four to Six Decks H17 Late Surrender',function(){
+    describe('Four Deck S17 Early A',function(){
         describe('surrender',function(){
-            fourDecksH17LateTrusy.forEach(function(value){
+            fourDecksH17EarlyATrusy.forEach(function(value){
 
                 it(`${value} should return true`,function(){
-                    expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.be.ok
+                    expect(Surrender(...FourDeckH17EarlyA(...value))).to.be.ok
                 })
             })
         })
         describe('Not Surrender',function(){
-            fourDecksH17LateFalsy.forEach(function(value){
+            fourDecksH17EarlyAFalsy.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...FourDeckH17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
         describe('Soft hands Not Surrender',function(){
             twoCardsCombineS.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...fourToSixDecksH17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...FourDeckH17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
 
     })
-}
 
-{
-    let fourDecksS17Trusy=[
+    const fourDecksS17LateTrusy=[
 
 
         //p16 d9
@@ -1768,17 +3199,18 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
 
 
 
-        //p16 dA
-        [[6,10],1],
-        [[7,9],1],
+        // //p16 dA
+        // [[6,10],1],
+        // [[7,9],1],
 
 
     ]
-    let fourDecksS17Falsy=_.differenceWith(twoCardsCombineH,fourDecksS17Trusy,_.isEqual)
-    function fourToSixDecksS17LateSurrender(playerCards,dealerCard){
+    const fourDecksS17EarlyATrusy=_.differenceWith([...fourDecksH17LateTrusy,...earlyCombineA],pairTwoDealerA,_.isEqual)
+    const fourDecksS17EarlyAFalsy=_.differenceWith(twoCardsCombineAll,fourDecksS17EarlyATrusy,_.isEqual)
+    function FourDeckS17EarlyA(playerCards,dealerCard){
         const options=GameOptions({
             hitSoft17:false,
-            surrender:'late',
+            surrender:'earlyA',
             numberOfDecks:4,
 
         })
@@ -1787,26 +3219,105 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
         return [playerCards,dealerCard,handValue,handCount,options]
     }
 
-    describe('Four to Six Decks H17 Late Surrender',function(){
+    describe('Four Deck S17 Early A',function(){
         describe('surrender',function(){
-            fourDecksS17Trusy.forEach(function(value){
+            fourDecksS17EarlyATrusy.forEach(function(value){
 
                 it(`${value} should return true`,function(){
-                    expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.be.ok
+                    expect(Surrender(...FourDeckS17EarlyA(...value))).to.be.ok
                 })
             })
         })
         describe('Not Surrender',function(){
-            fourDecksS17Falsy.forEach(function(value){
+            fourDecksS17EarlyAFalsy.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...FourDeckS17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
         describe('Soft hands Not Surrender',function(){
             twoCardsCombineS.forEach(function(value){
                 it(`${value} should return false`,function(){
-                    expect(Surrender(...fourToSixDecksS17LateSurrender(...value))).to.not.be.ok
+                    expect(Surrender(...FourDeckS17EarlyA(...value))).to.not.be.ok
+                })
+            })
+        })
+
+    })
+}
+
+//eight decks
+
+{
+    
+    let eightDecksH17LateTrusy=[
+
+        //p16 d9
+        [[6,10],9],
+        [[7,9],9],
+
+
+        //p15 d10
+        [[5,10],10],
+        [[6,9],10],
+        [[7,8],10],
+
+        //p16,d10
+        [[6,10],10],
+        [[7,9],10],
+
+
+
+        // //p15 dA
+        // [[5,10],1],
+        // [[6,9],1],
+        // [[7,8],1],
+        //
+        // //p16 dA
+        // [[6,10],1],
+        // [[7,9],1],
+        // [[8,8],1],
+        //
+        // //p17 dA
+        // [[7,10],1],
+        // [[8,9],1],
+        // [[9,8],1],
+
+    ]
+    const eightDecksH17EarlyATrusy=[...eightDecksH17LateTrusy,...earlyCombineA,pairTwoDealerA]
+    const eightDecksH17EarlyAFalsy=_.differenceWith(twoCardsCombineAll,eightDecksH17EarlyATrusy,_.isEqual)
+    function EightDeckH17EarlyA(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:true,
+            surrender:'earlyA',
+            numberOfDecks:8,
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+
+    describe('Eight Deck H17 Early A',function(){
+        describe('surrender',function(){
+            eightDecksH17EarlyATrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Surrender(...EightDeckH17EarlyA(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not Surrender',function(){
+            eightDecksH17EarlyAFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...EightDeckH17EarlyA(...value))).to.not.be.ok
+                })
+            })
+        })
+        describe('Soft hands Not Surrender',function(){
+            twoCardsCombineS.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...EightDeckH17EarlyA(...value))).to.not.be.ok
                 })
             })
         })
@@ -1814,4 +3325,69 @@ let twoCardsCombineS=_.filter(makeTwoCardsCombine(combineS),function(o){
     })
 
 
+    let eightDecksS17LateTrusy=[
+
+        //p16 d9
+        [[6,10],9],
+        [[7,9],9],
+
+
+
+        //p15 d10
+        [[5,10],10],
+        [[6,9],10],
+        [[7,8],10],
+
+        //p16,d10
+        [[6,10],10],
+        [[7,9],10],
+
+
+
+
+        // //p16 dA
+        // [[6,10],1],
+        // [[7,9],1],
+
+
+    ]
+    const eightDecksS17EarlyATrusy=[...eightDecksS17LateTrusy,...earlyCombineA]
+    const eightDecksS17EarlyAFalsy=_.differenceWith(twoCardsCombineAll,eightDecksS17EarlyATrusy,_.isEqual)
+    function EightDeckS17EarlyA(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:false,
+            surrender:'earlyA',
+            numberOfDecks:8,
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+
+    describe('Eight Deck S17 Early A',function(){
+        describe('surrender',function(){
+            eightDecksS17EarlyATrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Surrender(...EightDeckS17EarlyA(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not Surrender',function(){
+            eightDecksS17EarlyAFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...EightDeckS17EarlyA(...value))).to.not.be.ok
+                })
+            })
+        })
+        describe('Soft hands Not Surrender',function(){
+            twoCardsCombineS.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Surrender(...EightDeckS17EarlyA(...value))).to.not.be.ok
+                })
+            })
+        })
+
+    })
 }

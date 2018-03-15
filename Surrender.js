@@ -167,12 +167,15 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                 if((options.numberOfDecks===1)&&(handValue.total===14)&&(_.includes([4,5,9,10],playerCards[0]))){
                     shouldSurrender=false
                 }
-                if((options.numberOfDecks===2)&&(handValue.total===14)&&(_.includes([4,10],playerCards[0]))){
+                else if((options.numberOfDecks===2)&&(handValue.total===14)&&(_.includes([4,10],playerCards[0]))){
                     shouldSurrender=false
                 }
-                if((options.doubleAfterSplit)&&(options.numberOfDecks===1)&&(playerCards[0]===playerCards[1])&&(playerCards[0]===8)){
+                else if((options.doubleAfterSplit)&&(options.numberOfDecks===1)&&(playerCards[0]===playerCards[1])&&(playerCards[0]===8)){
                     shouldSurrender=false
                 }
+            }
+            if(dealerCard===1){
+                shouldSurrender=false
             }
             if(options.surrender==='earlyA'){
                 if(dealerCard===1){
