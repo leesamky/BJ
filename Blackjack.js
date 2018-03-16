@@ -8,7 +8,7 @@ const initialBet=100
 let  verboseLog=false
 
 
-const numTrials=10000
+const numTrials=1000
 const handsPerTrial=5000
 
 let hiLoCount=0
@@ -20,6 +20,7 @@ function Log(text){
 }
 
 const HandTotal=require('./Points')
+
 
 function DealCard(){
     let card=deck.pop()
@@ -307,7 +308,7 @@ var simulationResults = [];
 var outputFile = process.argv.slice(2)[0];
 
 // Snap the time
-// console.time('PlayBlackJack');
+console.time('PlayBlackJack');
 
 for (var trial = 0; trial < numTrials; trial++)
 {
@@ -325,9 +326,10 @@ for (var trial = 0; trial < numTrials; trial++)
 }
 // console.log(simulationResults)
 // Calculate stddev and average
-// console.timeEnd('PlayBlackJack');
+console.timeEnd('PlayBlackJack');
 console.log("Average:" + average(simulationResults) + "%");
 console.log("StdDev:" + standardDeviation(simulationResults) + "%");
+
 
 // Write out all the results to a file if specified
 if (outputFile)

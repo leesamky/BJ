@@ -1,4 +1,8 @@
+
+
+
 module.exports=function (cards){
+
     const info={total:0,soft:false}
     let hasAce=false
 
@@ -15,6 +19,8 @@ module.exports=function (cards){
         info.total+=10;
         info.soft=true
     }
+
+
 
     return info
 }

@@ -1349,9 +1349,13 @@ let combineSplit=[
 let twoCardsCombineH=makeTwoCardsCombine(combineH)
 let twoCardsCombineSplit=combineSplit
 let twoCardsCombineS=makeTwoCardsCombine(combineS)
+let twoCardsCombineAll=[...twoCardsCombineH,...twoCardsCombineSplit,...twoCardsCombineS]
 
 let threeCardsCombineH=_.filter(makeThreeCardsCombine(combineH))
 let threeCardsCombineS=_.filter(makeThreeCardsCombine(combineS))
+
+//s17 hard
+
 // {
 //
 //     //one Deck S17 Hard
@@ -1441,7 +1445,9 @@ let threeCardsCombineS=_.filter(makeThreeCardsCombine(combineS))
 //             })
 //         })
 //     })
-// }//s17 hard
+// }
+
+
 
 // {
 //     let oneDeckS17SoftTrusy=[
