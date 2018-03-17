@@ -2571,3 +2571,368 @@ const twoCardsCombineAll=[...twoCardsCombineH,...twoCardsCombineS,...twoCardsCom
         })
     })
 }
+
+//5 charlie
+
+{
+    const charlie5DASTrusy=[
+        [ [ 1, 1 ], 2 ],
+        [ [ 1, 1 ], 3 ],
+        [ [ 1, 1 ], 4 ],
+        [ [ 1, 1 ], 5 ],
+        [ [ 1, 1 ], 6 ],
+        [ [ 1, 1 ], 7 ],
+        [ [ 1, 1 ], 8 ],
+        [ [ 1, 1 ], 9 ],
+        [ [ 1, 1 ], 10 ],
+
+
+        [ [ 2, 2 ], 5 ],
+        [ [ 2, 2 ], 6 ],
+
+
+        [ [ 3, 3 ], 4 ],
+        [ [ 3, 3 ], 5 ],
+        [ [ 3, 3 ], 6 ],
+
+
+        [ [ 4, 4 ], 6 ],
+
+
+
+        [ [ 6, 6 ], 2 ],
+        [ [ 6, 6 ], 3 ],
+        [ [ 6, 6 ], 4 ],
+        [ [ 6, 6 ], 5 ],
+        [ [ 6, 6 ], 6 ],
+
+
+        [ [ 7, 7 ], 2 ],
+        [ [ 7, 7 ], 3 ],
+        [ [ 7, 7 ], 4 ],
+        [ [ 7, 7 ], 5 ],
+        [ [ 7, 7 ], 6 ],
+        [ [ 7, 7 ], 7 ],
+
+        [ [ 8, 8 ], 1 ],
+        [ [ 8, 8 ], 2 ],
+        [ [ 8, 8 ], 3 ],
+        [ [ 8, 8 ], 4 ],
+        [ [ 8, 8 ], 5 ],
+        [ [ 8, 8 ], 6 ],
+        [ [ 8, 8 ], 7 ],
+        [ [ 8, 8 ], 8 ],
+        [ [ 8, 8 ], 9 ],
+        [ [ 8, 8 ], 10 ],
+
+
+        [ [ 9, 9 ], 2 ],
+        [ [ 9, 9 ], 3 ],
+        [ [ 9, 9 ], 4 ],
+        [ [ 9, 9 ], 5 ],
+        [ [ 9, 9 ], 6 ],
+        [ [ 9, 9 ], 8 ],
+        [ [ 9, 9 ], 9 ],
+
+    ]
+    const charlie5DASFalsy=_.differenceWith(twoCardsCombineAll,charlie5DASTrusy,_.isEqual)
+    function Charlie5DAS(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:true,
+            numberOfDecks:8,
+            charlie:5,
+            doubleAfterSplit:true
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+    describe('Charlie 5 DAS',function(){
+        describe('split',function(){
+            charlie5DASTrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Split(...Charlie5DAS(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not split',function(){
+            charlie5DASFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Split(...Charlie5DAS(...value))).to.not.be.ok
+                })
+            })
+        })
+    })
+
+    const charlie5NoDASTrusy=[
+        [ [ 1, 1 ], 2 ],
+        [ [ 1, 1 ], 3 ],
+        [ [ 1, 1 ], 4 ],
+        [ [ 1, 1 ], 5 ],
+        [ [ 1, 1 ], 6 ],
+        [ [ 1, 1 ], 7 ],
+        [ [ 1, 1 ], 8 ],
+        [ [ 1, 1 ], 9 ],
+        [ [ 1, 1 ], 10 ],
+
+
+
+        [ [ 3, 3 ], 6 ],
+
+
+        [ [ 6, 6 ], 3 ],
+        [ [ 6, 6 ], 4 ],
+        [ [ 6, 6 ], 5 ],
+        [ [ 6, 6 ], 6 ],
+
+
+        [ [ 7, 7 ], 2 ],
+        [ [ 7, 7 ], 3 ],
+        [ [ 7, 7 ], 4 ],
+        [ [ 7, 7 ], 5 ],
+        [ [ 7, 7 ], 6 ],
+        [ [ 7, 7 ], 7 ],
+
+        [ [ 8, 8 ], 1 ],
+        [ [ 8, 8 ], 2 ],
+        [ [ 8, 8 ], 3 ],
+        [ [ 8, 8 ], 4 ],
+        [ [ 8, 8 ], 5 ],
+        [ [ 8, 8 ], 6 ],
+        [ [ 8, 8 ], 7 ],
+        [ [ 8, 8 ], 8 ],
+        [ [ 8, 8 ], 9 ],
+        [ [ 8, 8 ], 10 ],
+
+
+        [ [ 9, 9 ], 2 ],
+        [ [ 9, 9 ], 3 ],
+        [ [ 9, 9 ], 4 ],
+        [ [ 9, 9 ], 5 ],
+        [ [ 9, 9 ], 6 ],
+        [ [ 9, 9 ], 8 ],
+        [ [ 9, 9 ], 9 ],
+
+    ]
+    const charlie5NoDASFalsy=_.differenceWith(twoCardsCombineAll,charlie5NoDASTrusy,_.isEqual)
+    function Charlie5NoDAS(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:true,
+            numberOfDecks:8,
+            charlie:5,
+            doubleAfterSplit:false
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+    describe('Charlie 5 No DAS',function(){
+        describe('split',function(){
+            charlie5NoDASTrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Split(...Charlie5NoDAS(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not split',function(){
+            charlie5NoDASFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Split(...Charlie5NoDAS(...value))).to.not.be.ok
+                })
+            })
+        })
+    })
+}
+
+//6 charlie
+{
+    let charlie6DASTrusy=[
+        [ [ 1, 1 ], 1 ],
+        [ [ 1, 1 ], 2 ],
+        [ [ 1, 1 ], 3 ],
+        [ [ 1, 1 ], 4 ],
+        [ [ 1, 1 ], 5 ],
+        [ [ 1, 1 ], 6 ],
+        [ [ 1, 1 ], 7 ],
+        [ [ 1, 1 ], 8 ],
+        [ [ 1, 1 ], 9 ],
+        [ [ 1, 1 ], 10 ],
+
+        [ [ 2, 2 ], 2 ],
+        [ [ 2, 2 ], 3 ],
+        [ [ 2, 2 ], 4 ],
+        [ [ 2, 2 ], 5 ],
+        [ [ 2, 2 ], 6 ],
+        [ [ 2, 2 ], 7 ],
+
+
+        [ [ 3, 3 ], 3 ],
+        [ [ 3, 3 ], 4 ],
+        [ [ 3, 3 ], 5 ],
+        [ [ 3, 3 ], 6 ],
+        [ [ 3, 3 ], 7 ],
+
+
+        [ [ 4, 4 ], 5 ],
+        [ [ 4, 4 ], 6 ],
+
+
+
+        [ [ 6, 6 ], 2 ],
+        [ [ 6, 6 ], 3 ],
+        [ [ 6, 6 ], 4 ],
+        [ [ 6, 6 ], 5 ],
+        [ [ 6, 6 ], 6 ],
+
+
+        [ [ 7, 7 ], 2 ],
+        [ [ 7, 7 ], 3 ],
+        [ [ 7, 7 ], 4 ],
+        [ [ 7, 7 ], 5 ],
+        [ [ 7, 7 ], 6 ],
+        [ [ 7, 7 ], 7 ],
+
+        [ [ 8, 8 ], 1 ],
+        [ [ 8, 8 ], 2 ],
+        [ [ 8, 8 ], 3 ],
+        [ [ 8, 8 ], 4 ],
+        [ [ 8, 8 ], 5 ],
+        [ [ 8, 8 ], 6 ],
+        [ [ 8, 8 ], 7 ],
+        [ [ 8, 8 ], 8 ],
+        [ [ 8, 8 ], 9 ],
+        [ [ 8, 8 ], 10 ],
+
+        [ [ 9, 9 ], 2 ],
+        [ [ 9, 9 ], 3 ],
+        [ [ 9, 9 ], 4 ],
+        [ [ 9, 9 ], 5 ],
+        [ [ 9, 9 ], 6 ],
+
+        [ [ 9, 9 ], 8 ],
+        [ [ 9, 9 ], 9 ],
+
+
+    ]
+    let charlie6DASFalsy=_.differenceWith(twoCardsCombineAll,charlie6DASTrusy,_.isEqual)
+    function Charlie6DAS(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:true,
+            numberOfDecks:8,
+            charlie:6,
+            doubleAfterSplit:true
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+    describe('Charlie 6 DAS',function(){
+        describe('split',function(){
+            charlie6DASTrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Split(...Charlie6DAS(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not split',function(){
+            charlie6DASFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Split(...Charlie6DAS(...value))).to.not.be.ok
+                })
+            })
+        })
+    })
+
+    let charlie6NoDASTrusy=[
+        [ [ 1, 1 ], 1 ],
+        [ [ 1, 1 ], 2 ],
+        [ [ 1, 1 ], 3 ],
+        [ [ 1, 1 ], 4 ],
+        [ [ 1, 1 ], 5 ],
+        [ [ 1, 1 ], 6 ],
+        [ [ 1, 1 ], 7 ],
+        [ [ 1, 1 ], 8 ],
+        [ [ 1, 1 ], 9 ],
+        [ [ 1, 1 ], 10 ],
+
+        [ [ 2, 2 ], 5 ],
+        [ [ 2, 2 ], 6 ],
+        [ [ 2, 2 ], 7 ],
+
+
+        [ [ 3, 3 ], 5 ],
+        [ [ 3, 3 ], 6 ],
+        [ [ 3, 3 ], 7 ],
+
+
+
+        [ [ 6, 6 ], 3 ],
+        [ [ 6, 6 ], 4 ],
+        [ [ 6, 6 ], 5 ],
+        [ [ 6, 6 ], 6 ],
+
+
+        [ [ 7, 7 ], 2 ],
+        [ [ 7, 7 ], 3 ],
+        [ [ 7, 7 ], 4 ],
+        [ [ 7, 7 ], 5 ],
+        [ [ 7, 7 ], 6 ],
+        [ [ 7, 7 ], 7 ],
+
+        [ [ 8, 8 ], 1 ],
+        [ [ 8, 8 ], 2 ],
+        [ [ 8, 8 ], 3 ],
+        [ [ 8, 8 ], 4 ],
+        [ [ 8, 8 ], 5 ],
+        [ [ 8, 8 ], 6 ],
+        [ [ 8, 8 ], 7 ],
+        [ [ 8, 8 ], 8 ],
+        [ [ 8, 8 ], 9 ],
+        [ [ 8, 8 ], 10 ],
+
+        [ [ 9, 9 ], 2 ],
+        [ [ 9, 9 ], 3 ],
+        [ [ 9, 9 ], 4 ],
+        [ [ 9, 9 ], 5 ],
+        [ [ 9, 9 ], 6 ],
+
+        [ [ 9, 9 ], 8 ],
+        [ [ 9, 9 ], 9 ],
+    ]
+    let charlie6NoDASFalsy=_.differenceWith(twoCardsCombineAll,charlie6NoDASTrusy,_.isEqual)
+    function Charlie6NoDAS(playerCards,dealerCard){
+        const options=GameOptions({
+            hitSoft17:true,
+            numberOfDecks:8,
+            charlie:6,
+            doubleAfterSplit:false
+
+        })
+        const handValue=Points(playerCards)
+        const handCount=1
+        return [playerCards,dealerCard,handValue,handCount,options]
+    }
+    describe('Charlie 6 No DAS',function(){
+        describe('split',function(){
+            charlie6NoDASTrusy.forEach(function(value){
+
+                it(`${value} should return true`,function(){
+                    expect(Split(...Charlie6NoDAS(...value))).to.be.ok
+                })
+            })
+        })
+        describe('Not split',function(){
+            charlie6NoDASFalsy.forEach(function(value){
+                it(`${value} should return false`,function(){
+                    expect(Split(...Charlie6NoDAS(...value))).to.not.be.ok
+                })
+            })
+        })
+    })
+}

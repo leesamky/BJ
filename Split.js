@@ -242,6 +242,9 @@ module.exports=function (playerCards,dealerCard,handValue,handCount,options){
             }
 
             break;
+
+
+
         default:
             break;
 
