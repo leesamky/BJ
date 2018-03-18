@@ -5,11 +5,11 @@ const _=require('lodash')
 const GameOptions=require('./GameOptions')
 let deck=[]
 const initialBet=100
-let  verboseLog=false
+let  verboseLog=true
 
 
-const numTrials=1000
-const handsPerTrial=5000
+const numTrials=50
+const handsPerTrial=50
 
 let hiLoCount=0
 
@@ -228,7 +228,7 @@ function RunAGame(options){
     const gameOptions=GameOptions(options)
 
     //check if we need to reshuffle
-    if(deck.length<Math.max(26,13*options.numberOfDecks)){
+    if(deck.length<Math.max(26,3*options.numberOfDecks)){//was 13
         Log('Shuffle')
         InitializeDeck(options.numberOfDecks)
     }
@@ -264,6 +264,8 @@ function RunAGame(options){
     Log(`inital two cards:   -player ${playerHand[0].cards} -dealer ${dealerCards}`)
     //start
     PlayThePlayer(playerHand,dealerCards[0],options)
+
+    //check if player has bj,surrender or bust, then dealer does not continue
     PlayDealerHand(dealerCards,options)
 
 
@@ -317,7 +319,7 @@ for (var trial = 0; trial < numTrials; trial++)
     for (var i = 0; i < handsPerTrial; i++)
     {
         // Here's where you control and can evaluation different options
-        runningTotal += RunAGame({numberOfDecks:8,  hitSoft17: false, strategyComplexity:"exactComposition", count: false});
+        runningTotal += RunAGame({numberOfDecks:8,  hitSoft17: false, count: false});
         Log("Running total " + runningTotal);
         Log("");
     }

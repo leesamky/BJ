@@ -9,7 +9,6 @@ module.exports=function (options){
         numberOfDecks: 6,
         maxSplitHands: 4,
         count: {system: null, trueCount: null},
-        strategyComplexity: "simple",
         hitSplitedAce:false,
         EuropeanNoHoldCard:false,
         CSM:false,

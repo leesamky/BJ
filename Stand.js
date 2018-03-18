@@ -76,6 +76,7 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
     }else{
 
         if(handValue.soft){
+
             //always hit if under 18
             if(handValue.total<=17){
                 return false
