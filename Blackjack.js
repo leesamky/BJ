@@ -5,11 +5,11 @@ const _=require('lodash')
 const GameOptions=require('./GameOptions')
 let deck=[]
 const initialBet=100
-let  verboseLog=true
+let  verboseLog=false
 
 
-const numTrials=50
-const handsPerTrial=50
+const numTrials=1000
+const handsPerTrial=10000
 
 let hiLoCount=0
 
@@ -92,7 +92,7 @@ function PlayPlayerHand(playerCards,dealerCard,handCount,dealerCheckedBlackJack,
 
             case 'hit':
                 playerCards.push(DealCard())
-                Log('hit the hand. The player hands now is '+playerCards)
+                Log('hit the hand. The player hands now is '+playerCards+ ' player total:'+HandTotal(playerCards).total)
                 if(HandTotal(playerCards).total>21){
                     return 'bust'
                 }
@@ -182,17 +182,17 @@ function EvaluateHand(playerHand, dealerCards, options){
             let dealerTotal=HandTotal(dealerCards).total
             Log(`playerTotal: ${playerTotal}, dealerTotal: ${dealerTotal}, dealerCards:${dealerCards}`)
 
-            if(playerBlackjack){
-                if(dealerBlackjack){
-                    Log('Player and Dealer have black - push')
-                }
-                else{
-                    Log('Player won by BlackJack')
-
-                    win+=(playerHand[hand].bet*options.blackjackPayout)
-                }
-            }
-            else if(dealerBlackjack){//assume dealer bj take split and double
+            // if(playerBlackjack){
+            //     if(dealerBlackjack){
+            //         Log('Player and Dealer have black - push')
+            //     }
+            //     else{
+            //         Log('Player won by BlackJack')
+            //
+            //         win+=(playerHand[hand].bet*options.blackjackPayout)
+            //     }
+            // }
+            if(dealerBlackjack){//assume dealer bj take split and double
                 Log('Dealer has blackjack - you lost all the bet including split and double')
                 win-=playerHand[hand].bet
             }
@@ -228,15 +228,15 @@ function RunAGame(options){
     const gameOptions=GameOptions(options)
 
     //check if we need to reshuffle
-    if(deck.length<Math.max(26,3*options.numberOfDecks)){//was 13
+    if(deck.length<Math.max(26,3*gameOptions.numberOfDecks)){//was 13
         Log('Shuffle')
-        InitializeDeck(options.numberOfDecks)
+        InitializeDeck(gameOptions.numberOfDecks)
     }
 
     //If using counting system, set up here
-    if(options.count&&(options.count.system==='HiLo')){
+    if(gameOptions.count&&(gameOptions.count.system==='HiLo')){
         trueCount=hiLoCount/(deck.length/52)
-        options.count.trueCount=trueCount
+        gameOptions.count.trueCount=trueCount
 
 
         //betting system set here
@@ -261,12 +261,57 @@ function RunAGame(options){
     playerHand.push(hand)
 
 
-    Log(`inital two cards:   -player ${playerHand[0].cards} -dealer ${dealerCards}`)
+    Log(`inital two cards:   -player ${playerHand[0].cards}, -dealer ${dealerCards} `)
     //start
-    PlayThePlayer(playerHand,dealerCards[0],options)
+    let playerBlackjack=(HandTotal(playerHand[0].cards).total===21)
+    let dealerBlackjack=(HandTotal(dealerCards).total===21)
+    if(playerBlackjack){
+        if(dealerBlackjack){
+            Log('Player and Dealer have black - push')
+        }
+        else{
+            Log('Player won by BlackJack')
+            Log('Total outcome $'+betAmount*gameOptions.blackjackPayout)
+            return betAmount*gameOptions.blackjackPayout
+        }
+    }
+    if(dealerCards[0]===1){
+        let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
+        if((action==='surrender')){
+            let win
+            if(dealerBlackjack){
+                win=-betAmount
+                Log('Dealer has BlackJack, Player not allow to surrender')
+                Log('Total outcome $'+win)
+                return win
+            }else{
+                win=-betAmount/2
+                Log('Dealer does not have BlackJack, Player surrender and lost half bet')
+                Log('Total outcome $'+win)
+                return win
+            }
+
+        }
+    }
+
+    PlayThePlayer(playerHand,dealerCards[0],gameOptions)
+    let bust=true
+    for(let hand=0;hand<playerHand.length;hand++){
+
+        if(HandTotal(playerHand[hand].cards).total<=21){
+            bust=false
+        }
+    }
+    if(bust){
+        Log('All player hands bust, dealer does not continue')
+        return EvaluateHand(playerHand,dealerCards,gameOptions)
+    }
+
+
+
 
     //check if player has bj,surrender or bust, then dealer does not continue
-    PlayDealerHand(dealerCards,options)
+    PlayDealerHand(dealerCards,gameOptions)
 
 
 
@@ -319,7 +364,7 @@ for (var trial = 0; trial < numTrials; trial++)
     for (var i = 0; i < handsPerTrial; i++)
     {
         // Here's where you control and can evaluation different options
-        runningTotal += RunAGame({numberOfDecks:8,  hitSoft17: false, count: false});
+        runningTotal += RunAGame({numberOfDecks:8,  hitSoft17: false, count: false,surrender:false,doubleAfterSplit:false,doubleRange:[10,11],resplitAces:false,maxSplitHands:2,hitSplitedAce:false});
         Log("Running total " + runningTotal);
         Log("");
     }
