@@ -3,15 +3,34 @@ const shuffle=require('knuth-shuffle').knuthShuffle
 const fs=require('fs')
 const _=require('lodash')
 const GameOptions=require('./GameOptions')
-let deck=[]
-const initialBet=100
-let  verboseLog=false
+var gameOptions=GameOptions({
+    numberOfDecks:8,
+    hitSoft17:false,
+    doubleAfterSplit:true,
+    doubleRange:[0,21],
+    maxSplitHands:4,
+    resplitAces:false,
+    hitSplitedAce:false,
+    surrender:'late',
+    CSM:true
+})
+console.log(gameOptions)
+var deck=[]
+var hiLoCount=0
+InitializeDeck(gameOptions.numberOfDecks)
+
+var CSMDeck=_.clone(deck)
+
+function Shuffle(){
+    hiLoCount=0
+    deck=_.shuffle(CSMDeck)
+}
+var initialBet=100
+var  verboseLog=false
 
 
-const numTrials=1000
-const handsPerTrial=10000
 
-let hiLoCount=0
+
 
 function Log(text){
     if(verboseLog){
@@ -225,18 +244,26 @@ function EvaluateHand(playerHand, dealerCards, options){
 function RunAGame(options){
     let betAmount=initialBet
     let trueCount=0
-    const gameOptions=GameOptions(options)
+    
 
     //check if we need to reshuffle
-    if(deck.length<Math.max(26,3*gameOptions.numberOfDecks)){//was 13
+
+    if(options.CSM){
+        Shuffle()
         Log('Shuffle')
-        InitializeDeck(gameOptions.numberOfDecks)
+        Log('first ten cards in the deck:',deck.slice(0,10),deck.length)
+    }else{
+        if(deck.length<Math.max(26,3*options.numberOfDecks)){//was 13
+            Log('Shuffle')
+            Shuffle()
+        }
     }
 
+
     //If using counting system, set up here
-    if(gameOptions.count&&(gameOptions.count.system==='HiLo')){
+    if(options.count&&(options.count.system==='HiLo')){
         trueCount=hiLoCount/(deck.length/52)
-        gameOptions.count.trueCount=trueCount
+        options.count.trueCount=trueCount
 
 
         //betting system set here
@@ -268,11 +295,12 @@ function RunAGame(options){
     if(playerBlackjack){
         if(dealerBlackjack){
             Log('Player and Dealer have black - push')
+            return 0
         }
         else{
             Log('Player won by BlackJack')
-            Log('Total outcome $'+betAmount*gameOptions.blackjackPayout)
-            return betAmount*gameOptions.blackjackPayout
+            Log('Total outcome $'+betAmount*options.blackjackPayout)
+            return betAmount*options.blackjackPayout
         }
     }
     if(dealerCards[0]===1){
@@ -294,7 +322,7 @@ function RunAGame(options){
         }
     }
 
-    PlayThePlayer(playerHand,dealerCards[0],gameOptions)
+    PlayThePlayer(playerHand,dealerCards[0],options)
     let bust=true
     for(let hand=0;hand<playerHand.length;hand++){
 
@@ -304,19 +332,19 @@ function RunAGame(options){
     }
     if(bust){
         Log('All player hands bust, dealer does not continue')
-        return EvaluateHand(playerHand,dealerCards,gameOptions)
+        return EvaluateHand(playerHand,dealerCards,options)
     }
 
 
 
 
     //check if player has bj,surrender or bust, then dealer does not continue
-    PlayDealerHand(dealerCards,gameOptions)
+    PlayDealerHand(dealerCards,options)
 
 
 
 
-    return EvaluateHand(playerHand,dealerCards,gameOptions)
+    return EvaluateHand(playerHand,dealerCards,options)
 
 
 
@@ -348,43 +376,53 @@ function average(data){
     return avg;
 }
 
-// Holds the aggregate result from each run of X hands
-var simulationResults = [];
+
+function HouseEdge(numTrials,handsPerTrial,gameOptions){
+    // Holds the aggregate result from each run of X hands
+    var simulationResults = [];
 
 // output file - if not defined we don't output
-var outputFile = process.argv.slice(2)[0];
+    var outputFile = process.argv.slice(2)[0];
 
 // Snap the time
-console.time('PlayBlackJack');
+    console.time('PlayBlackJack');
 
-for (var trial = 0; trial < numTrials; trial++)
-{
-    var runningTotal = 0;
-
-    for (var i = 0; i < handsPerTrial; i++)
+    for (var trial = 0; trial < numTrials; trial++)
     {
-        // Here's where you control and can evaluation different options
-        runningTotal += RunAGame({numberOfDecks:8,  hitSoft17: false, count: false,surrender:false,doubleAfterSplit:false,doubleRange:[10,11],resplitAces:false,maxSplitHands:2,hitSplitedAce:false});
-        Log("Running total " + runningTotal);
-        Log("");
-    }
+        var runningTotal = 0;
 
-    simulationResults.push((((100 * runningTotal) / handsPerTrial) / initialBet));
-}
+        for (var i = 0; i < handsPerTrial; i++)
+        {
+            // Here's where you control and can evaluation different options
+            runningTotal += RunAGame(gameOptions);
+            Log("Running total " + runningTotal);
+            Log("");
+        }
+
+        simulationResults.push((((100 * runningTotal) / handsPerTrial) / initialBet));
+    }
 // console.log(simulationResults)
 // Calculate stddev and average
-console.timeEnd('PlayBlackJack');
-console.log("Average:" + average(simulationResults) + "%");
-console.log("StdDev:" + standardDeviation(simulationResults) + "%");
+    console.timeEnd('PlayBlackJack');
+    console.log("Average:" + average(simulationResults) + "%");
+    console.log("StdDev:" + standardDeviation(simulationResults) + "%");
 
 
 // Write out all the results to a file if specified
-if (outputFile)
-{
-    fs.appendFileSync(outputFile, "Average:" + average(simulationResults) + "\n");
-    fs.appendFileSync(outputFile, "StdDev:" + standardDeviation(simulationResults) + "\n");
-    for (var i = 0; i < simulationResults.length; i++)
+    if (outputFile)
     {
-        fs.appendFileSync(outputFile, simulationResults[i] + "%\n");
+        fs.appendFileSync(outputFile, "Average:" + average(simulationResults) + "\n");
+        fs.appendFileSync(outputFile, "StdDev:" + standardDeviation(simulationResults) + "\n");
+        for (var i = 0; i < simulationResults.length; i++)
+        {
+            fs.appendFileSync(outputFile, simulationResults[i] + "%\n");
+        }
     }
 }
+
+
+const numTrials=20000
+const handsPerTrial=5000
+console.log(numTrials*handsPerTrial)
+HouseEdge(numTrials,handsPerTrial,gameOptions)
+
