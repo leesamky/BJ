@@ -4,14 +4,14 @@ const fs=require('fs')
 const _=require('lodash')
 const GameOptions=require('./GameOptions')
 var gameOptions=GameOptions({
-    numberOfDecks:8,
+    numberOfDecks:6,
     hitSoft17:false,
     doubleAfterSplit:true,
     doubleRange:[0,21],
     maxSplitHands:4,
     resplitAces:false,
     hitSplitedAce:false,
-    surrender:'late',
+    surrender:false,
     CSM:true
 })
 console.log(gameOptions)
@@ -261,20 +261,20 @@ function RunAGame(options){
 
 
     //If using counting system, set up here
-    if(options.count&&(options.count.system==='HiLo')){
-        trueCount=hiLoCount/(deck.length/52)
-        options.count.trueCount=trueCount
-
-
-        //betting system set here
-        if(trueCount>=4){
-            betAmount*=4
-        }else if(trueCount>=2){
-            betAmount*=2
-        }else if(trueCount<=3){
-            betAmount/=2
-        }
-    }
+    // if(options.count&&(options.count.system==='HiLo')){
+    //     trueCount=hiLoCount/(deck.length/52)
+    //     options.count.trueCount=trueCount
+    //
+    //
+    //     //betting system set here
+    //     if(trueCount>=4){
+    //         betAmount*=4
+    //     }else if(trueCount>=2){
+    //         betAmount*=2
+    //     }else if(trueCount<=3){
+    //         betAmount/=2
+    //     }
+    // }
 
     //the order needs to be observed
     const dealerCards=[]
@@ -282,7 +282,7 @@ function RunAGame(options){
     dealerCards.push(DealCard())
 
     const playerHand=[]
-    const hand={bet:betAmount,cards:[]}
+    const hand={actingBet:betAmount,cards:[]}
     hand.cards.push(DealCard())
     hand.cards.push(DealCard())
     playerHand.push(hand)
@@ -420,7 +420,7 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
     }
 }
 
-
+const backBetRatio=10
 const numTrials=20000
 const handsPerTrial=5000
 console.log(numTrials*handsPerTrial)

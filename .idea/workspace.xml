@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693741dd-49b4-4a2c-a3a4-06e0756a4aed" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Acting_player.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Back_player.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/table.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Blackjack.js" afterPath="$PROJECT_DIR$/Blackjack.js" />
-      <change beforePath="$PROJECT_DIR$/tmp.js" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,11 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Blackjack.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="428" column="0" lean-forward="true" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+            <state relative-caret-position="475">
+              <caret line="422" column="21" lean-forward="false" selection-start-line="422" selection-start-column="21" selection-end-line="422" selection-end-column="21" />
               <folding>
                 <element signature="n#!!block;n#Shuffle#0" expanded="false" />
                 <element signature="n#!!block;n#Log#0" expanded="false" />
@@ -37,62 +41,10 @@
                 <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
                 <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
                 <element signature="n#!!block;n#EvaluateHand#0" expanded="false" />
-                <element signature="n#!!block;n#RunAGame#0" expanded="false" />
                 <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
                 <element signature="n#!!block;n#average#0" expanded="false" />
                 <element signature="n#!!block;n#HouseEdge#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Back_player.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Back_player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="150" column="40" lean-forward="false" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/table.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="1393" column="0" lean-forward="true" selection-start-line="1393" selection-start-column="0" selection-end-line="1393" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
-                <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
-                <element signature="e#943#2601#0" expanded="false" />
-                <element signature="e#2613#2909#0" expanded="false" />
-                <element signature="e#2925#24270#0" expanded="false" />
-                <element signature="e#24284#27552#0" expanded="false" />
-                <element signature="e#27566#30684#0" expanded="false" />
-                <element signature="e#30702#32834#0" expanded="false" />
-                <element signature="e#33772#35889#0" expanded="false" />
-                <element signature="e#35907#38039#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Acting_player.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Acting_player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="947">
-              <caret line="98" column="1" lean-forward="true" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -174,12 +126,12 @@
         <option value="$PROJECT_DIR$/Stand.js" />
         <option value="$PROJECT_DIR$/stand.new.test.js" />
         <option value="$PROJECT_DIR$/GameOptions.js" />
-        <option value="$PROJECT_DIR$/Blackjack.js" />
         <option value="$PROJECT_DIR$/Acting_player.js" />
         <option value="$PROJECT_DIR$/Back_player.js" />
         <option value="$PROJECT_DIR$/tmp.js" />
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/table.js" />
+        <option value="$PROJECT_DIR$/Blackjack.js" />
       </list>
     </option>
   </component>
@@ -282,7 +234,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230111000" />
+    <option name="totallyTimeSpent" value="231691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="677" extended-state="0" />
@@ -601,7 +553,6 @@
             <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
             <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
             <element signature="n#!!block;n#EvaluateHand#0" expanded="false" />
-            <element signature="n#!!block;n#RunAGame#0" expanded="false" />
             <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
             <element signature="n#!!block;n#average#0" expanded="false" />
             <element signature="n#!!block;n#HouseEdge#0" expanded="false" />
@@ -637,7 +588,6 @@
             <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
             <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
             <element signature="n#!!block;n#EvaluateHand#0" expanded="false" />
-            <element signature="n#!!block;n#RunAGame#0" expanded="false" />
             <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
             <element signature="n#!!block;n#average#0" expanded="false" />
             <element signature="n#!!block;n#HouseEdge#0" expanded="false" />
@@ -933,48 +883,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Back_player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="150" column="40" lean-forward="false" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GameOptions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Blackjack.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="428" column="0" lean-forward="true" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#Shuffle#0" expanded="false" />
-            <element signature="n#!!block;n#Log#0" expanded="false" />
-            <element signature="n#!!block;n#DealCard#0" expanded="false" />
-            <element signature="n#!!block;n#PrintHand#0" expanded="false" />
-            <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
-            <element signature="n#!!block;n#PlayDealerHand#0" expanded="false" />
-            <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
-            <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
-            <element signature="n#!!block;n#EvaluateHand#0" expanded="false" />
-            <element signature="n#!!block;n#RunAGame#0" expanded="false" />
-            <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
-            <element signature="n#!!block;n#average#0" expanded="false" />
-            <element signature="n#!!block;n#HouseEdge#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -989,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="1393" column="0" lean-forward="true" selection-start-line="1393" selection-start-column="0" selection-end-line="1393" selection-end-column="0" />
+        <state relative-caret-position="310">
+          <caret line="1533" column="0" lean-forward="true" selection-start-line="1533" selection-start-column="0" selection-end-line="1533" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#makeTwoCardsCombine#0" expanded="false" />
             <element signature="n#!!block;n#makeThreeCardsCombine#0" expanded="false" />
@@ -1002,6 +914,45 @@
             <element signature="e#30702#32834#0" expanded="false" />
             <element signature="e#33772#35889#0" expanded="false" />
             <element signature="e#35907#38039#0" expanded="false" />
+            <element signature="e#38058#38846#0" expanded="false" />
+            <element signature="e#38863#39641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Back_player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="150" column="40" lean-forward="false" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blackjack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="422" column="21" lean-forward="false" selection-start-line="422" selection-start-column="21" selection-end-line="422" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#Shuffle#0" expanded="false" />
+            <element signature="n#!!block;n#Log#0" expanded="false" />
+            <element signature="n#!!block;n#DealCard#0" expanded="false" />
+            <element signature="n#!!block;n#PrintHand#0" expanded="false" />
+            <element signature="n#!!block;n#InitializeDeck#0" expanded="false" />
+            <element signature="n#!!block;n#PlayDealerHand#0" expanded="false" />
+            <element signature="n#!!block;n#PlayPlayerHand#0" expanded="false" />
+            <element signature="n#!!block;n#PlayThePlayer#0" expanded="false" />
+            <element signature="n#!!block;n#EvaluateHand#0" expanded="false" />
+            <element signature="n#!!block;n#standardDeviation#0" expanded="false" />
+            <element signature="n#!!block;n#average#0" expanded="false" />
+            <element signature="n#!!block;n#HouseEdge#0" expanded="false" />
           </folding>
         </state>
       </provider>
