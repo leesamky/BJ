@@ -24,7 +24,7 @@ function Points(cards){
 
     return info
 }
-
+const ActingPlayer=require('./Acting_player')
 
 
 const Double=require('./Double')
@@ -34,9 +34,15 @@ const Surrender=require('./Surrender')
 const Hit=require('./Hit')
 
 module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack,dealerHasBlackJack,options){
+    // console.log(playerCards)
+    // console.log(dealerCard)
+    // console.log(options)
 
     const playerOptions=GameOptions(options)
     const handValue=Points(playerCards)
+
+    // console.log(ActingPlayer(playerCards,dealerCard,handValue,handCount,playerOptions),playerOptions.backBet)
+
     //has early10 and earlyA
     if((_.includes(playerOptions.surrender,'early'))&&(Surrender(playerCards,dealerCard,handValue,handCount,playerOptions))){
         return 'surrender'
@@ -55,8 +61,19 @@ module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack
         return 'surrender'
     }
 
-    else if(Split(playerCards,dealerCard,handValue,handCount,playerOptions)){
-        return 'split'
+    // else if(Split(playerCards,dealerCard,handValue,handCount,playerOptions)){
+    //     return 'split'
+    // }
+
+    else if(playerOptions.backBet&&ActingPlayer(playerCards,dealerCard,handValue,handCount,playerOptions)){
+
+            return 'split'
+
+    }
+
+    else if(playerOptions.backBet===false&&Split(playerCards,dealerCard,handValue,handCount,playerOptions)){
+
+            return 'split'
     }
 
     else if(Double(playerCards,dealerCard,handValue,handCount,playerOptions)){

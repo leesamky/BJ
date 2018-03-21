@@ -3,8 +3,9 @@ const shuffle=require('knuth-shuffle').knuthShuffle
 const fs=require('fs')
 const _=require('lodash')
 const GameOptions=require('./GameOptions')
+const BackPlayer=require('./Back_player')
 var gameOptions=GameOptions({
-    numberOfDecks:6,
+    numberOfDecks:8,
     hitSoft17:false,
     doubleAfterSplit:true,
     doubleRange:[0,21],
@@ -12,7 +13,8 @@ var gameOptions=GameOptions({
     resplitAces:false,
     hitSplitedAce:false,
     surrender:false,
-    CSM:true
+    CSM:false,
+    backBet:false
 })
 console.log(gameOptions)
 var deck=[]
@@ -26,7 +28,7 @@ function Shuffle(){
     deck=_.shuffle(CSMDeck)
 }
 var initialBet=100
-var  verboseLog=false
+
 
 
 
@@ -90,6 +92,7 @@ function PlayPlayerHand(playerCards,dealerCard,handCount,dealerCheckedBlackJack,
     let suggestion=''
     while(true){
         suggestion=strategy(playerCards,dealerCard,handCount,dealerCheckedBlackJack,dealerHasBlackJack,options)
+        // console.log(suggestion)
 
         switch(suggestion){
             case 'split':
@@ -118,7 +121,7 @@ function PlayPlayerHand(playerCards,dealerCard,handCount,dealerCheckedBlackJack,
 
                 break;
             default:
-                throw Error('unknown stretegy')
+                throw Error('unknown stretegy'+suggestion)
                 break;
         }
     }
@@ -155,13 +158,18 @@ function PlayThePlayer(playerHand,dealerCard,options){
         if(status==='split'){
             Log(`Player cards: ${PrintHand(playerHand[handCount].cards)} - dealer card: ${dealerCard} - ${status}`)
 
-            const hand={bet:initialBet,cards:[]}
+            // const hand={bet:initialBet,cards:[]}
+            const hand={actingBet:playerHand[handCount].actingBet,backBet:0,cards:[]}
 
             if(playerHand[handCount].cards[0]===1){
                 playerHand[handCount].splitAce=true
                 hand.splitAce=true
             }
-
+            if(options.backBet){
+                if(BackPlayer(playerHand[handCount].cards,dealerCard,playerHand.length,true,false,options)){
+                    hand.backBet=hand.actingBet*backBetRatio
+                }
+            }
             hand.cards.push(playerHand[handCount].cards.pop())
             hand.cards.push(DealCard())
             playerHand[handCount].cards.push(DealCard())
@@ -172,7 +180,8 @@ function PlayThePlayer(playerHand,dealerCard,options){
             continue
         }
         else if(status==='double'){
-            playerHand[handCount].bet=playerHand[handCount].bet*2
+            playerHand[handCount].actingBet=playerHand[handCount].actingBet*2
+            playerHand[handCount].backBet=playerHand[handCount].backBet*2
         }
         else if(status==='surrender'){
             playerHand[handCount].surrender=true
@@ -194,7 +203,8 @@ function EvaluateHand(playerHand, dealerCards, options){
 
     for(hand=0;hand<playerHand.length;hand++){
         if(playerHand[hand].surrender){
-            win-=(playerHand[hand].bet/2)
+            // win-=(playerHand[hand].bet/2)
+            win-=(playerHand[hand].actingBet+playerHand[hand].backBet)/2
             Log('surrender')
         }else{
             let playerTotal=HandTotal(playerHand[hand].cards).total
@@ -213,23 +223,23 @@ function EvaluateHand(playerHand, dealerCards, options){
             // }
             if(dealerBlackjack){//assume dealer bj take split and double
                 Log('Dealer has blackjack - you lost all the bet including split and double')
-                win-=playerHand[hand].bet
+                win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
             }
             else if(playerTotal>21){//player bust
                 Log('player bust')
-                win-=playerHand[hand].bet
+                win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
             }
             else if(dealerTotal>21){
                 Log('dealer bust')
-                win+=playerHand[hand].bet
+                win+=(playerHand[hand].actingBet+playerHand[hand].backBet)
             }
             else if(dealerTotal>playerTotal){
                 Log('dealer point higher than player - player lost')
-                win-=playerHand[hand].bet
+                win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
             }
             else if(dealerTotal<playerTotal){
                 Log('player points higher than dealer - player win')
-                win+=playerHand[hand].bet
+                win+=(playerHand[hand].actingBet+playerHand[hand].backBet)
             }
             else if(dealerTotal===playerTotal){
                 Log('Game push')
@@ -282,7 +292,7 @@ function RunAGame(options){
     dealerCards.push(DealCard())
 
     const playerHand=[]
-    const hand={actingBet:betAmount,cards:[]}
+    const hand={actingBet:betAmount,backBet:betAmount*backBetRatio,cards:[]}
     hand.cards.push(DealCard())
     hand.cards.push(DealCard())
     playerHand.push(hand)
@@ -300,7 +310,8 @@ function RunAGame(options){
         else{
             Log('Player won by BlackJack')
             Log('Total outcome $'+betAmount*options.blackjackPayout)
-            return betAmount*options.blackjackPayout
+            // return betAmount*options.blackjackPayout
+            return (hand.actingBet+hand.backBet)*options.blackjackPayout
         }
     }
     if(dealerCards[0]===1){
@@ -308,12 +319,12 @@ function RunAGame(options){
         if((action==='surrender')){
             let win
             if(dealerBlackjack){
-                win=-betAmount
+                win=-(hand.actingBet+hand.backBet)
                 Log('Dealer has BlackJack, Player not allow to surrender')
                 Log('Total outcome $'+win)
                 return win
             }else{
-                win=-betAmount/2
+                win=-(hand.actingBet+hand.backBet)/2
                 Log('Dealer does not have BlackJack, Player surrender and lost half bet')
                 Log('Total outcome $'+win)
                 return win
@@ -399,7 +410,7 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
             Log("");
         }
 
-        simulationResults.push((((100 * runningTotal) / handsPerTrial) / initialBet));
+        simulationResults.push((((100 * runningTotal) / handsPerTrial) / (initialBet+initialBet*backBetRatio)));
     }
 // console.log(simulationResults)
 // Calculate stddev and average
@@ -419,10 +430,11 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
         }
     }
 }
-
-const backBetRatio=10
-const numTrials=20000
-const handsPerTrial=5000
+var  verboseLog=false
+const backBetRatio=0
+const numTrials=5000
+const handsPerTrial=2000
+console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial)
 HouseEdge(numTrials,handsPerTrial,gameOptions)
 

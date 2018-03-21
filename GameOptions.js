@@ -14,7 +14,8 @@ module.exports=function (options){
         CSM:false,
         fiveDragon:false,//no yet
         charlie:false,
-        blackjackPayout:1.5
+        blackjackPayout:1.5,
+        backBet:false
 
     }
 
@@ -97,6 +98,10 @@ module.exports=function (options){
         if (options.hasOwnProperty("CSM"))
         {
             playerOptions.CSM = options.CSM;
+        }
+        if (options.hasOwnProperty("backBet"))
+        {
+            playerOptions.backBet = options.backBet;
         }
         if (options.hasOwnProperty("fiveDragon"))
         {
