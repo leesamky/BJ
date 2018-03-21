@@ -116,6 +116,9 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                         }
                     }
                 }
+                // if(((options.numberOfDecks===4)||(options.numberOfDecks===6))&&(options.hitSoft17===false)&&(playerCards.length>=4)&&(dealerCard===1)){
+                //     shouldStand=true
+                // }//special case
             }
             else{
                 return true
@@ -145,6 +148,13 @@ module.exports=function(playerCards,dealerCard,handValue,handCount,options){
                 }else if(handValue.total>=17){
                     shouldStand=true
                 }
+
+
+                // if((handValue.total===16)&&(playerCards.length>=3)){
+                //     shouldStand=true
+                // }//special case
+
+
             }
 
         }

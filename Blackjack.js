@@ -5,14 +5,14 @@ const _=require('lodash')
 const GameOptions=require('./GameOptions')
 const BackPlayer=require('./Back_player')
 var gameOptions=GameOptions({
-    numberOfDecks:8,
+    numberOfDecks:6,
     hitSoft17:false,
     doubleAfterSplit:true,
     doubleRange:[0,21],
     maxSplitHands:4,
-    resplitAces:false,
+    resplitAces:true,
     hitSplitedAce:false,
-    surrender:false,
+    surrender:'late',
     CSM:false,
     backBet:false
 })
@@ -136,6 +136,7 @@ function PlayThePlayer(playerHand,dealerCard,options){
             if(!options.hitSplitedAce){//splited ace only allow two cards
                 if(!options.resplitAces||(playerHand[handCount].cards[0]!==playerHand[handCount].cards[1])){
                     Log('One card drawn to a split ace')
+                    Log(`Player cards: ${PrintHand(playerHand[handCount].cards)} - dealer card: ${dealerCard} `)
                     continue
                 }
                 if(playerHand.length===options.maxSplitHands){
@@ -263,7 +264,7 @@ function RunAGame(options){
         Log('Shuffle')
         Log('first ten cards in the deck:',deck.slice(0,10),deck.length)
     }else{
-        if(deck.length<Math.max(26,3*options.numberOfDecks)){//was 13
+        if(deck.length<Math.max(78,3*options.numberOfDecks)){//was 13
             Log('Shuffle')
             Shuffle()
         }
@@ -313,25 +314,65 @@ function RunAGame(options){
             // return betAmount*options.blackjackPayout
             return (hand.actingBet+hand.backBet)*options.blackjackPayout
         }
-    }
-    if(dealerCards[0]===1){
-        let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
-        if((action==='surrender')){
-            let win
+    }else{
+        if((dealerCards[0]===1)){
+
+            // place for insurance to apply
+
+
+
+            let win=0
             if(dealerBlackjack){
                 win=-(hand.actingBet+hand.backBet)
                 Log('Dealer has BlackJack, Player not allow to surrender')
                 Log('Total outcome $'+win)
                 return win
             }else{
-                win=-(hand.actingBet+hand.backBet)/2
-                Log('Dealer does not have BlackJack, Player surrender and lost half bet')
-                Log('Total outcome $'+win)
-                return win
+                let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
+                if((action==='surrender')){
+
+                    win=-(hand.actingBet+hand.backBet)/2
+                    Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
+                    Log('Total outcome $'+win)
+                    return win
+
+
+                }
             }
 
+
+
+
+
+        }else if(dealerCards[0]===10){
+            // do not apply the insurance
+            let win=0
+            if(dealerBlackjack){
+                win=-(hand.actingBet+hand.backBet)
+                Log('Dealer has BlackJack, Player not allow to surrender')
+                Log('Total outcome $'+win)
+                return win
+            }else{
+                let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
+                if((action==='surrender')){
+
+                    win=-(hand.actingBet+hand.backBet)/2
+                    Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
+                    Log('Total outcome $'+win)
+                    return win
+
+
+                }
+            }
+        }else if(strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)==='surrender'){
+            let win=0
+            win=-(hand.actingBet+hand.backBet)/2
+            Log('Dealer does not have A or Face card, Player surrender and lost half bet')
+            Log('Total outcome $'+win)
+            return win
         }
     }
+
 
     PlayThePlayer(playerHand,dealerCards[0],options)
     let bust=true
@@ -432,8 +473,8 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
 }
 var  verboseLog=false
 const backBetRatio=0
-const numTrials=5000
-const handsPerTrial=2000
+const numTrials=1500000
+const handsPerTrial=100
 console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial)
 HouseEdge(numTrials,handsPerTrial,gameOptions)
