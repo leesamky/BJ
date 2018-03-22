@@ -6,14 +6,14 @@ const GameOptions=require('./GameOptions')
 const BackPlayer=require('./Back_player')
 var gameOptions=GameOptions({
     numberOfDecks:6,
-    hitSoft17:true,
+    hitSoft17:false,
     doubleAfterSplit:true,
     doubleRange:[0,21],
-    maxSplitHands:3,
-    resplitAces:false,
+    maxSplitHands:4,
+    resplitAces:true,
     hitSplitedAce:false,
-    surrender:false,
-    CSM:true,
+    surrender:'earlyA',
+    CSM:false,
     backBet:false
 })
 console.log(gameOptions)
@@ -319,6 +319,19 @@ function RunAGame(options){
 
             // place for insurance to apply
 
+            //early A
+            if(options.surrender==='earlyA'){
+                let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
+                if((action==='surrender')){
+                    let win=0
+                    win=-(hand.actingBet+hand.backBet)/2
+                    Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
+                    Log('Total outcome $'+win)
+                    return win
+
+
+                }
+            }
 
 
             let win=0
@@ -346,6 +359,21 @@ function RunAGame(options){
 
         }else if(dealerCards[0]===10){
             // do not apply the insurance
+
+
+            if(_.includes(options.surrender,'early')){
+
+                let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
+                if((action==='surrender')){
+                    let win=0
+                    win=-(hand.actingBet+hand.backBet)/2
+                    Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
+                    Log('Total outcome $'+win)
+                    return win
+
+
+                }
+            }
             let win=0
             if(dealerBlackjack){
                 win=-(hand.actingBet+hand.backBet)

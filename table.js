@@ -1360,10 +1360,16 @@ let threeCardsCombineS=_.filter(makeThreeCardsCombine(combineS))
 
 // console.log(threeCardsCombineH)
 const options=GameOptions({
-    numberOfDecks:8,
-    hitSoft17:true,
-    doubleAfterSplit:false,
-    surrender:false
+    numberOfDecks:6,
+    hitSoft17:false,
+    doubleAfterSplit:true,
+    doubleRange:[0,21],
+    maxSplitHands:4,
+    resplitAces:true,
+    hitSplitedAce:false,
+    surrender:'early10',
+    CSM:false,
+    backBet:false
 })
 
 console.log(options)
@@ -1554,6 +1560,66 @@ function Short(str){
     console.log(tableBackPlayer.toString())
 }
 
+//early A
+
+
+{
+    const tableHard = new Table({
+        head: ['Early Hard','9','10','A']
+        , colWidths: [20, 20,20,20,]//99w,180 223-225 pha
+    });
+
+    for(let playerHard=5;playerHard<=19;playerHard++){
+        let line=[]
+        line.push(playerHard)
+        _.forEach([9,10,1],function(dealerCard){
+            let playerCards=twoCards[[playerHard,false].toString()][0]
+            // console.log(playerCards)
+            let suggestions=Suggestion(playerCards,dealerCard,1,true,false,options)
+            // console.log(playerCards,dealerCard,suggestions)
+            line.push([Short(suggestions)])
+        })
+
+        tableHard.push(line)
+    }
+
+    // const tableSoft = new Table({
+    //     head: ['Soft','2', '3', '4','5','6','7','8','9','10','A']
+    //     , colWidths: [10, 10,10,10,10,10,10,10,10,10,10]//99w,180 223-225 pha
+    // });
+    // for(let playerSoft=13;playerSoft<=21;playerSoft++){
+    //     let line=[]
+    //     line.push(playerSoft)
+    //     _.forEach([2,3,4,5,6,7,8,9,10,1],function(dealerCard){
+    //         let playerCards=twoCards[[playerSoft,true].toString()][0]
+    //         let suggestions=Suggestion(playerCards,dealerCard,1,true,false,options)
+    //         // console.log(playerCards,dealerCard,suggestions)
+    //         line.push([Short(suggestions)])
+    //     })
+    //     tableSoft.push(line)
+    // }
+    //
+    //
+    const tableSplit = new Table({
+        head: ['Early Split','2', '3', '4','5','6','7','8','9','10','A']
+        , colWidths: [10, 10,10,10,10,10,10,10,10,10,10]//99w,180 223-225 pha
+    });
+    //
+    //
+    for(let playerSplit=1;playerSplit<=10;playerSplit++){
+        let line=[]
+        line.push([playerSplit,playerSplit])
+        _.forEach([2,3,4,5,6,7,8,9,10,1],function(dealerCard){
+            let suggestions=Suggestion(combineSplit[((playerSplit-1)*10+dealerCard-1)][0],combineSplit[(playerSplit-1)*10+dealerCard-1][1],1,true,false,options)
+            line.push([Short(suggestions)])
+        })
+        tableSplit.push(line)
+    }
+    //
+    console.log(tableHard.toString());
+    // console.log(tableSoft.toString())
+    console.log(tableSplit.toString())
+}
 
 
 // console.log(Surrender([8,8],10,Points([8,8]),1,options))
