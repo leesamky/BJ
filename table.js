@@ -1367,7 +1367,7 @@ const options=GameOptions({
     maxSplitHands:4,
     resplitAces:true,
     hitSplitedAce:false,
-    surrender:'early10',
+    surrender:'earlyA',
     CSM:false,
     backBet:false
 })
@@ -1583,21 +1583,21 @@ function Short(str){
         tableHard.push(line)
     }
 
-    // const tableSoft = new Table({
-    //     head: ['Soft','2', '3', '4','5','6','7','8','9','10','A']
-    //     , colWidths: [10, 10,10,10,10,10,10,10,10,10,10]//99w,180 223-225 pha
-    // });
-    // for(let playerSoft=13;playerSoft<=21;playerSoft++){
-    //     let line=[]
-    //     line.push(playerSoft)
-    //     _.forEach([2,3,4,5,6,7,8,9,10,1],function(dealerCard){
-    //         let playerCards=twoCards[[playerSoft,true].toString()][0]
-    //         let suggestions=Suggestion(playerCards,dealerCard,1,true,false,options)
-    //         // console.log(playerCards,dealerCard,suggestions)
-    //         line.push([Short(suggestions)])
-    //     })
-    //     tableSoft.push(line)
-    // }
+    const tableSoft = new Table({
+        head: ['Soft','2', '3', '4','5','6','7','8','9','10','A']
+        , colWidths: [10, 10,10,10,10,10,10,10,10,10,10]//99w,180 223-225 pha
+    });
+    for(let playerSoft=13;playerSoft<=21;playerSoft++){
+        let line=[]
+        line.push(playerSoft)
+        _.forEach([2,3,4,5,6,7,8,9,10,1],function(dealerCard){
+            let playerCards=twoCards[[playerSoft,true].toString()][0]
+            let suggestions=Suggestion(playerCards,dealerCard,1,true,false,options)
+            // console.log(playerCards,dealerCard,suggestions)
+            line.push([Short(suggestions)])
+        })
+        tableSoft.push(line)
+    }
     //
     //
     const tableSplit = new Table({
@@ -1617,7 +1617,7 @@ function Short(str){
     }
     //
     console.log(tableHard.toString());
-    // console.log(tableSoft.toString())
+    console.log(tableSoft.toString())
     console.log(tableSplit.toString())
 }
 

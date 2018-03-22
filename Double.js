@@ -18,6 +18,9 @@ module.exports=function (playerCards,dealerCard,handValue,handCount,options){
     }
 
     if(handValue.soft){
+        if(options.EuropeanNoHoldCard){
+            return false
+        }
         switch(handValue.total){
 
             case 13:
@@ -246,7 +249,11 @@ module.exports=function (playerCards,dealerCard,handValue,handCount,options){
                         }else{
                             //deck4+ , stand on soft 17, 2-10,
                             if(dealerCard!==1){
+
                                 shouldDouble=true
+                                if((dealerCard===10)&&options.EuropeanNoHoldCard){
+                                    shouldDouble=false
+                                }
                             }
                         }
                     }

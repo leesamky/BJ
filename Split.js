@@ -23,6 +23,9 @@ module.exports=function (playerCards,dealerCard,handValue,handCount,options){
                 }
             }else{
                 shouldSplit=true
+                if(options.EuropeanNoHoldCard&&(dealerCard===1)){
+                    shouldSplit=false
+                }
             }
 
             break;
@@ -211,6 +214,9 @@ module.exports=function (playerCards,dealerCard,handValue,handCount,options){
 
         case 8:
             shouldSplit=true
+            if(options.EuropeanNoHoldCard&&(_.includes([1,10],dealerCard))){
+                shouldSplit=false
+            }
 
             break;
 
