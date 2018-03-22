@@ -6,14 +6,14 @@ const GameOptions=require('./GameOptions')
 const BackPlayer=require('./Back_player')
 var gameOptions=GameOptions({
     numberOfDecks:6,
-    hitSoft17:false,
+    hitSoft17:true,
     doubleAfterSplit:true,
     doubleRange:[0,21],
-    maxSplitHands:4,
-    resplitAces:true,
+    maxSplitHands:3,
+    resplitAces:false,
     hitSplitedAce:false,
-    surrender:'late',
-    CSM:false,
+    surrender:false,
+    CSM:true,
     backBet:false
 })
 console.log(gameOptions)
