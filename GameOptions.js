@@ -15,7 +15,8 @@ module.exports=function (options){
         fiveDragon:false,//no yet
         charlie:false,
         blackjackPayout:1.5,
-        backBet:false
+        backBet:false,
+        rolling:0
 
     }
 
@@ -106,6 +107,10 @@ module.exports=function (options){
         if (options.hasOwnProperty("fiveDragon"))
         {
             playerOptions.fiveDragon = options.fiveDragon;
+        }
+        if (options.hasOwnProperty("rolling"))
+        {
+            playerOptions.rolling = options.rolling;
         }
 
 

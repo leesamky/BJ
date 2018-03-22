@@ -8,14 +8,15 @@ var gameOptions=GameOptions({
     numberOfDecks:6,
     hitSoft17:false,
     doubleAfterSplit:true,
-    doubleRange:[9,11],
+    doubleRange:[0,21],
     maxSplitHands:4,
     resplitAces:true,
     hitSplitedAce:false,
-    surrender:false,
+    surrender:'late',
     CSM:false,
     backBet:false,
-    EuropeanNoHoldCard:true
+    EuropeanNoHoldCard:true,
+    rolling:0
 })
 console.log(gameOptions)
 var deck=[]
@@ -207,6 +208,9 @@ function EvaluateHand(playerHand, dealerCards, options){
         if(playerHand[hand].surrender){
             // win-=(playerHand[hand].bet/2)
             win-=(playerHand[hand].actingBet+playerHand[hand].backBet)/2
+            if(options.rolling){
+                win+=options.rolling*(playerHand[hand].actingBet+playerHand[hand].backBet)/2
+            }
             Log('surrender')
         }else{
             let playerTotal=HandTotal(playerHand[hand].cards).total
@@ -226,10 +230,16 @@ function EvaluateHand(playerHand, dealerCards, options){
             else if(dealerBlackjack){//assume dealer bj take split and double
                 Log('Dealer has blackjack - you lost all the bet including split and double')
                 win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
+                if(options.rolling){
+                    win+=options.rolling*(playerHand[hand].actingBet+playerHand[hand].backBet)
+                }
             }
             else if(playerTotal>21){//player bust
                 Log('player bust')
                 win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
+                if(options.rolling){
+                    win+=options.rolling*(playerHand[hand].actingBet+playerHand[hand].backBet)
+                }
             }
             else if(dealerTotal>21){
                 Log('dealer bust')
@@ -238,6 +248,9 @@ function EvaluateHand(playerHand, dealerCards, options){
             else if(dealerTotal>playerTotal){
                 Log('dealer point higher than player - player lost')
                 win-=(playerHand[hand].actingBet+playerHand[hand].backBet)
+                if(options.rolling){
+                    win+=options.rolling*(playerHand[hand].actingBet+playerHand[hand].backBet)
+                }
             }
             else if(dealerTotal<playerTotal){
                 Log('player points higher than dealer - player win')
@@ -316,6 +329,9 @@ function RunAGame(options){
                 if((action==='surrender')){
                     let win=0
                     win=-(hand.actingBet+hand.backBet)/2
+                    if(options.rolling){
+                        win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                    }
                     Log('Dealer has no hole card, shows A, Player surrender and lost half bet')
                     Log('Total outcome $'+win)
                     return win
@@ -335,6 +351,9 @@ function RunAGame(options){
             if((action==='surrender')){
                 let win=0
                 win=-(hand.actingBet+hand.backBet)/2
+                if(options.rolling){
+                    win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                }
                 Log('Dealer has no hole card, Player surrender and lost half bet')
                 Log('Total outcome $'+win)
                 return win
@@ -410,6 +429,9 @@ function RunAGame(options){
                     if((action==='surrender')){
                         let win=0
                         win=-(hand.actingBet+hand.backBet)/2
+                        if(options.rolling){
+                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                        }
                         Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
                         Log('Total outcome $'+win)
                         return win
@@ -422,6 +444,9 @@ function RunAGame(options){
                 let win=0
                 if(dealerBlackjack){
                     win=-(hand.actingBet+hand.backBet)
+                    if(options.rolling){
+                        win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                    }
                     Log('Dealer has BlackJack, Player not allow to surrender')
                     Log('Total outcome $'+win)
                     return win
@@ -430,6 +455,9 @@ function RunAGame(options){
                     if((action==='surrender')){
 
                         win=-(hand.actingBet+hand.backBet)/2
+                        if(options.rolling){
+                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                        }
                         Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
                         Log('Total outcome $'+win)
                         return win
@@ -452,6 +480,9 @@ function RunAGame(options){
                     if((action==='surrender')){
                         let win=0
                         win=-(hand.actingBet+hand.backBet)/2
+                        if(options.rolling){
+                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                        }
                         Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
                         Log('Total outcome $'+win)
                         return win
@@ -462,6 +493,9 @@ function RunAGame(options){
                 let win=0
                 if(dealerBlackjack){
                     win=-(hand.actingBet+hand.backBet)
+                    if(options.rolling){
+                        win+=options.rolling*(hand.actingBet+hand.backBet)
+                    }
                     Log('Dealer has BlackJack, Player not allow to surrender')
                     Log('Total outcome $'+win)
                     return win
@@ -470,6 +504,9 @@ function RunAGame(options){
                     if((action==='surrender')){
 
                         win=-(hand.actingBet+hand.backBet)/2
+                        if(options.rolling){
+                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                        }
                         Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
                         Log('Total outcome $'+win)
                         return win
@@ -480,6 +517,9 @@ function RunAGame(options){
             }else if(strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)==='surrender'){
                 let win=0
                 win=-(hand.actingBet+hand.backBet)/2
+                if(options.rolling){
+                    win+=options.rolling*(hand.actingBet+hand.backBet)/2
+                }
                 Log('Dealer does not have A or Face card, Player surrender and lost half bet')
                 Log('Total outcome $'+win)
                 return win
@@ -589,8 +629,8 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
 }
 var  verboseLog=false
 const backBetRatio=0
-const numTrials=1000000
-const handsPerTrial=100
+const numTrials=100
+const handsPerTrial=100000
 console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial/10000)
 HouseEdge(numTrials,handsPerTrial,gameOptions)
