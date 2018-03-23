@@ -50,16 +50,22 @@ module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack
 
     //to do Hi Lo
 
-    // if(playerOptions.count.system==='HiLo'){
-    //     let result=AdjustPlay(playerCards,dealerCard,handValue,handCount,dealerCheckedBlackJack,playerOptions)
-    //     if(result){
-    //         return result
-    //     }
-    // }
+    if(playerOptions.count.system==='HiLo'){
+
+        let result=AdjustPlay(playerCards,dealerCard,handValue,handCount,dealerCheckedBlackJack,playerOptions)
+
+        if(result!==null){
+            console.log('adjust the play '+result)
+            return result
+        }
+
+    }
+
+
 
 
     //insurance
-    else if((dealerCard===1)&&!dealerCheckedBlackJack&&playerOptions.offerInsurance){
+    if((dealerCard===1)&&!dealerCheckedBlackJack&&playerOptions.offerInsurance){
         return 'noInsurance'
     }
 
