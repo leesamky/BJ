@@ -14,9 +14,10 @@ var gameOptions=GameOptions({
     hitSplitedAce:false,
     surrender:'late',
     CSM:false,
-    backBet:false,
+    backBet:true,
     EuropeanNoHoldCard:true,
-    rolling:0
+    rolling:0.01,
+    count: {system: 'HiLo', trueCount: 0},
 })
 console.log(gameOptions)
 var deck=[]
@@ -278,7 +279,7 @@ function RunAGame(options){
         Log('Shuffle')
         Log('first ten cards in the deck:',deck.slice(0,10),deck.length)
     }else{
-        if(deck.length<Math.max(78,3*options.numberOfDecks)){//was 13
+        if(deck.length<Math.max(25,13*options.numberOfDecks)){//was 13
             Log('Shuffle')
             Shuffle()
         }
@@ -286,9 +287,12 @@ function RunAGame(options){
 
 
     //If using counting system, set up here
-    // if(options.count&&(options.count.system==='HiLo')){
-    //     trueCount=hiLoCount/(deck.length/52)
-    //     options.count.trueCount=trueCount
+    if(options.count&&(options.count.system==='HiLo')) {
+        trueCount = hiLoCount / (deck.length / 52)
+        options.count.trueCount = trueCount
+        Log(`True Count: ${trueCount.toFixed(2)}`)
+
+    }
     //
     //
     //     //betting system set here
@@ -627,10 +631,10 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
         }
     }
 }
-var  verboseLog=false
-const backBetRatio=0
+var  verboseLog=true
+const backBetRatio=5
 const numTrials=100
-const handsPerTrial=100000
+const handsPerTrial=50
 console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial/10000)
 HouseEdge(numTrials,handsPerTrial,gameOptions)

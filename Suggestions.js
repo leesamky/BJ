@@ -26,7 +26,7 @@ function Points(cards){
 }
 const ActingPlayer=require('./Acting_player')
 
-
+const AdjustPlay=require('./AdjustPlay')
 const Double=require('./Double')
 const Split=require('./Split')
 const Stand=require('./Stand')
@@ -49,6 +49,13 @@ module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack
     }
 
     //to do Hi Lo
+
+    // if(playerOptions.count.system==='HiLo'){
+    //     let result=AdjustPlay(playerCards,dealerCard,handValue,handCount,dealerCheckedBlackJack,playerOptions)
+    //     if(result){
+    //         return result
+    //     }
+    // }
 
 
     //insurance
