@@ -14,9 +14,9 @@ var gameOptions=GameOptions({
     hitSplitedAce:false,
     surrender:'late',
     CSM:false,
-    backBet:true,
-    EuropeanNoHoldCard:true,
-    rolling:0.01,
+    backBet:false,
+    EuropeanNoHoldCard:false,
+    rolling:0,
     count: {system: 'HiLo', trueCount: 0},
 })
 console.log(gameOptions)
@@ -631,10 +631,10 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
         }
     }
 }
-var  verboseLog=true
-const backBetRatio=5
+var  verboseLog=false
+const backBetRatio=0
 const numTrials=100
-const handsPerTrial=50
+const handsPerTrial=5000
 console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial/10000)
 HouseEdge(numTrials,handsPerTrial,gameOptions)

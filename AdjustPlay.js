@@ -11,11 +11,7 @@ module.exports=function (playerCards, dealerCard, handValue, handCount, dealerCh
 
 
     // We may take insurance!
-    if ((dealerCard === 1) && !dealerCheckedBlackjack && options.offerInsurance && (options.count.trueCount >= 3))
-    {
-        return "insurance";
-    }
-    else if(handValue.soft){
+    if(handValue.soft){
         return null
     }
     //Fab Four

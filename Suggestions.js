@@ -55,7 +55,7 @@ module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack
         let result=AdjustPlay(playerCards,dealerCard,handValue,handCount,dealerCheckedBlackJack,playerOptions)
 
         if(result!==null){
-            console.log('adjust the play '+result)
+            // console.log('adjust the play '+result)
             return result
         }
 
