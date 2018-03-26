@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693741dd-49b4-4a2c-a3a4-06e0756a4aed" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/AdjustPlay.js" afterPath="$PROJECT_DIR$/AdjustPlay.js" />
       <change beforePath="$PROJECT_DIR$/Blackjack.js" afterPath="$PROJECT_DIR$/Blackjack.js" />
       <change beforePath="$PROJECT_DIR$/Suggestions.js" afterPath="$PROJECT_DIR$/Suggestions.js" />
     </list>
@@ -18,54 +16,63 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Blackjack.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2263">
-              <caret line="635" column="19" lean-forward="true" selection-start-line="635" selection-start-column="19" selection-end-line="635" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Acting_player.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Acting_player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="98" column="1" lean-forward="true" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Suggestions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Suggestions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-              <folding>
-                <element signature="n#!!block;n#Points#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdjustPlay.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AdjustPlay.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Blackjack.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="127">
+                  <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#9519#12032#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Suggestions.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Suggestions.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="254">
+                  <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+                  <folding>
+                    <element signature="n#!!block;n#Points#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Acting_player.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Acting_player.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1470">
+                  <caret line="98" column="1" lean-forward="true" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="Blackjack.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Blackjack.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1969">
+                  <caret line="458" column="36" lean-forward="false" selection-start-line="458" selection-start-column="36" selection-end-line="458" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>combines</find>
       <find>handCount</find>
       <find>early</find>
       <find>Dealer hand</find>
@@ -95,6 +102,7 @@
       <find>win=-</find>
       <find>win-=</find>
       <find>trueCount</find>
+      <find>- dealer card</find>
     </findStrings>
     <replaceStrings>
       <replace>splits</replace>
@@ -247,7 +255,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263429000" />
+    <option name="totallyTimeSpent" value="263738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="677" extended-state="0" />
@@ -404,7 +412,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
           <caret line="141" column="92" lean-forward="false" selection-start-line="141" selection-start-column="87" selection-end-line="141" selection-end-column="92" />
-          <folding />
+          <folding>
+            <element signature="e#9519#12032#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -429,7 +439,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="121" column="16" lean-forward="false" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="e#9519#12032#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -678,14 +690,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Suggestions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+        <state relative-caret-position="254">
+          <caret line="40" column="31" lean-forward="false" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="n#!!block;n#Points#0" expanded="false" />
           </folding>
@@ -694,9 +705,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Blackjack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2263">
-          <caret line="635" column="19" lean-forward="true" selection-start-line="635" selection-start-column="19" selection-end-line="635" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="127">
+          <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#9519#12032#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

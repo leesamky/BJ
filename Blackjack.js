@@ -6,18 +6,18 @@ const GameOptions=require('./GameOptions')
 const BackPlayer=require('./Back_player')
 var gameOptions=GameOptions({
     numberOfDecks:6,
-    hitSoft17:false,
+    hitSoft17:true,
     doubleAfterSplit:true,
     doubleRange:[0,21],
-    maxSplitHands:4,
-    resplitAces:true,
+    maxSplitHands:3,
+    resplitAces:false,
     hitSplitedAce:false,
-    surrender:'late',
-    CSM:false,
+    surrender:false,
+    CSM:true,
     backBet:false,
-    EuropeanNoHoldCard:false,
+    EuropeanNoHoldCard:true,
     rolling:0,
-    count: {system: 'HiLo', trueCount: 0},
+    count: false,
 })
 console.log(gameOptions)
 var deck=[]
@@ -431,48 +431,29 @@ function RunAGame(options){
                 if(options.surrender==='earlyA'){
                     let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
                     if((action==='surrender')){
-                        let win=0
-                        win=-(hand.actingBet+hand.backBet)/2
-                        if(options.rolling){
-                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                        }
-                        Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
-                        Log('Total outcome $'+win)
-                        return win
-
-
+                        playerHand[0].surrender=true
+                        Log('Dealer allows early surrender, shows A, Player surrender and lost half bet')
+                        return EvaluateHand(playerHand,dealerCards,options)
                     }
                 }
 
 
                 let win=0
                 if(dealerBlackjack){
-                    win=-(hand.actingBet+hand.backBet)
-                    if(options.rolling){
-                        win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                    }
                     Log('Dealer has BlackJack, Player not allow to surrender')
-                    Log('Total outcome $'+win)
-                    return win
+                    return EvaluateHand(playerHand,dealerCards,options)
                 }else{
                     let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
                     if((action==='surrender')){
 
-                        win=-(hand.actingBet+hand.backBet)/2
-                        if(options.rolling){
-                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                        }
+                        playerHand[0].surrender=true
                         Log('Dealer does not have BlackJack, shows A, Player surrender and lost half bet')
-                        Log('Total outcome $'+win)
-                        return win
+
+                        return EvaluateHand(playerHand,dealerCards,options)
 
 
                     }
                 }
-
-
-
-
 
             }else if(dealerCards[0]===10){
                 // do not apply the insurance
@@ -482,51 +463,29 @@ function RunAGame(options){
 
                     let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
                     if((action==='surrender')){
-                        let win=0
-                        win=-(hand.actingBet+hand.backBet)/2
-                        if(options.rolling){
-                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                        }
-                        Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
-                        Log('Total outcome $'+win)
-                        return win
-
+                        playerHand[0].surrender=true
+                        Log('Dealer allows early surrender, shows 10, Player surrender and lost half bet')
+                        return EvaluateHand(playerHand,dealerCards,options)
 
                     }
                 }
                 let win=0
                 if(dealerBlackjack){
-                    win=-(hand.actingBet+hand.backBet)
-                    if(options.rolling){
-                        win+=options.rolling*(hand.actingBet+hand.backBet)
-                    }
                     Log('Dealer has BlackJack, Player not allow to surrender')
-                    Log('Total outcome $'+win)
-                    return win
+                    return EvaluateHand(playerHand,dealerCards,options)
                 }else{
                     let action=strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)
                     if((action==='surrender')){
-
-                        win=-(hand.actingBet+hand.backBet)/2
-                        if(options.rolling){
-                            win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                        }
+                        playerHand[0].surrender=true
                         Log('Dealer does not have BlackJack, shows 10, Player surrender and lost half bet')
-                        Log('Total outcome $'+win)
-                        return win
-
+                        return EvaluateHand(playerHand,dealerCards,options)
 
                     }
                 }
             }else if(strategy(playerHand[0].cards,dealerCards[0],playerHand.length,true,false,options)==='surrender'){
-                let win=0
-                win=-(hand.actingBet+hand.backBet)/2
-                if(options.rolling){
-                    win+=options.rolling*(hand.actingBet+hand.backBet)/2
-                }
+                playerHand[0].surrender=true
                 Log('Dealer does not have A or Face card, Player surrender and lost half bet')
-                Log('Total outcome $'+win)
-                return win
+                return EvaluateHand(playerHand,dealerCards,options)
             }
         }
 
@@ -633,7 +592,7 @@ function HouseEdge(numTrials,handsPerTrial,gameOptions){
 }
 var  verboseLog=false
 const backBetRatio=0
-const numTrials=100
+const numTrials=10000
 const handsPerTrial=5000
 console.log('backBet Ratio:'+backBetRatio)
 console.log(numTrials*handsPerTrial/10000)

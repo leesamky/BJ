@@ -38,7 +38,7 @@ module.exports=function (playerCards,dealerCard,handCount,dealerCheckedBlackJack
     // console.log(dealerCard)
     // console.log(options)
 
-    const playerOptions=GameOptions(options)
+    const playerOptions=options
     const handValue=Points(playerCards)
 
     // console.log(ActingPlayer(playerCards,dealerCard,handValue,handCount,playerOptions),playerOptions.backBet)
